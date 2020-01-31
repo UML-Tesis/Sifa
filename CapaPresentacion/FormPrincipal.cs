@@ -195,5 +195,10 @@ namespace SIFA
             FormPresentacion Presentacion = new FormPresentacion();
             Presentacion.ShowDialog();
         }
+
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           
+        }
     }
 }

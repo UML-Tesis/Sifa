@@ -46,20 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormInicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormInicio.Designer.cs">
-      <DependentUpon>FormInicio.cs</DependentUpon>
-    </Compile>
     <Compile Include="GradientColor.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormInicio.resx">
-      <DependentUpon>FormInicio.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
