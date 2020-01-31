@@ -21,6 +21,7 @@ namespace SIFA
         public FormPrincipal()
         {
             InitializeComponent();
+            this.AbrirFormEnMDI<Form1nicio>();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
