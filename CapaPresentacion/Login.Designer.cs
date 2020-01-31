@@ -37,8 +37,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -143,6 +143,15 @@
             this.shapeContainer1.TabIndex = 11;
             this.shapeContainer1.TabStop = false;
             // 
+            // lineShape2
+            // 
+            this.lineShape2.BorderColor = System.Drawing.Color.Gray;
+            this.lineShape2.Name = "lineShape2";
+            this.lineShape2.X1 = 36;
+            this.lineShape2.X2 = 290;
+            this.lineShape2.Y1 = 183;
+            this.lineShape2.Y2 = 183;
+            // 
             // lineShape1
             // 
             this.lineShape1.BorderColor = System.Drawing.Color.Gray;
@@ -152,15 +161,6 @@
             this.lineShape1.X2 = 290;
             this.lineShape1.Y1 = 117;
             this.lineShape1.Y2 = 117;
-            // 
-            // lineShape2
-            // 
-            this.lineShape2.BorderColor = System.Drawing.Color.Gray;
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 36;
-            this.lineShape2.X2 = 290;
-            this.lineShape2.Y1 = 183;
-            this.lineShape2.Y2 = 183;
             // 
             // Login
             // 
