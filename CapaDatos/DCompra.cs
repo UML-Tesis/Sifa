@@ -14,8 +14,8 @@ namespace CapaDatos
         private int _Id_Empleado;
         private int _Id_Proveedor;
         private DateTime _Fecha_Hora;
-        private string _Cod_Factura;
-        private string _Correlativo;
+        private int _Cod_Factura;
+        private int _Correlativo;
         private decimal _Iva;
         private string _Estado;
         
@@ -46,13 +46,13 @@ namespace CapaDatos
             set { _Fecha_Hora = value; }
         }
 
-              public string Cod_Factura
+              public int Cod_Factura
         {
             get { return _Cod_Factura; }
             set { _Cod_Factura = value; }
         }
 
-        public string Correlativo
+        public int Correlativo
         {
             get { return _Correlativo; }
             set { _Correlativo = value; }
@@ -75,7 +75,7 @@ namespace CapaDatos
 
         }
 
-        public DCompra(int IdCompra, int IdEmpleado, int IdProveedor, DateTime Fecha, string CodFactura, string correlativo, decimal Iva, string Estado)
+        public DCompra(int IdCompra, int IdEmpleado, int IdProveedor, DateTime Fecha, int CodFactura, int correlativo, decimal Iva, string Estado)
         {
             this.Id_Compra = IdCompra;
             this.Id_Empleado = IdEmpleado;
@@ -153,7 +153,7 @@ namespace CapaDatos
                 parEstado.Value = Compra.Estado;
                 SqlCmd.Parameters.Add(parEstado);
 
-                Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se guardo";
+                Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se guardo";
 
                 if(Rpta.Equals("Ok")) 
                 {
@@ -183,8 +183,6 @@ namespace CapaDatos
             {
                 Rpta = ex.Message;
             }
-
-
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
@@ -216,8 +214,6 @@ namespace CapaDatos
             {
                 Rpta = ex.Message;
             }
-
-
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();

@@ -21,7 +21,8 @@ namespace SIFA
         public FormPrincipal()
         {
             InitializeComponent();
-            this.AbrirFormEnMDI<Form1nicio>();
+            AbrirInicio();
+            this.label1.Text = Convert.ToString(Id_Trabajador);
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -29,12 +30,32 @@ namespace SIFA
             
         }
 
+        private void AbrirInicio()
+        {
+            Form1nicio Formulario;
+            Formulario = MdiChildren.OfType<Form1nicio>().FirstOrDefault();
+            //Si el formulario no existe
+            if (Formulario == null)
+            {
+                Formulario = new Form1nicio();
+                Formulario.Id_Trabajador = Convert.ToInt32(this.Id_Trabajador);
+                Formulario.Show();
+                Formulario.MdiParent = this;
+                Formulario.Dock = DockStyle.Fill;
+            }
+            else
+            //Si el formulario existe
+            {
+                Formulario.Activate();
+            }
+        }
+
         private void GestionUsuarios()
         {
             //Controlar los Accesos
             if (TipoAcceso == "ADMINISTRADOR")
             {
-
+                this.ventasToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -106,7 +127,7 @@ namespace SIFA
             }
         }
 
-        private void AbrirFormEnMDI<MiForm>() where MiForm : Form, new()
+        public void AbrirFormEnMDI<MiForm>() where MiForm : Form, new()
         {
             Form Formulario;
             Formulario = MdiChildren.OfType<MiForm>().FirstOrDefault();
@@ -199,6 +220,11 @@ namespace SIFA
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
            
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            GestionUsuarios();
         }
     }
 }

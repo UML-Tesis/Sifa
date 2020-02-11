@@ -85,9 +85,8 @@ namespace CapaDatos
 
             try
             {
-                SqlCon.ConnectionString = Conexion.Cn;
-                SqlCon.Open();
                 SqlCmd.Connection = SqlCon;
+                SqlCmd.Transaction = SqlTra;
                 SqlCmd.CommandText = "spInsertarDetalle_Compra";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 

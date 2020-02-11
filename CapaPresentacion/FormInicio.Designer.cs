@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1nicio));
+            this.label25 = new System.Windows.Forms.Label();
             this.gradientColor6 = new SIFA.GradientColor();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -90,6 +91,15 @@
             this.gradientColor1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(152, 71);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(41, 13);
+            this.label25.TabIndex = 15;
+            this.label25.Text = "label25";
             // 
             // gradientColor6
             // 
@@ -385,6 +395,7 @@
             // gradientColor3
             // 
             this.gradientColor3.Angle = 45F;
+            this.gradientColor3.Controls.Add(this.label25);
             this.gradientColor3.Controls.Add(this.pictureBox3);
             this.gradientColor3.Controls.Add(this.label9);
             this.gradientColor3.Controls.Add(this.label10);
@@ -758,5 +769,6 @@
         private System.Windows.Forms.Label label1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        private System.Windows.Forms.Label label25;
     }
 }

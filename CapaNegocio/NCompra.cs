@@ -10,7 +10,7 @@ namespace CapaNegocio
 {
     public class NCompra
     {
-        public static string Insertar(int Id_Empleado, int Id_Proveedor, DateTime Fecha, string CodFactura, decimal Iva, string correlativo, string Estado, DataTable dtDetalles)
+        public static string Insertar(int Id_Empleado, int Id_Proveedor, DateTime Fecha, int CodFactura, decimal Iva, int correlativo, string Estado, DataTable dtDetalles)
         {
             DCompra Obj = new DCompra();
             Obj.Id_Empleado = Id_Empleado;
@@ -28,7 +28,7 @@ namespace CapaNegocio
                 detalle.Precio_Compra = Convert.ToDecimal(row["Precio_Compra"].ToString());
                 detalle.Precio_Venta = Convert.ToDecimal(row["Precio_Venta"].ToString());
                 detalle.Stock_Inicial = Convert.ToInt32(row["Stock_Inicial"].ToString());
-                detalle.Stock_Actual = Convert.ToInt32(row["Stock_Actual"].ToString());
+                detalle.Stock_Actual = Convert.ToInt32(row["Stock_Inicial"].ToString());
                 detalles.Add(detalle);
             }
             return Obj.Insertar(Obj, detalles);

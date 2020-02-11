@@ -15,7 +15,7 @@ namespace CapaPresentacion
     public partial class FormCompra : Form
     {
         public int Id_Trabajador;
-        public bool IsNuevo;
+        public bool IsNuevo = false;
         private DataTable dtDetalles;
         private decimal TotalPagado = 0;
         private static FormCompra _Instancia;
@@ -63,7 +63,7 @@ namespace CapaPresentacion
 
         public void MensajeError(string mensaje)
         {
-            MessageBox.Show(mensaje, "Sistema de inventario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Sistema de inventario", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void Limpiar()
@@ -151,7 +151,7 @@ namespace CapaPresentacion
             this.dtDetalles.Columns.Add("Producto", System.Type.GetType("System.String"));
             this.dtDetalles.Columns.Add("Precio_Compra", System.Type.GetType("System.Decimal"));
             this.dtDetalles.Columns.Add("Precio_Venta", System.Type.GetType("System.Decimal"));
-            this.dtDetalles.Columns.Add("Stock_Actual", System.Type.GetType("System.Int32"));
+            this.dtDetalles.Columns.Add("Stock_Inicial", System.Type.GetType("System.Int32"));
             this.dtDetalles.Columns.Add("SubTotal", System.Type.GetType("System.Decimal"));
             //Relacionar nuestro DataGridView con nuestro DataTable
             this.dataListadoDetalles.DataSource = this.dtDetalles;
@@ -186,7 +186,7 @@ namespace CapaPresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            IsNuevo = true;
+            this.IsNuevo = true;
             this.Botones();
             this.Limpiar();
             this.Habilitar(true);
@@ -217,26 +217,30 @@ namespace CapaPresentacion
                 {
                     if (this.IsNuevo)
                     {
-                        rpta = NCompra.Insertar(Id_Trabajador, Convert.ToInt32(this.txtIdProveedor.Text), this.dateTimePicker2.Value, this.txtFactura.Text.Trim().ToUpper(), Convert.ToDecimal(this.txtIva.Text), this.txtCorrelativo.Text.Trim().ToUpper(), "EMITIDO", dtDetalles);
+                        rpta = NCompra.Insertar(Id_Trabajador, Convert.ToInt32(this.txtIdProveedor.Text), this.dateTimePicker2.Value, Convert.ToInt32(this.txtFactura.Text), Convert.ToDecimal(this.txtIva.Text), Convert.ToInt32(this.txtCorrelativo.Text), "EMITIDO", dtDetalles);
+                    }
+                    else
+                    {
+                        MensajeError("No es nuevo");
                     }
                     if (rpta.Equals("Ok"))
                     {
                         if (this.IsNuevo)
                         {
-                            this.MensajeOK("Guardado Correctamente");
+                            MensajeOK("Guardado Correctamente");
                         }
                     }
                     else
                     {
-                        this.MensajeError(rpta);
+                        MensajeError(rpta);
                     }
+                    this.IsNuevo = false;
+                    this.Mostrar();
+                    this.Botones();
+                    this.Limpiar();
+                    this.LimpiarDetalles();
+                    this.Habilitar(false);
                 }
-                this.IsNuevo = false;
-                this.Mostrar();
-                this.Botones();
-                this.Limpiar();
-                this.LimpiarDetalles();
-                this.Habilitar(false);
             }
             catch (Exception ex)
             {
@@ -276,13 +280,12 @@ namespace CapaPresentacion
                         row["Producto"] = this.txtNombreProducto.Text;
                         row["Precio_Compra"] = Convert.ToDecimal(this.txtPrecio_Compra.Text);
                         row["Precio_Venta"] = Convert.ToDecimal(this.txtPrecio_Venta.Text);
-                        row["Stock_Actual"] = Convert.ToInt32(this.txtCantidad.Text);
+                        row["Stock_Inicial"] = Convert.ToInt32(this.txtCantidad.Text);
                         row["SubTotal"] = subTotal;
                         this.dtDetalles.Rows.Add(row);
                         this.LimpiarDetalles();
                     }
                 }
-                this.IsNuevo = false;
                 this.Mostrar();
             }
             catch (Exception ex)
@@ -320,6 +323,16 @@ namespace CapaPresentacion
             this.lblTotal.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Total"].Value);
             this.MostrarDetalle();
             this.tabCompra.SelectedIndex = 1;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.button1.Text = Convert.ToString(Id_Trabajador);
+        }
+
+        private void FormCompra_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _Instancia = null;
         }
     }
 }

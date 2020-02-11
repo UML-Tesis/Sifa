@@ -70,6 +70,25 @@ namespace SIFA
             }
         }
 
+        public void AbrirFormEnMDI<MiForm>() where MiForm : Form, new()
+        {
+            Form Formulario;
+            FormPrincipal principal;
+            Formulario = ParentForm.MdiChildren.OfType<MiForm>().FirstOrDefault();
+            //Si el formulario no existe
+            if (Formulario == null)
+            {
+                Formulario = new MiForm();
+                Formulario.Show();
+                Formulario.Dock = DockStyle.Fill;
+            }
+            else
+            //Si el formulario existe
+            {
+                Formulario.Activate();
+            }
+        }
+
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             DataTable Datos = CapaNegocio.NEmpleado.Login(this.txtUsuario.Text, this.txtContraseña.Text);

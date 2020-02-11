@@ -12,11 +12,24 @@ namespace CapaPresentacion
 {
     public partial class Form1nicio : Form
     {
-        public string Id_Trabajador;
+        public int Id_Trabajador;
+        public string Nombre;
+        public string Apellido;
+        public string TipoAcceso;
 
         public Form1nicio()
         {
             InitializeComponent();
+            this.label25.Text = Convert.ToString(Id_Trabajador);
+        }
+        
+        private void GestionUsuarios()
+        {
+            //Controlar los Accesos
+            if (TipoAcceso == "ADMINISTRADOR")
+            {
+                this.gradientColor3.Enabled = false;
+            }
         }
 
         private void AbrirFormEnMDI<MiForm>() where MiForm : Form, new()

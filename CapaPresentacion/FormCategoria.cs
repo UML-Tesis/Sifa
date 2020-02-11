@@ -46,7 +46,7 @@ namespace CapaPresentacion
 
         public void MensajeError(string mensaje) 
         {
-            MessageBox.Show(mensaje, "Sistema de Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Sistema de Inventario", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void Limpiar() 
