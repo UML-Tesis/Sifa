@@ -316,8 +316,8 @@ namespace CapaPresentacion
         {
             this.txtIdCompra.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Id_Compra"].Value);
             this.txtNombreProveedor.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Proveedor"].Value);
-            this.dateTimePicker2.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Fecha"].Value);
-            this.txtFactura.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["CodFactura"].Value);
+            this.dateTimePicker2.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Fecha_Hora"].Value);
+            this.txtFactura.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Cod_Factura"].Value);
             this.txtIva.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Iva"].Value);
             this.txtCorrelativo.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Correlativo"].Value);
             this.lblTotal.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Total"].Value);

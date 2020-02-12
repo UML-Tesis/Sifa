@@ -50,7 +50,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(38, 102);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(251, 15);
-            this.txtUsuario.TabIndex = 7;
+            this.txtUsuario.TabIndex = 1;
             this.txtUsuario.Text = "USUARIO";
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
@@ -99,7 +99,7 @@
             this.txtContraseña.Location = new System.Drawing.Point(38, 168);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(251, 15);
-            this.txtContraseña.TabIndex = 8;
+            this.txtContraseña.TabIndex = 2;
             this.txtContraseña.Text = "CONTRASEÑA";
             this.txtContraseña.Enter += new System.EventHandler(this.txtContraseña_Enter);
             this.txtContraseña.Leave += new System.EventHandler(this.txtContraseña_Leave);
@@ -126,7 +126,7 @@
             this.btnEntrar.Location = new System.Drawing.Point(38, 233);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(253, 30);
-            this.btnEntrar.TabIndex = 9;
+            this.btnEntrar.TabIndex = 3;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = false;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);

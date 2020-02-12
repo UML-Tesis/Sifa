@@ -12,7 +12,7 @@ namespace CapaPresentacion
 {
     public partial class Form1nicio : Form
     {
-        public int Id_Trabajador;
+        public int? Id_Trabajador = null;
         public string Nombre;
         public string Apellido;
         public string TipoAcceso;
@@ -20,7 +20,6 @@ namespace CapaPresentacion
         public Form1nicio()
         {
             InitializeComponent();
-            this.label25.Text = Convert.ToString(Id_Trabajador);
         }
         
         private void GestionUsuarios()
@@ -106,6 +105,11 @@ namespace CapaPresentacion
         }
 
         private void gradientColor6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1nicio_Load(object sender, EventArgs e)
         {
 
         }

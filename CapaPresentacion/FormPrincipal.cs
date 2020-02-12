@@ -21,8 +21,6 @@ namespace SIFA
         public FormPrincipal()
         {
             InitializeComponent();
-            AbrirInicio();
-            this.label1.Text = Convert.ToString(Id_Trabajador);
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -225,6 +223,7 @@ namespace SIFA
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             GestionUsuarios();
+            AbrirInicio();
         }
     }
 }
