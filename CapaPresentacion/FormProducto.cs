@@ -255,5 +255,11 @@ namespace CapaPresentacion
                 _Instancia = null;
             }
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            FormReporteProductos form = new FormReporteProductos();
+            form.ShowDialog();
+        }
     }
 }

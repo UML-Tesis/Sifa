@@ -48,5 +48,10 @@ namespace CapaNegocio
             Obj.Medida = medida;
             return Obj.Editar(Obj);
         }
+
+        public static DataTable Stock_Producto()
+        {
+            return new DProducto().Stock_Producto();
+        }
     }
 }

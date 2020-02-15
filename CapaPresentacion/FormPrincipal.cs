@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaPresentacion;
+using CapaPresentacion.Consultas;
 
 namespace SIFA
 {
@@ -224,6 +225,11 @@ namespace SIFA
         {
             GestionUsuarios();
             AbrirInicio();
+        }
+
+        private void stockDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnMDI<FormConsultaStockProducto>();
         }
     }
 }

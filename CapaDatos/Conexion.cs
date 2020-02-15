@@ -8,6 +8,6 @@ namespace CapaDatos
 {
     class Conexion
     {
-        public static string Cn = "Data Source=.;Initial Catalog=SIFA;Integrated Security=True";
+        public static string Cn = Properties.Settings.Default.cn;
     }
 }
