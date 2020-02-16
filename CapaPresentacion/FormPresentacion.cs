@@ -25,11 +25,18 @@ namespace CapaPresentacion
         private void Mostrar()
         {
             this.DataListado.DataSource = NPresentacion.Mostrar();
+            this.OcultarColumnas();
         }
 
         public void Buscar()
         {
             this.DataListado.DataSource = NPresentacion.Buscar(this.txtBuscar.Text);
+            this.OcultarColumnas();
+        }
+
+        private void Eliminar()
+        {
+            this.checkEliminar.Checked = false;
         }
 
         private void FormPresentacion_Load(object sender, EventArgs e)
@@ -37,11 +44,13 @@ namespace CapaPresentacion
             this.Mostrar();
             this.Habilitar(false);
             this.Botones();
+            this.Eliminar();
         }
-
-        private void DataCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        // Metodo para Ocultar Columnas
+        private void OcultarColumnas()
         {
-
+            this.DataListado.Columns[0].Visible = false;
+            this.DataListado.Columns[1].Visible = false;
         }
 
         public void MensajeOK(string mensaje)
@@ -128,7 +137,7 @@ namespace CapaPresentacion
                         }
                         else
                         {
-                            this.MensajeOK("Se edito el registro");
+                            this.MensajeOK("Editado Correctamente");
                         }
                     }
                     else
@@ -144,7 +153,7 @@ namespace CapaPresentacion
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
 
@@ -212,47 +221,72 @@ namespace CapaPresentacion
 
         }
 
-        private void btnEliminar_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (DataListado.SelectedRows.Count == 0)
             {
-                DialogResult Opcion;
-                Opcion = MessageBox.Show("Relamente desea borrar el registro", "sistema de ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                if (Opcion == DialogResult.OK)
+                MensajeError("Seleccione una columna");
+            }
+            else
+            {
+                try
                 {
-                    string Codigo;
-                    string Rpta = "";
+                    DialogResult opcion;
+                    opcion = MessageBox.Show("¿Desea eliminar el producto seleccionado?", "Inventario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-                    foreach (DataGridViewRow row in DataListado.Rows)
+                    if (opcion == DialogResult.OK)
                     {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        string Codigo = "";
+                        string rpta = "";
+
+                        foreach (DataGridViewRow row in DataListado.Rows)
                         {
-                            Codigo = Convert.ToString(row.Cells[1].Value);
-                            Rpta = NCategoria.Eliminar(Convert.ToInt32(Codigo));
-
-                            if (Rpta.Equals("Ok"))
+                            if (Convert.ToBoolean(row.Cells[0].Value))
                             {
-                                this.MensajeOK("No se elimino");
-                            }
-
-                            else
-                            {
-                                this.MensajeError(Rpta);
+                                Codigo = Convert.ToString(row.Cells[1].Value);
+                                rpta = NPresentacion.Eliminar(Convert.ToInt32(Codigo));
                             }
                         }
-
+                        if (rpta.Equals("Ok"))
+                        {
+                            this.MensajeOK("Eliminado");
+                        }
+                        else
+                        {
+                            this.MensajeError(rpta);
+                        }
+                        this.Mostrar();
+                        this.Eliminar();
                     }
-
                 }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
             }
         }
 
-        
+        private void checkEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkEliminar.Checked)
+            {
+                this.DataListado.Columns[0].Visible = true;
+                this.btnEliminar.Enabled = true;
+            }
+            else
+            {
+                this.DataListado.Columns[0].Visible = false;
+                this.btnEliminar.Enabled = false;
+            }
+        }
+
+        private void DataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
+            {
+                DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
+                chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
+            }
+        }
     }
 }

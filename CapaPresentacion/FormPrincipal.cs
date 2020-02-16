@@ -218,7 +218,8 @@ namespace SIFA
 
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-           
+            Login log = new Login();
+            log.Show();
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)

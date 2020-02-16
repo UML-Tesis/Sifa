@@ -215,7 +215,7 @@ namespace CapaDatos
                SqlCmd.Parameters.Add(parIdCategoria);
 
 
-               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se elimino";
+               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se elimino";
            }
            catch (Exception ex)
            {

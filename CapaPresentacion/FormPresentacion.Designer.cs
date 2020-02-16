@@ -30,14 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPresentacion));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPresentacion = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkEliminar = new System.Windows.Forms.CheckBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.DataListado = new System.Windows.Forms.DataGridView();
+            this.Eliminar1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txtIdPresentacion = new System.Windows.Forms.TextBox();
             this.lblIdPresentacion = new System.Windows.Forms.Label();
@@ -72,6 +74,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.checkEliminar);
             this.tabPage1.Controls.Add(this.btnEliminar);
             this.tabPage1.Controls.Add(this.btnImprimir);
             this.tabPage1.Controls.Add(this.txtBuscar);
@@ -84,6 +87,17 @@
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // checkEliminar
+            // 
+            this.checkEliminar.AutoSize = true;
+            this.checkEliminar.Location = new System.Drawing.Point(6, 80);
+            this.checkEliminar.Name = "checkEliminar";
+            this.checkEliminar.Size = new System.Drawing.Size(62, 17);
+            this.checkEliminar.TabIndex = 45;
+            this.checkEliminar.Text = "Eliminar";
+            this.checkEliminar.UseVisualStyleBackColor = true;
+            this.checkEliminar.CheckedChanged += new System.EventHandler(this.checkEliminar_CheckedChanged);
+            // 
             // btnEliminar
             // 
             this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -91,14 +105,14 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(352, 46);
+            this.btnEliminar.Location = new System.Drawing.Point(352, 6);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(52, 51);
             this.btnEliminar.TabIndex = 44;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnEliminar_KeyPress);
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnImprimir
             // 
@@ -107,7 +121,7 @@
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnImprimir.Location = new System.Drawing.Point(410, 46);
+            this.btnImprimir.Location = new System.Drawing.Point(410, 6);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(52, 51);
             this.btnImprimir.TabIndex = 42;
@@ -118,7 +132,7 @@
             // txtBuscar
             // 
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Location = new System.Drawing.Point(22, 57);
+            this.txtBuscar.Location = new System.Drawing.Point(52, 37);
             this.txtBuscar.Multiline = true;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(232, 17);
@@ -128,30 +142,42 @@
             // 
             // DataListado
             // 
+            this.DataListado.AllowUserToAddRows = false;
+            this.DataListado.AllowUserToOrderColumns = true;
             this.DataListado.BackgroundColor = System.Drawing.Color.White;
             this.DataListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataListado.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Eliminar1});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataListado.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataListado.Location = new System.Drawing.Point(6, 103);
             this.DataListado.Name = "DataListado";
+            this.DataListado.ReadOnly = true;
             this.DataListado.Size = new System.Drawing.Size(456, 174);
             this.DataListado.TabIndex = 41;
+            this.DataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataListado_CellContentClick);
             this.DataListado.DoubleClick += new System.EventHandler(this.DataListado_DoubleClick);
+            // 
+            // Eliminar1
+            // 
+            this.Eliminar1.HeaderText = "Eliminar";
+            this.Eliminar1.Name = "Eliminar1";
+            this.Eliminar1.ReadOnly = true;
             // 
             // tabPage2
             // 
@@ -352,5 +378,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolTip ttmensaje;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.CheckBox checkEliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Eliminar1;
     }
 }

@@ -50,5 +50,12 @@ namespace CapaNegocio
             Obj.Telefono = telefono;
             return Obj.Editar(Obj);
         }
+
+        public static string Eliminar(int Id_Cliente)
+        {
+            DCliente Obj = new DCliente();
+            Obj.Id_Cliente = Id_Cliente;
+            return Obj.Eliminar(Obj);
+        }
     }
 }

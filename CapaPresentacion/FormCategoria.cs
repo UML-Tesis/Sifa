@@ -22,14 +22,28 @@ namespace CapaPresentacion
             this.ttmensaje.SetToolTip(this.txtNombre, "Ingrese falta este dato");
         }
 
+        // Metodo para Ocultar Columnas
+        private void OcultarColumnas()
+        {
+            this.DataListado.Columns[0].Visible = false;
+            this.DataListado.Columns[1].Visible = false;
+        }
+
         private void Mostrar()
         {
             this.DataListado.DataSource = NCategoria.Mostrar();
+            this.OcultarColumnas();
         }
 
         private void Buscar()
         {
             this.DataListado.DataSource = NCategoria.Buscar(txtBuscar.Text);
+            this.OcultarColumnas();
+        }
+
+        private void Eliminar()
+        {
+            this.checkEliminar.Checked = false;
         }
 
         private void FormCategoria_Load(object sender, EventArgs e)
@@ -37,6 +51,7 @@ namespace CapaPresentacion
             this.Mostrar();
             this.Habilitar(false);
             this.Botones();
+            this.Eliminar();
         }
 
         public void MensajeOK(string mensaje) 
@@ -207,7 +222,70 @@ namespace CapaPresentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (DataListado.SelectedRows.Count == 0)
+            {
+                MensajeError("Seleccione una columna");
+            }
+            else
+            {
+                try
+                {
+                    DialogResult opcion;
+                    opcion = MessageBox.Show("¿Desea eliminar el producto seleccionado?", "Inventario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
+                    if (opcion == DialogResult.OK)
+                    {
+                        string Codigo = "";
+                        string rpta = "";
+
+                        foreach (DataGridViewRow row in DataListado.Rows)
+                        {
+                            if (Convert.ToBoolean(row.Cells[0].Value))
+                            {
+                                Codigo = Convert.ToString(row.Cells[1].Value);
+                                rpta = NCategoria.Eliminar(Convert.ToInt32(Codigo));
+                            }
+                        }
+                        if (rpta.Equals("Ok"))
+                        {
+                            this.MensajeOK("Eliminado");
+                        }
+                        else
+                        {
+                            this.MensajeError(rpta);
+                        }
+                        this.Mostrar();
+                        this.Eliminar();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+            }
+        }
+
+        private void checkEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkEliminar.Checked)
+            {
+                this.DataListado.Columns[0].Visible = true;
+                this.btnEliminar.Enabled = true;
+            }
+            else
+            {
+                this.DataListado.Columns[0].Visible = false;
+                this.btnEliminar.Enabled = false;
+            }
+        }
+
+        private void DataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
+            {
+                DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
+                chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
+            }
         }
     }
 }

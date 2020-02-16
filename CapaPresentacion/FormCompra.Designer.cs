@@ -30,20 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompra));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabCompra = new System.Windows.Forms.TabControl();
             this.tabnuevacopra = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAnular = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkAnular = new System.Windows.Forms.CheckBox();
             this.btnBuscarXFecha = new System.Windows.Forms.Button();
             this.dtFecha2 = new System.Windows.Forms.DateTimePicker();
             this.dtFecha1 = new System.Windows.Forms.DateTimePicker();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.DataListado = new System.Windows.Forms.DataGridView();
             this.tablista = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.txtIdCompra = new System.Windows.Forms.TextBox();
@@ -76,8 +75,10 @@
             this.txtIdProveedor = new System.Windows.Forms.TextBox();
             this.txtNombreProveedor = new System.Windows.Forms.TextBox();
             this.lblCategoria = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Eliminar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabCompra.SuspendLayout();
             this.tabnuevacopra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).BeginInit();
@@ -101,7 +102,7 @@
             this.tabnuevacopra.Controls.Add(this.label2);
             this.tabnuevacopra.Controls.Add(this.label1);
             this.tabnuevacopra.Controls.Add(this.btnAnular);
-            this.tabnuevacopra.Controls.Add(this.checkBox1);
+            this.tabnuevacopra.Controls.Add(this.checkAnular);
             this.tabnuevacopra.Controls.Add(this.btnBuscarXFecha);
             this.tabnuevacopra.Controls.Add(this.dtFecha2);
             this.tabnuevacopra.Controls.Add(this.dtFecha1);
@@ -148,16 +149,18 @@
             this.btnAnular.Text = "Anular";
             this.btnAnular.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
-            // checkBox1
+            // checkAnular
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 116);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(56, 17);
-            this.checkBox1.TabIndex = 72;
-            this.checkBox1.Text = "Anular";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkAnular.AutoSize = true;
+            this.checkAnular.Location = new System.Drawing.Point(6, 116);
+            this.checkAnular.Name = "checkAnular";
+            this.checkAnular.Size = new System.Drawing.Size(56, 17);
+            this.checkAnular.TabIndex = 72;
+            this.checkAnular.Text = "Anular";
+            this.checkAnular.UseVisualStyleBackColor = true;
+            this.checkAnular.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // btnBuscarXFecha
             // 
@@ -214,15 +217,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataListado.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Eliminar1});
             this.DataListado.GridColor = System.Drawing.Color.Black;
             this.DataListado.Location = new System.Drawing.Point(6, 150);
             this.DataListado.Name = "DataListado";
@@ -231,6 +236,7 @@
             this.DataListado.ShowEditingIcon = false;
             this.DataListado.Size = new System.Drawing.Size(826, 394);
             this.DataListado.TabIndex = 40;
+            this.DataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataListado_CellContentClick);
             this.DataListado.DoubleClick += new System.EventHandler(this.DataListado_DoubleClick);
             // 
             // tablista
@@ -274,16 +280,6 @@
             this.tablista.TabIndex = 1;
             this.tablista.Text = "Insertar Ventas";
             this.tablista.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(312, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 24);
-            this.button1.TabIndex = 104;
-            this.button1.Text = "Gua";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnQuitar
             // 
@@ -584,9 +580,27 @@
             this.lblCategoria.TabIndex = 72;
             this.lblCategoria.Text = "Proveedor";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(312, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(79, 24);
+            this.button1.TabIndex = 104;
+            this.button1.Text = "Gua";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // Eliminar1
+            // 
+            this.Eliminar1.HeaderText = "Eliminar";
+            this.Eliminar1.Name = "Eliminar1";
+            this.Eliminar1.ReadOnly = true;
+            this.Eliminar1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FormCompra
             // 
@@ -621,7 +635,7 @@
         private System.Windows.Forms.Button btnBuscarXFecha;
         private System.Windows.Forms.DateTimePicker dtFecha2;
         private System.Windows.Forms.DateTimePicker dtFecha1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkAnular;
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -660,5 +674,6 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar1;
     }
 }

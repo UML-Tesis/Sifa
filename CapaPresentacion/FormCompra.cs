@@ -133,6 +133,11 @@ namespace CapaPresentacion
             this.OcultarColumnas();
         }
 
+        private void Anular()
+        {
+            this.checkAnular.Checked = false;
+        }
+
         public void MostrarDetalle()
         {
             this.dataListadoDetalles.DataSource = NCompra.MostrarDetalle(this.txtIdCompra.Text);
@@ -182,6 +187,7 @@ namespace CapaPresentacion
             this.Habilitar(false);
             this.Botones();
             this.CrearTabla();
+            this.Anular();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -333,6 +339,74 @@ namespace CapaPresentacion
         private void FormCompra_FormClosing(object sender, FormClosingEventArgs e)
         {
             _Instancia = null;
+        }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            if (DataListado.SelectedRows.Count == 0)
+            {
+                MensajeError("Seleccione una columna");
+            }
+            else
+            {
+                try
+                {
+                    DialogResult opcion;
+                    opcion = MessageBox.Show("¿Desea anular el registro seleccionado?", "Inventario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (opcion == DialogResult.OK)
+                    {
+                        string Codigo = "";
+                        string rpta = "";
+
+                        foreach (DataGridViewRow row in DataListado.Rows)
+                        {
+                            if (Convert.ToBoolean(row.Cells[0].Value))
+                            {
+                                Codigo = Convert.ToString(row.Cells[1].Value);
+                                rpta = NCompra.Anular(Convert.ToInt32(Codigo));
+                            }
+                        }
+                        if (rpta.Equals("Ok"))
+                        {
+                            this.MensajeOK("Se anuló correctamente la compra");
+                        }
+                        else
+                        {
+                            this.MensajeError(rpta);
+                        }
+                        this.Mostrar();
+                        this.Anular();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkAnular.Checked)
+            {
+                this.DataListado.Columns[0].Visible = true;
+                this.btnAnular.Enabled = true;
+            }
+            else
+            {
+                this.DataListado.Columns[0].Visible = false;
+                this.btnAnular.Enabled = false;
+            }
+        }
+
+        private void DataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
+            {
+                DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
+                chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
+            }
         }
     }
 }

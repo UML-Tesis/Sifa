@@ -345,5 +345,36 @@ namespace CapaDatos
            }
            return Rpta;
        }
+
+       public string Eliminar(DCliente Cliente)
+       {
+           string Rpta = "";
+
+           try
+           {
+               SqlCon.ConnectionString = Conexion.Cn;
+               SqlCon.Open();
+               SqlCmd.Connection = SqlCon;
+               SqlCmd.CommandText = "spEliminarCliente";
+               SqlCmd.CommandType = CommandType.StoredProcedure;
+
+               SqlParameter parIdCliente = new SqlParameter();
+               parIdCliente.ParameterName = "@Id_Cliente";
+               parIdCliente.SqlDbType = SqlDbType.Int;
+               parIdCliente.Value = Cliente.Id_Cliente;
+               SqlCmd.Parameters.Add(parIdCliente);
+
+               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se elimino";
+           }
+           catch (Exception ex)
+           {
+               Rpta = ex.Message;
+           }
+           finally
+           {
+               if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+           }
+           return Rpta;
+       }
     }
 }

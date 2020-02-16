@@ -68,5 +68,12 @@ namespace CapaNegocio
             Obj.TipoAcceso = Acceso;
             return Obj.Editar(Obj);
         }
+
+        public static string Eliminar(int Id_Empleado)
+        {
+            DEmpleado Obj = new DEmpleado();
+            Obj.Id_Empleado = Id_Empleado;
+            return Obj.Eliminar(Obj);
+        }
     }
 }

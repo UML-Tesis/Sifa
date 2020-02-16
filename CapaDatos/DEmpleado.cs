@@ -466,8 +466,37 @@ namespace CapaDatos
            {
                Rpta = ex.Message;
            }
+           finally
+           {
+               if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+           }
+           return Rpta;
+       }
 
+       public string Eliminar(DEmpleado Empleado)
+       {
+           string Rpta = "";
 
+           try
+           {
+               SqlCon.ConnectionString = Conexion.Cn;
+               SqlCon.Open();
+               SqlCmd.Connection = SqlCon;
+               SqlCmd.CommandText = "spEliminarEmpleado";
+               SqlCmd.CommandType = CommandType.StoredProcedure;
+
+               SqlParameter parIdEmpleado = new SqlParameter();
+               parIdEmpleado.ParameterName = "@Id_Empleado";
+               parIdEmpleado.SqlDbType = SqlDbType.Int;
+               parIdEmpleado.Value = Empleado.Id_Empleado;
+               SqlCmd.Parameters.Add(parIdEmpleado);
+
+               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se elimino";
+           }
+           catch (Exception ex)
+           {
+               Rpta = ex.Message;
+           }
            finally
            {
                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();

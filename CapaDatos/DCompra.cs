@@ -205,7 +205,7 @@ namespace CapaDatos
                 SqlParameter parId_Compra = new SqlParameter();
                 parId_Compra.ParameterName = "@Id_Compra";
                 parId_Compra.SqlDbType = SqlDbType.Int;
-                parId_Compra.Direction = ParameterDirection.Output;
+                parId_Compra.Value = Compra.Id_Compra;
                 SqlCmd.Parameters.Add(parId_Compra);
 
                 Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se Anulo el Registro";

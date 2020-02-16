@@ -60,6 +60,12 @@ namespace CapaNegocio
            Obj.RUC1 = ruc; 
            return Obj.Editar(Obj);
        }
-       
+
+       public static string Eliminar(int Id_Proveedor)
+       {
+           DProveedor Obj = new DProveedor();
+           Obj.Id_Proveedor = Id_Proveedor;
+           return Obj.Eliminar(Obj);
+       }
     }
 }

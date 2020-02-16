@@ -49,6 +49,13 @@ namespace CapaNegocio
             return Obj.Editar(Obj);
         }
 
+        public static string Eliminar(int Id_Producto)
+        {
+            DProducto Obj = new DProducto();
+            Obj.Id_Producto = Id_Producto;
+            return Obj.Eliminar(Obj);
+        }
+
         public static DataTable Stock_Producto()
         {
             return new DProducto().Stock_Producto();

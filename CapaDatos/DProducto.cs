@@ -307,6 +307,37 @@ namespace CapaDatos
             return Rpta;
         }
 
+        public string Eliminar(DProducto Producto) 
+        {
+           string Rpta = "";
+
+           try
+           {
+               SqlCon.ConnectionString = Conexion.Cn;
+               SqlCon.Open();
+               SqlCmd.Connection = SqlCon;
+               SqlCmd.CommandText = "spEliminarProducto";
+               SqlCmd.CommandType = CommandType.StoredProcedure;
+
+               SqlParameter parIdProducto = new SqlParameter();
+               parIdProducto.ParameterName = "@Id_Producto";
+               parIdProducto.SqlDbType = SqlDbType.Int;
+               parIdProducto.Value = Producto.Id_Producto;
+               SqlCmd.Parameters.Add(parIdProducto);
+
+               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se elimino";
+           }
+           catch (Exception ex)
+           {
+               Rpta = ex.Message;
+           }
+           finally
+           {
+               if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+           }
+           return Rpta;
+        }
+
         public DataTable Stock_Producto()
         {
             DataTable DtResultado;

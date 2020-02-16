@@ -25,25 +25,24 @@ namespace CapaPresentacion
         private void Mostrar()
         {
             this.DataListado.DataSource = NCliente.Mostrar();
+            this.OcultarColumnas();
         }
 
-
-        private void btnCerrar_Click_1(object sender, EventArgs e)
+        private void Eliminar()
         {
-            this.Close();
+            this.checkEliminar.Checked = false;
         }
-
-        private void FormCliente_Load_1(object sender, EventArgs e)
+        // Metodo para Ocultar Columnas
+        private void OcultarColumnas()
         {
-            this.Mostrar();
-            this.Habilitar(false);
-            this.Botones();
+            this.DataListado.Columns[0].Visible = false;
+            this.DataListado.Columns[1].Visible = false;
         }
-
        
         public void Buscar()
         {
             this.DataListado.DataSource = NCliente.Buscar(this.txtBuscar.Text);
+            this.OcultarColumnas();
         }
 
         public void MensajeOK(string mensaje)
@@ -100,65 +99,6 @@ namespace CapaPresentacion
                 this.btnEditar.Enabled = true;
                 this.btnCancelar.Enabled = false;
             }
-        }
-
-        // llegue asta aca en formproveedor
-        private void btnGuardar_Click_1(object sender, EventArgs e)
-        {
-
-
-            try
-            {
-                string rpta = "";
-                if (this.txt1Nombre.Text == string.Empty)
-                {
-                    MensajeError("Falta el Nombre");
-                    errorProvider1.SetError(txt1Nombre, "Ingrese el Nombre");
-                }
-                else
-                {
-                    if (this.IsNuevo)
-                    {
-
-                        rpta = NCliente.Insertar(this.txt1Nombre.Text.Trim().ToUpper(), this.txt2Nombre.Text.Trim().ToUpper(), this.txt1Apellido.Text.Trim().ToUpper(), this.txt2Apellido.Text.Trim().ToUpper(), this.txtCedula.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim().ToUpper(), this.TxTsexo.Text.Trim().ToUpper(), Convert.ToInt32(this.txtTelefono.Text));
-                    }
-                    else
-                    {
-                        rpta = NCliente.Editar(Convert.ToInt32(txtIdCliente.Text),
-                        this.txt1Nombre.Text.Trim().ToUpper(), this.txt2Nombre.Text.Trim().ToUpper(), txt1Apellido.Text.Trim().ToUpper(), txt2Apellido.Text.Trim().ToUpper(), txtCedula.Text.Trim().ToUpper(), txtDireccion.Text.Trim().ToUpper(), TxTsexo.Text, Convert.ToInt32(txtTelefono.Text));
-                    }
-
-                    if (rpta.Equals("OK"))
-                    {
-                        if (this.IsNuevo)
-                        {
-                            this.MensajeOK("Se inserto el registro correctamente");
-                        }
-                        else
-                        {
-                            this.MensajeOK("Se edito el registro");
-                        }
-                    }
-                    else
-                    {
-                        this.MensajeError(rpta);
-                    }
-                }
-              
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-        private void btnNuevo_Click_1(object sender, EventArgs e)
-        {
-            IsNuevo = true;
-            this.Botones();
-            this.Limpiar();
-            this.Habilitar(true);
-            this.Mostrar();
         }
         #region Keypress
         private void txt1Nombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -229,7 +169,85 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnCancelar_Click_1(object sender, EventArgs e)
+        private void DataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
+            {
+                DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
+                chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
+            }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            this.Buscar();
+        }
+
+        private void FormCliente_Load(object sender, EventArgs e)
+        {
+            this.Mostrar();
+            this.Habilitar(false);
+            this.Botones();
+            this.Eliminar();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string rpta = "";
+                if (this.txt1Nombre.Text == string.Empty)
+                {
+                    MensajeError("Falta el Nombre");
+                    errorProvider1.SetError(txt1Nombre, "Ingrese el Nombre");
+                }
+                else
+                {
+                    if (this.IsNuevo)
+                    {
+
+                        rpta = NCliente.Insertar(this.txt1Nombre.Text.Trim().ToUpper(), this.txt2Nombre.Text.Trim().ToUpper(), this.txt1Apellido.Text.Trim().ToUpper(), this.txt2Apellido.Text.Trim().ToUpper(), this.txtCedula.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim().ToUpper(), this.TxTsexo.Text.Trim().ToUpper(), Convert.ToInt32(this.txtTelefono.Text));
+                    }
+                    else
+                    {
+                        rpta = NCliente.Editar(Convert.ToInt32(txtIdCliente.Text),
+                        this.txt1Nombre.Text.Trim().ToUpper(), this.txt2Nombre.Text.Trim().ToUpper(), txt1Apellido.Text.Trim().ToUpper(), txt2Apellido.Text.Trim().ToUpper(), txtCedula.Text.Trim().ToUpper(), txtDireccion.Text.Trim().ToUpper(), TxTsexo.Text, Convert.ToInt32(txtTelefono.Text));
+                    }
+
+                    if (rpta.Equals("OK"))
+                    {
+                        if (this.IsNuevo)
+                        {
+                            this.MensajeOK("Se inserto el registro correctamente");
+                        }
+                        else
+                        {
+                            this.MensajeOK("Se edito el registro");
+                        }
+                    }
+                    else
+                    {
+                        this.MensajeError(rpta);
+                    }
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            IsNuevo = true;
+            this.Botones();
+            this.Limpiar();
+            this.Habilitar(true);
+            this.Mostrar();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Habilitar(false);
             this.btnNuevo.Enabled = true;
@@ -240,19 +258,63 @@ namespace CapaPresentacion
             errorProvider1.Clear();
         }
 
-        private void DataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (DataListado.SelectedRows.Count == 0)
+            {
+                MensajeError("Seleccione una columna");
+            }
+            else
+            {
+                try
+                {
+                    DialogResult opcion;
+                    opcion = MessageBox.Show("¿Desea eliminar el producto seleccionado?", "Inventario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
+                    if (opcion == DialogResult.OK)
+                    {
+                        string Codigo = "";
+                        string rpta = "";
+
+                        foreach (DataGridViewRow row in DataListado.Rows)
+                        {
+                            if (Convert.ToBoolean(row.Cells[0].Value))
+                            {
+                                Codigo = Convert.ToString(row.Cells[1].Value);
+                                rpta = NCliente.Eliminar(Convert.ToInt32(Codigo));
+                            }
+                        }
+                        if (rpta.Equals("Ok"))
+                        {
+                            this.MensajeOK("Eliminado");
+                        }
+                        else
+                        {
+                            this.MensajeError(rpta);
+                        }
+                        this.Mostrar();
+                        this.Eliminar();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+            }
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        private void checkEliminar_CheckedChanged(object sender, EventArgs e)
         {
-            this.Buscar();
+            if (checkEliminar.Checked)
+            {
+                this.DataListado.Columns[0].Visible = true;
+                this.btnEliminar.Enabled = true;
+            }
+            else
+            {
+                this.DataListado.Columns[0].Visible = false;
+                this.btnEliminar.Enabled = false;
+            }
         }
-
-
-        
-
-        
     }
 }

@@ -39,6 +39,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.DataListado = new System.Windows.Forms.DataGridView();
             this.tablistaempleado = new System.Windows.Forms.TabPage();
+            this.cbAcceso = new System.Windows.Forms.ComboBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -70,10 +71,10 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cbAcceso = new System.Windows.Forms.ComboBox();
+            this.checkEliminar = new System.Windows.Forms.CheckBox();
+            this.Eliminar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabempleado.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).BeginInit();
@@ -95,6 +96,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.checkEliminar);
             this.tabPage1.Controls.Add(this.btnEliminar);
             this.tabPage1.Controls.Add(this.btnImprimir);
             this.tabPage1.Controls.Add(this.txtBuscar);
@@ -115,13 +117,14 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(892, 53);
+            this.btnEliminar.Location = new System.Drawing.Point(891, 6);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(52, 51);
             this.btnEliminar.TabIndex = 48;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnImprimir
             // 
@@ -131,7 +134,7 @@
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnImprimir.Location = new System.Drawing.Point(950, 53);
+            this.btnImprimir.Location = new System.Drawing.Point(950, 6);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(52, 51);
             this.btnImprimir.TabIndex = 46;
@@ -143,7 +146,7 @@
             // 
             this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Location = new System.Drawing.Point(770, 30);
+            this.txtBuscar.Location = new System.Drawing.Point(645, 37);
             this.txtBuscar.Multiline = true;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(232, 17);
@@ -153,6 +156,9 @@
             // 
             // DataListado
             // 
+            this.DataListado.AllowUserToAddRows = false;
+            this.DataListado.AllowUserToDeleteRows = false;
+            this.DataListado.AllowUserToOrderColumns = true;
             this.DataListado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataListado.BackgroundColor = System.Drawing.Color.White;
@@ -166,6 +172,8 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Eliminar1});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,10 +182,14 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataListado.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DataListado.Location = new System.Drawing.Point(6, 110);
+            this.DataListado.Location = new System.Drawing.Point(6, 96);
+            this.DataListado.MultiSelect = false;
             this.DataListado.Name = "DataListado";
-            this.DataListado.Size = new System.Drawing.Size(996, 312);
+            this.DataListado.ReadOnly = true;
+            this.DataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataListado.Size = new System.Drawing.Size(996, 326);
             this.DataListado.TabIndex = 45;
+            this.DataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataListado_CellContentClick);
             this.DataListado.DoubleClick += new System.EventHandler(this.DataListado_DoubleClick);
             // 
             // tablistaempleado
@@ -220,6 +232,17 @@
             this.tablistaempleado.TabIndex = 1;
             this.tablistaempleado.Text = "Agregar Empleado";
             this.tablistaempleado.UseVisualStyleBackColor = true;
+            // 
+            // cbAcceso
+            // 
+            this.cbAcceso.FormattingEnabled = true;
+            this.cbAcceso.Items.AddRange(new object[] {
+            "ADMINISTRADOR",
+            "EMPLEADO"});
+            this.cbAcceso.Location = new System.Drawing.Point(609, 331);
+            this.cbAcceso.Name = "cbAcceso";
+            this.cbAcceso.Size = new System.Drawing.Size(193, 21);
+            this.cbAcceso.TabIndex = 150;
             // 
             // btnNuevo
             // 
@@ -515,35 +538,26 @@
             this.lblTitulo.Text = "Empleados";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.BackColor = System.Drawing.Color.Red;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(1004, 3);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(33, 28);
-            this.btnCerrar.TabIndex = 53;
-            this.btnCerrar.Text = "X";
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // cbAcceso
+            // checkEliminar
             // 
-            this.cbAcceso.FormattingEnabled = true;
-            this.cbAcceso.Items.AddRange(new object[] {
-            "ADMINISTRADOR",
-            "EMPLEADO"});
-            this.cbAcceso.Location = new System.Drawing.Point(609, 331);
-            this.cbAcceso.Name = "cbAcceso";
-            this.cbAcceso.Size = new System.Drawing.Size(193, 21);
-            this.cbAcceso.TabIndex = 150;
+            this.checkEliminar.AutoSize = true;
+            this.checkEliminar.Location = new System.Drawing.Point(7, 73);
+            this.checkEliminar.Name = "checkEliminar";
+            this.checkEliminar.Size = new System.Drawing.Size(62, 17);
+            this.checkEliminar.TabIndex = 49;
+            this.checkEliminar.Text = "Eliminar";
+            this.checkEliminar.UseVisualStyleBackColor = true;
+            this.checkEliminar.CheckedChanged += new System.EventHandler(this.checkEliminar_CheckedChanged);
+            // 
+            // Eliminar1
+            // 
+            this.Eliminar1.HeaderText = "Eliminar";
+            this.Eliminar1.Name = "Eliminar1";
+            this.Eliminar1.ReadOnly = true;
             // 
             // FormEmpleado
             // 
@@ -553,8 +567,7 @@
             this.ClientSize = new System.Drawing.Size(1040, 540);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tabempleado);
-            this.Controls.Add(this.btnCerrar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormEmpleado";
             this.Text = "Empleado";
             this.Load += new System.EventHandler(this.FormEmpleado_Load);
@@ -580,7 +593,6 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.DataGridView DataListado;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.ToolTip ttmensaje;
         private System.Windows.Forms.ErrorProvider errorProvider1;
@@ -614,5 +626,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.ComboBox cbAcceso;
+        private System.Windows.Forms.CheckBox checkEliminar;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar1;
     }
 }

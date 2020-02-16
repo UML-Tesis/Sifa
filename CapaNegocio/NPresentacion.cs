@@ -42,8 +42,8 @@ namespace CapaNegocio
 
         public static string Eliminar(int Id_Presentacion)
         {
-            DCategoria Obj = new DCategoria();
-            Obj.Id_Categoria = Id_Presentacion;
+            DPresentacion Obj = new DPresentacion();
+            Obj.Id_Presentacion = Id_Presentacion;
             return Obj.Eliminar(Obj);
         }
     }

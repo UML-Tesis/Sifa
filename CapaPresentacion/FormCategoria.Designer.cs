@@ -43,6 +43,7 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -50,7 +51,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.Eliminar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.checkEliminar = new System.Windows.Forms.CheckBox();
             this.tabCategoria.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).BeginInit();
@@ -82,9 +84,9 @@
             this.tabCategoria.Location = new System.Drawing.Point(4, 24);
             this.tabCategoria.Name = "tabCategoria";
             this.tabCategoria.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCategoria.Size = new System.Drawing.Size(476, 269);
+            this.tabCategoria.Size = new System.Drawing.Size(476, 305);
             this.tabCategoria.TabIndex = 1;
-            this.tabCategoria.Text = "NuevaCategoria";
+            this.tabCategoria.Text = "Nueva Categoria";
             this.tabCategoria.UseVisualStyleBackColor = true;
             // 
             // txtIdCategoria
@@ -201,6 +203,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.checkEliminar);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.btnImprimir);
             this.tabPage1.Controls.Add(this.txtBuscar);
@@ -209,10 +212,19 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(476, 269);
+            this.tabPage1.Size = new System.Drawing.Size(476, 305);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Listado";
+            this.tabPage1.Text = "Listado     ";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(90, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 15);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Buscar...";
             // 
             // btnImprimir
             // 
@@ -266,12 +278,15 @@
             this.DataListado.BackgroundColor = System.Drawing.Color.White;
             this.DataListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Eliminar1});
             this.DataListado.GridColor = System.Drawing.Color.Black;
-            this.DataListado.Location = new System.Drawing.Point(6, 80);
+            this.DataListado.Location = new System.Drawing.Point(6, 114);
             this.DataListado.Name = "DataListado";
             this.DataListado.ReadOnly = true;
-            this.DataListado.Size = new System.Drawing.Size(464, 173);
+            this.DataListado.Size = new System.Drawing.Size(464, 186);
             this.DataListado.TabIndex = 0;
+            this.DataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataListado_CellContentClick);
             this.DataListado.DoubleClick += new System.EventHandler(this.DataListado_DoubleClick);
             // 
             // tabControl1
@@ -282,7 +297,7 @@
             this.tabControl1.Location = new System.Drawing.Point(134, 57);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(484, 297);
+            this.tabControl1.Size = new System.Drawing.Size(484, 333);
             this.tabControl1.TabIndex = 1;
             // 
             // lblTitulo
@@ -299,14 +314,22 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label1
+            // Eliminar1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 15);
-            this.label1.TabIndex = 37;
-            this.label1.Text = "Buscar";
+            this.Eliminar1.HeaderText = "Eliminar";
+            this.Eliminar1.Name = "Eliminar1";
+            this.Eliminar1.ReadOnly = true;
+            // 
+            // checkEliminar
+            // 
+            this.checkEliminar.AutoSize = true;
+            this.checkEliminar.Location = new System.Drawing.Point(7, 89);
+            this.checkEliminar.Name = "checkEliminar";
+            this.checkEliminar.Size = new System.Drawing.Size(72, 19);
+            this.checkEliminar.TabIndex = 38;
+            this.checkEliminar.Text = "Eliminar";
+            this.checkEliminar.UseVisualStyleBackColor = true;
+            this.checkEliminar.CheckedChanged += new System.EventHandler(this.checkEliminar_CheckedChanged);
             // 
             // FormCategoria
             // 
@@ -354,5 +377,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView DataListado;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkEliminar;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar1;
     }
 }
