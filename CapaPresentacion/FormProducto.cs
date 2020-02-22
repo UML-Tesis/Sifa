@@ -42,6 +42,7 @@ namespace CapaPresentacion
         private void Mostrar()
         {
             this.DataListado.DataSource = NProducto.Mostrar();
+            this.DiseñoColumnas();
             this.OcultarColumnas();
             lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
         }
@@ -81,7 +82,6 @@ namespace CapaPresentacion
             this.txtCodigo.Text = string.Empty;
             this.txtNombre.Text = string.Empty;
             this.txtMarca.Text = string.Empty;
-            this.txtPrecio.Text = string.Empty;
             this.cbPresentacion.Text = string.Empty;
             this.txtMedida.Text = string.Empty;
         }
@@ -90,8 +90,6 @@ namespace CapaPresentacion
         {
             this.txtNombre.ReadOnly = !valor;
             this.txtMarca.ReadOnly = !valor;
-            this.txtPrecio.ReadOnly = !valor;
-            this.dateTimePicker1.Enabled = valor;
             this.cbPresentacion.Enabled = valor;
             this.txtMedida.ReadOnly = !valor;
         }
@@ -118,10 +116,10 @@ namespace CapaPresentacion
         // Metodo para Ocultar Columnas
         private void OcultarColumnas()
         {
-            this.DataListado.Columns[0].Visible = false;
+            this.DataListado.Columns[0].Visible = false; 
             this.DataListado.Columns[1].Visible = false;
-            this.DataListado.Columns[7].Visible = false;
-            this.DataListado.Columns[9].Visible = false;
+            this.DataListado.Columns[5].Visible = false;
+            this.DataListado.Columns[8].Visible = false;
         }
 
         private void FormProducto_Load(object sender, EventArgs e)
@@ -137,7 +135,7 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (this.txtNombre.Text == string.Empty || this.txtPrecio.Text ==  string.Empty || this.txtMarca.Text == string.Empty || this.txtMedida.Text == string.Empty)
+                if (this.txtNombre.Text == string.Empty || this.txtMarca.Text == string.Empty || this.txtMedida.Text == string.Empty)
                 {
                     MensajeError("Falta el Nombre");
                     errorProvider1.SetError(txtNombre, "Ingrese el Nombre");
@@ -146,11 +144,11 @@ namespace CapaPresentacion
                 {
                     if (this.IsNuevo)
                     {
-                        rpta = NProducto.Insertar(this.txtNombre.Text.Trim().ToUpper(), Convert.ToInt32(this.txtPrecio.Text), this.txtMarca.Text.Trim().ToUpper(), Convert.ToDateTime(this.dateTimePicker1.Value), Convert.ToInt32(this.txtIdCategoria.Text), Convert.ToInt32(this.cbPresentacion.SelectedValue), Convert.ToInt32(this.txtMedida.Text));
+                        rpta = NProducto.Insertar(this.txtNombre.Text.Trim().ToUpper(), this.txtMarca.Text.Trim().ToUpper(), Convert.ToInt32(this.txtIdCategoria.Text), Convert.ToInt32(this.cbPresentacion.SelectedValue), Convert.ToInt32(this.txtMedida.Text));
                     }
                     else
                     {
-                        rpta = NProducto.Editar(Convert.ToInt32(this.txtIdProducto.Text), this.txtNombre.Text.Trim().ToUpper(), Convert.ToInt32(this.txtPrecio.Text), this.txtMarca.Text.Trim().ToUpper(), Convert.ToDateTime(this.dateTimePicker1.Value), Convert.ToInt32(this.txtIdCategoria.Text), Convert.ToInt32(this.cbPresentacion.SelectedValue), Convert.ToInt32(this.txtMedida.Text));
+                        rpta = NProducto.Editar(Convert.ToInt32(this.txtIdProducto.Text), this.txtNombre.Text.Trim().ToUpper(), this.txtMarca.Text.Trim().ToUpper(), Convert.ToInt32(this.txtIdCategoria.Text), Convert.ToInt32(this.cbPresentacion.SelectedValue), Convert.ToInt32(this.txtMedida.Text));
                     }
                     if (rpta.Equals("Ok"))
                     {
@@ -225,8 +223,6 @@ namespace CapaPresentacion
             this.txtCodigo.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Codigo"].Value);
             this.txtNombre.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Nombre"].Value);
             this.txtMarca.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Marca"].Value);
-            this.txtPrecio.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Precio"].Value);
-            this.dateTimePicker1.Value = Convert.ToDateTime(this.DataListado.CurrentRow.Cells["Fecha_Vencimiento"].Value);
             this.txtIdCategoria.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Id_Categoria"].Value);
             this.txtNombreCategoria.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Categoria"].Value);
             this.cbPresentacion.SelectedValue = Convert.ToString(this.DataListado.CurrentRow.Cells["Id_Presentacion"].Value);
@@ -234,7 +230,7 @@ namespace CapaPresentacion
             this.tabproducto.SelectedIndex = 1;
         }
 
-        #region Eventos de Diseño
+          #region Eventos de Diseño
 
         private void txtBuscar_Enter(object sender, EventArgs e)
         {
@@ -246,6 +242,17 @@ namespace CapaPresentacion
         {
             this.label3.Visible = true;
             lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
+        }
+
+        private void DiseñoColumnas()
+        {
+            DataListado.Columns[9].HeaderText = "UNIDAD DE MEDIDA";
+            DataListado.Columns[2].Width = 300;
+            DataListado.Columns[3].Width = 120;
+            DataListado.Columns[4].Width = 200;
+            DataListado.Columns[6].Width = 200;
+            DataListado.Columns[7].Width = 110;
+            DataListado.Columns[9].Width = 200;
         }
 
         #endregion
@@ -335,6 +342,11 @@ namespace CapaPresentacion
                 DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
                 chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

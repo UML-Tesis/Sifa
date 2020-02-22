@@ -10,13 +10,11 @@ namespace CapaNegocio
 {
     public class NProducto
     {
-        public static string Insertar(string nombre, double precio, string marca, DateTime vence, int IdCategoria, int IdPresentacion, int medida)
+        public static string Insertar(string nombre, string marca, int IdCategoria, int IdPresentacion, int medida)
         {
             DProducto Obj = new DProducto();
             Obj.Nombre = nombre;
-            Obj.Precio = precio;
             Obj.Marca = marca;
-            Obj.Vence = vence;
             Obj.Id_Categoria = IdCategoria;
             Obj.Id_Presentacion = IdPresentacion;
             Obj.Medida = medida;
@@ -35,14 +33,12 @@ namespace CapaNegocio
             return Obj.TextoBuscar(Obj);
         }
 
-        public static string Editar(int Id_producto, string nombre, double precio, string marca, DateTime vence, int IdCategoria, int IdPresentacion, int medida)
+        public static string Editar(int Id_producto, string nombre, string marca, int IdCategoria, int IdPresentacion, int medida)
         {
             DProducto Obj = new DProducto();
             Obj.Id_Producto = Id_producto;
             Obj.Nombre = nombre;
-            Obj.Precio = precio;
             Obj.Marca = marca;
-            Obj.Vence = vence;
             Obj.Id_Categoria = IdCategoria;
             Obj.Id_Presentacion = IdPresentacion;
             Obj.Medida = medida;

@@ -30,6 +30,12 @@ namespace CapaNegocio
             return new DCliente().Mostrar();
         }
 
+        public int Contar(int valor)
+        {
+            DCliente Obj = new DCliente();
+            return Obj.Contar(valor);
+        }
+
         public static DataTable Buscar(string TextoBuscar)
         {
             DCliente Obj = new DCliente();

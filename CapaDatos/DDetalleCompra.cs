@@ -140,5 +140,27 @@ namespace CapaDatos
             }
             return Rpta;
         }
+
+        public DataTable BajoStock()
+        {
+            DataTable DtResultado;
+            DtResultado = new DataTable("Detalle_Compra");
+
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spBajoStock";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+        }
     }
 }

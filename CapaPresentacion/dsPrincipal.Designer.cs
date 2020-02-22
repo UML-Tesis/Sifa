@@ -757,27 +757,19 @@ namespace CapaPresentacion {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class spMostrarProductosDataTable : global::System.Data.TypedTableBase<spMostrarProductosRow> {
             
-            private global::System.Data.DataColumn columnId_Producto;
+            private global::System.Data.DataColumn columnID_PRODUCTO;
             
-            private global::System.Data.DataColumn columnNombre;
+            private global::System.Data.DataColumn columnNOMBRE;
             
-            private global::System.Data.DataColumn columnCodigo;
+            private global::System.Data.DataColumn columnCODIGO;
             
-            private global::System.Data.DataColumn columnPrecio;
+            private global::System.Data.DataColumn columnMARCA;
             
-            private global::System.Data.DataColumn columnMarca;
+            private global::System.Data.DataColumn columnCATEGORIA;
             
-            private global::System.Data.DataColumn columnFecha_Vencimiento;
+            private global::System.Data.DataColumn columnMEDIDA;
             
-            private global::System.Data.DataColumn columnId_Categoria;
-            
-            private global::System.Data.DataColumn columnCategoria;
-            
-            private global::System.Data.DataColumn columnId_Presentacion;
-            
-            private global::System.Data.DataColumn columnPresentacion;
-            
-            private global::System.Data.DataColumn columnMedida;
+            private global::System.Data.DataColumn columnUNIDAD_DE_MEDIDA;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -814,89 +806,57 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Id_ProductoColumn {
+            public global::System.Data.DataColumn ID_PRODUCTOColumn {
                 get {
-                    return this.columnId_Producto;
+                    return this.columnID_PRODUCTO;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NombreColumn {
+            public global::System.Data.DataColumn NOMBREColumn {
                 get {
-                    return this.columnNombre;
+                    return this.columnNOMBRE;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CodigoColumn {
+            public global::System.Data.DataColumn CODIGOColumn {
                 get {
-                    return this.columnCodigo;
+                    return this.columnCODIGO;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PrecioColumn {
+            public global::System.Data.DataColumn MARCAColumn {
                 get {
-                    return this.columnPrecio;
+                    return this.columnMARCA;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MarcaColumn {
+            public global::System.Data.DataColumn CATEGORIAColumn {
                 get {
-                    return this.columnMarca;
+                    return this.columnCATEGORIA;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Fecha_VencimientoColumn {
+            public global::System.Data.DataColumn MEDIDAColumn {
                 get {
-                    return this.columnFecha_Vencimiento;
+                    return this.columnMEDIDA;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Id_CategoriaColumn {
+            public global::System.Data.DataColumn UNIDAD_DE_MEDIDAColumn {
                 get {
-                    return this.columnId_Categoria;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CategoriaColumn {
-                get {
-                    return this.columnCategoria;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Id_PresentacionColumn {
-                get {
-                    return this.columnId_Presentacion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PresentacionColumn {
-                get {
-                    return this.columnPresentacion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MedidaColumn {
-                get {
-                    return this.columnMedida;
+                    return this.columnUNIDAD_DE_MEDIDA;
                 }
             }
             
@@ -937,30 +897,19 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public spMostrarProductosRow AddspMostrarProductosRow(string Nombre, string Codigo, int Precio, string Marca, System.DateTime Fecha_Vencimiento, int Id_Categoria, string Categoria, int Id_Presentacion, string Presentacion, int Medida) {
+            public spMostrarProductosRow AddspMostrarProductosRow(string NOMBRE, string CODIGO, string MARCA, string CATEGORIA, int MEDIDA, string UNIDAD_DE_MEDIDA) {
                 spMostrarProductosRow rowspMostrarProductosRow = ((spMostrarProductosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Nombre,
-                        Codigo,
-                        Precio,
-                        Marca,
-                        Fecha_Vencimiento,
-                        Id_Categoria,
-                        Categoria,
-                        Id_Presentacion,
-                        Presentacion,
-                        Medida};
+                        NOMBRE,
+                        CODIGO,
+                        MARCA,
+                        CATEGORIA,
+                        MEDIDA,
+                        UNIDAD_DE_MEDIDA};
                 rowspMostrarProductosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowspMostrarProductosRow);
                 return rowspMostrarProductosRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public spMostrarProductosRow FindById_Producto(int Id_Producto) {
-                return ((spMostrarProductosRow)(this.Rows.Find(new object[] {
-                            Id_Producto})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -980,64 +929,51 @@ namespace CapaPresentacion {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnId_Producto = base.Columns["Id_Producto"];
-                this.columnNombre = base.Columns["Nombre"];
-                this.columnCodigo = base.Columns["Codigo"];
-                this.columnPrecio = base.Columns["Precio"];
-                this.columnMarca = base.Columns["Marca"];
-                this.columnFecha_Vencimiento = base.Columns["Fecha_Vencimiento"];
-                this.columnId_Categoria = base.Columns["Id_Categoria"];
-                this.columnCategoria = base.Columns["Categoria"];
-                this.columnId_Presentacion = base.Columns["Id_Presentacion"];
-                this.columnPresentacion = base.Columns["Presentacion"];
-                this.columnMedida = base.Columns["Medida"];
+                this.columnID_PRODUCTO = base.Columns["ID_PRODUCTO"];
+                this.columnNOMBRE = base.Columns["NOMBRE"];
+                this.columnCODIGO = base.Columns["CODIGO"];
+                this.columnMARCA = base.Columns["MARCA"];
+                this.columnCATEGORIA = base.Columns["CATEGORIA"];
+                this.columnMEDIDA = base.Columns["MEDIDA"];
+                this.columnUNIDAD_DE_MEDIDA = base.Columns["UNIDAD_DE_MEDIDA"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnId_Producto = new global::System.Data.DataColumn("Id_Producto", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId_Producto);
-                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre);
-                this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCodigo);
-                this.columnPrecio = new global::System.Data.DataColumn("Precio", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrecio);
-                this.columnMarca = new global::System.Data.DataColumn("Marca", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMarca);
-                this.columnFecha_Vencimiento = new global::System.Data.DataColumn("Fecha_Vencimiento", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha_Vencimiento);
-                this.columnId_Categoria = new global::System.Data.DataColumn("Id_Categoria", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId_Categoria);
-                this.columnCategoria = new global::System.Data.DataColumn("Categoria", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCategoria);
-                this.columnId_Presentacion = new global::System.Data.DataColumn("Id_Presentacion", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId_Presentacion);
-                this.columnPresentacion = new global::System.Data.DataColumn("Presentacion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPresentacion);
-                this.columnMedida = new global::System.Data.DataColumn("Medida", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMedida);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId_Producto}, true));
-                this.columnId_Producto.AutoIncrement = true;
-                this.columnId_Producto.AllowDBNull = false;
-                this.columnId_Producto.ReadOnly = true;
-                this.columnId_Producto.Unique = true;
-                this.columnNombre.AllowDBNull = false;
-                this.columnNombre.MaxLength = 50;
-                this.columnCodigo.ReadOnly = true;
-                this.columnCodigo.MaxLength = 6;
-                this.columnPrecio.AllowDBNull = false;
-                this.columnMarca.AllowDBNull = false;
-                this.columnMarca.MaxLength = 50;
-                this.columnId_Categoria.AllowDBNull = false;
-                this.columnCategoria.AllowDBNull = false;
-                this.columnCategoria.MaxLength = 50;
-                this.columnId_Presentacion.AllowDBNull = false;
-                this.columnPresentacion.AllowDBNull = false;
-                this.columnPresentacion.MaxLength = 50;
-                this.columnMedida.AllowDBNull = false;
+                this.columnID_PRODUCTO = new global::System.Data.DataColumn("ID_PRODUCTO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_PRODUCTO);
+                this.columnNOMBRE = new global::System.Data.DataColumn("NOMBRE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOMBRE);
+                this.columnCODIGO = new global::System.Data.DataColumn("CODIGO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCODIGO);
+                this.columnMARCA = new global::System.Data.DataColumn("MARCA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMARCA);
+                this.columnCATEGORIA = new global::System.Data.DataColumn("CATEGORIA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCATEGORIA);
+                this.columnMEDIDA = new global::System.Data.DataColumn("MEDIDA", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMEDIDA);
+                this.columnUNIDAD_DE_MEDIDA = new global::System.Data.DataColumn("UNIDAD_DE_MEDIDA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUNIDAD_DE_MEDIDA);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
+                                this.columnID_PRODUCTO}, false));
+                this.columnID_PRODUCTO.AutoIncrement = true;
+                this.columnID_PRODUCTO.AutoIncrementSeed = -1;
+                this.columnID_PRODUCTO.AutoIncrementStep = -1;
+                this.columnID_PRODUCTO.AllowDBNull = false;
+                this.columnID_PRODUCTO.ReadOnly = true;
+                this.columnID_PRODUCTO.Unique = true;
+                this.columnNOMBRE.AllowDBNull = false;
+                this.columnNOMBRE.MaxLength = 50;
+                this.columnCODIGO.ReadOnly = true;
+                this.columnCODIGO.MaxLength = 6;
+                this.columnMARCA.AllowDBNull = false;
+                this.columnMARCA.MaxLength = 50;
+                this.columnCATEGORIA.AllowDBNull = false;
+                this.columnCATEGORIA.MaxLength = 50;
+                this.columnMEDIDA.AllowDBNull = false;
+                this.columnUNIDAD_DE_MEDIDA.AllowDBNull = false;
+                this.columnUNIDAD_DE_MEDIDA.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1406,158 +1342,96 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id_Producto {
+            public int ID_PRODUCTO {
                 get {
-                    return ((int)(this[this.tablespMostrarProductos.Id_ProductoColumn]));
+                    return ((int)(this[this.tablespMostrarProductos.ID_PRODUCTOColumn]));
                 }
                 set {
-                    this[this.tablespMostrarProductos.Id_ProductoColumn] = value;
+                    this[this.tablespMostrarProductos.ID_PRODUCTOColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre {
+            public string NOMBRE {
                 get {
-                    return ((string)(this[this.tablespMostrarProductos.NombreColumn]));
+                    return ((string)(this[this.tablespMostrarProductos.NOMBREColumn]));
                 }
                 set {
-                    this[this.tablespMostrarProductos.NombreColumn] = value;
+                    this[this.tablespMostrarProductos.NOMBREColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Codigo {
-                get {
-                    try {
-                        return ((string)(this[this.tablespMostrarProductos.CodigoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Codigo\' de la tabla \'spMostrarProductos\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablespMostrarProductos.CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Precio {
-                get {
-                    return ((int)(this[this.tablespMostrarProductos.PrecioColumn]));
-                }
-                set {
-                    this[this.tablespMostrarProductos.PrecioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Marca {
-                get {
-                    return ((string)(this[this.tablespMostrarProductos.MarcaColumn]));
-                }
-                set {
-                    this[this.tablespMostrarProductos.MarcaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Fecha_Vencimiento {
+            public string CODIGO {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablespMostrarProductos.Fecha_VencimientoColumn]));
+                        return ((string)(this[this.tablespMostrarProductos.CODIGOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha_Vencimiento\' de la tabla \'spMostrarProductos\' es DB" +
-                                "Null.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CODIGO\' de la tabla \'spMostrarProductos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespMostrarProductos.Fecha_VencimientoColumn] = value;
+                    this[this.tablespMostrarProductos.CODIGOColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id_Categoria {
+            public string MARCA {
                 get {
-                    return ((int)(this[this.tablespMostrarProductos.Id_CategoriaColumn]));
+                    return ((string)(this[this.tablespMostrarProductos.MARCAColumn]));
                 }
                 set {
-                    this[this.tablespMostrarProductos.Id_CategoriaColumn] = value;
+                    this[this.tablespMostrarProductos.MARCAColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Categoria {
+            public string CATEGORIA {
                 get {
-                    return ((string)(this[this.tablespMostrarProductos.CategoriaColumn]));
+                    return ((string)(this[this.tablespMostrarProductos.CATEGORIAColumn]));
                 }
                 set {
-                    this[this.tablespMostrarProductos.CategoriaColumn] = value;
+                    this[this.tablespMostrarProductos.CATEGORIAColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id_Presentacion {
+            public int MEDIDA {
                 get {
-                    return ((int)(this[this.tablespMostrarProductos.Id_PresentacionColumn]));
+                    return ((int)(this[this.tablespMostrarProductos.MEDIDAColumn]));
                 }
                 set {
-                    this[this.tablespMostrarProductos.Id_PresentacionColumn] = value;
+                    this[this.tablespMostrarProductos.MEDIDAColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Presentacion {
+            public string UNIDAD_DE_MEDIDA {
                 get {
-                    return ((string)(this[this.tablespMostrarProductos.PresentacionColumn]));
+                    return ((string)(this[this.tablespMostrarProductos.UNIDAD_DE_MEDIDAColumn]));
                 }
                 set {
-                    this[this.tablespMostrarProductos.PresentacionColumn] = value;
+                    this[this.tablespMostrarProductos.UNIDAD_DE_MEDIDAColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Medida {
-                get {
-                    return ((int)(this[this.tablespMostrarProductos.MedidaColumn]));
-                }
-                set {
-                    this[this.tablespMostrarProductos.MedidaColumn] = value;
-                }
+            public bool IsCODIGONull() {
+                return this.IsNull(this.tablespMostrarProductos.CODIGOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCodigoNull() {
-                return this.IsNull(this.tablespMostrarProductos.CodigoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCodigoNull() {
-                this[this.tablespMostrarProductos.CodigoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFecha_VencimientoNull() {
-                return this.IsNull(this.tablespMostrarProductos.Fecha_VencimientoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFecha_VencimientoNull() {
-                this[this.tablespMostrarProductos.Fecha_VencimientoColumn] = global::System.Convert.DBNull;
+            public void SetCODIGONull() {
+                this[this.tablespMostrarProductos.CODIGOColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1947,17 +1821,13 @@ namespace CapaPresentacion.dsPrincipalTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "spMostrarProductos";
-            tableMapping.ColumnMappings.Add("Id_Producto", "Id_Producto");
-            tableMapping.ColumnMappings.Add("Nombre", "Nombre");
-            tableMapping.ColumnMappings.Add("Codigo", "Codigo");
-            tableMapping.ColumnMappings.Add("Precio", "Precio");
-            tableMapping.ColumnMappings.Add("Marca", "Marca");
-            tableMapping.ColumnMappings.Add("Fecha_Vencimiento", "Fecha_Vencimiento");
-            tableMapping.ColumnMappings.Add("Id_Categoria", "Id_Categoria");
-            tableMapping.ColumnMappings.Add("Categoria", "Categoria");
-            tableMapping.ColumnMappings.Add("Id_Presentacion", "Id_Presentacion");
-            tableMapping.ColumnMappings.Add("Presentacion", "Presentacion");
-            tableMapping.ColumnMappings.Add("Medida", "Medida");
+            tableMapping.ColumnMappings.Add("ID_PRODUCTO", "ID_PRODUCTO");
+            tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE");
+            tableMapping.ColumnMappings.Add("CODIGO", "CODIGO");
+            tableMapping.ColumnMappings.Add("MARCA", "MARCA");
+            tableMapping.ColumnMappings.Add("CATEGORIA", "CATEGORIA");
+            tableMapping.ColumnMappings.Add("MEDIDA", "MEDIDA");
+            tableMapping.ColumnMappings.Add("UNIDAD_DE_MEDIDA", "UNIDAD_DE_MEDIDA");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

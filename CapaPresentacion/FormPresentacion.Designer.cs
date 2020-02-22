@@ -30,16 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPresentacion));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPresentacion = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.checkEliminar = new System.Windows.Forms.CheckBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.DataListado = new System.Windows.Forms.DataGridView();
-            this.Eliminar1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txtIdPresentacion = new System.Windows.Forms.TextBox();
             this.lblIdPresentacion = new System.Windows.Forms.Label();
@@ -54,6 +51,9 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Eliminar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lblRegistros = new System.Windows.Forms.Label();
             this.tabPresentacion.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).BeginInit();
@@ -65,34 +65,35 @@
             // 
             this.tabPresentacion.Controls.Add(this.tabPage1);
             this.tabPresentacion.Controls.Add(this.tabPage2);
-            this.tabPresentacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPresentacion.Location = new System.Drawing.Point(132, 67);
+            this.tabPresentacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPresentacion.Location = new System.Drawing.Point(12, 57);
             this.tabPresentacion.Name = "tabPresentacion";
             this.tabPresentacion.SelectedIndex = 0;
-            this.tabPresentacion.Size = new System.Drawing.Size(476, 329);
+            this.tabPresentacion.Size = new System.Drawing.Size(719, 334);
             this.tabPresentacion.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblRegistros);
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.checkEliminar);
             this.tabPage1.Controls.Add(this.btnEliminar);
-            this.tabPage1.Controls.Add(this.btnImprimir);
             this.tabPage1.Controls.Add(this.txtBuscar);
             this.tabPage1.Controls.Add(this.DataListado);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(468, 303);
+            this.tabPage1.Size = new System.Drawing.Size(711, 306);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Listado";
+            this.tabPage1.Text = "Listado     ";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // checkEliminar
             // 
             this.checkEliminar.AutoSize = true;
-            this.checkEliminar.Location = new System.Drawing.Point(6, 80);
+            this.checkEliminar.Location = new System.Drawing.Point(8, 38);
             this.checkEliminar.Name = "checkEliminar";
-            this.checkEliminar.Size = new System.Drawing.Size(62, 17);
+            this.checkEliminar.Size = new System.Drawing.Size(72, 19);
             this.checkEliminar.TabIndex = 45;
             this.checkEliminar.Text = "Eliminar";
             this.checkEliminar.UseVisualStyleBackColor = true;
@@ -105,79 +106,62 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(352, 6);
+            this.btnEliminar.Location = new System.Drawing.Point(639, 8);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(52, 51);
+            this.btnEliminar.Size = new System.Drawing.Size(66, 50);
             this.btnEliminar.TabIndex = 44;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnImprimir
-            // 
-            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnImprimir.Location = new System.Drawing.Point(410, 6);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(52, 51);
-            this.btnImprimir.TabIndex = 42;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            // 
             // txtBuscar
             // 
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Location = new System.Drawing.Point(52, 37);
+            this.txtBuscar.Location = new System.Drawing.Point(8, 8);
             this.txtBuscar.Multiline = true;
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(232, 17);
+            this.txtBuscar.Size = new System.Drawing.Size(290, 20);
             this.txtBuscar.TabIndex = 43;
-            this.txtBuscar.Text = "Buscar...";
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.txtBuscar.Enter += new System.EventHandler(this.txtBuscar_Enter);
+            this.txtBuscar.Leave += new System.EventHandler(this.txtBuscar_Leave);
             // 
             // DataListado
             // 
             this.DataListado.AllowUserToAddRows = false;
-            this.DataListado.AllowUserToOrderColumns = true;
+            this.DataListado.AllowUserToDeleteRows = false;
+            this.DataListado.AllowUserToResizeColumns = false;
+            this.DataListado.AllowUserToResizeRows = false;
+            this.DataListado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DataListado.BackgroundColor = System.Drawing.Color.White;
-            this.DataListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.DataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.DataListado.ColumnHeadersHeight = 25;
+            this.DataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar1});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataListado.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DataListado.Location = new System.Drawing.Point(6, 103);
+            this.DataListado.EnableHeadersVisualStyles = false;
+            this.DataListado.Location = new System.Drawing.Point(6, 77);
             this.DataListado.Name = "DataListado";
             this.DataListado.ReadOnly = true;
-            this.DataListado.Size = new System.Drawing.Size(456, 174);
+            this.DataListado.RowHeadersVisible = false;
+            this.DataListado.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataListado.Size = new System.Drawing.Size(699, 223);
             this.DataListado.TabIndex = 41;
             this.DataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataListado_CellContentClick);
             this.DataListado.DoubleClick += new System.EventHandler(this.DataListado_DoubleClick);
-            // 
-            // Eliminar1
-            // 
-            this.Eliminar1.HeaderText = "Eliminar";
-            this.Eliminar1.Name = "Eliminar1";
-            this.Eliminar1.ReadOnly = true;
             // 
             // tabPage2
             // 
@@ -191,27 +175,27 @@
             this.tabPage2.Controls.Add(this.lblDescripcion);
             this.tabPage2.Controls.Add(this.txtNombre);
             this.tabPage2.Controls.Add(this.lblNombre);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(468, 303);
+            this.tabPage2.Size = new System.Drawing.Size(711, 306);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Nueva Presentacion";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // txtIdPresentacion
             // 
-            this.txtIdPresentacion.Location = new System.Drawing.Point(95, 56);
+            this.txtIdPresentacion.Location = new System.Drawing.Point(95, 28);
             this.txtIdPresentacion.Name = "txtIdPresentacion";
-            this.txtIdPresentacion.Size = new System.Drawing.Size(100, 20);
+            this.txtIdPresentacion.Size = new System.Drawing.Size(100, 21);
             this.txtIdPresentacion.TabIndex = 50;
             // 
             // lblIdPresentacion
             // 
             this.lblIdPresentacion.AutoSize = true;
-            this.lblIdPresentacion.Location = new System.Drawing.Point(16, 56);
+            this.lblIdPresentacion.Location = new System.Drawing.Point(16, 28);
             this.lblIdPresentacion.Name = "lblIdPresentacion";
-            this.lblIdPresentacion.Size = new System.Drawing.Size(40, 13);
+            this.lblIdPresentacion.Size = new System.Drawing.Size(46, 15);
             this.lblIdPresentacion.TabIndex = 49;
             this.lblIdPresentacion.Text = "Codigo";
             // 
@@ -223,7 +207,7 @@
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEditar.Location = new System.Drawing.Point(209, 233);
+            this.btnEditar.Location = new System.Drawing.Point(348, 209);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(57, 53);
             this.btnEditar.TabIndex = 48;
@@ -240,7 +224,7 @@
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnNuevo.Location = new System.Drawing.Point(95, 233);
+            this.btnNuevo.Location = new System.Drawing.Point(222, 209);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(57, 53);
             this.btnNuevo.TabIndex = 47;
@@ -255,9 +239,9 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(266, 233);
+            this.btnCancelar.Location = new System.Drawing.Point(405, 209);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(57, 53);
+            this.btnCancelar.Size = new System.Drawing.Size(64, 53);
             this.btnCancelar.TabIndex = 46;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -271,9 +255,9 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(152, 233);
+            this.btnGuardar.Location = new System.Drawing.Point(278, 209);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(57, 53);
+            this.btnGuardar.Size = new System.Drawing.Size(64, 53);
             this.btnGuardar.TabIndex = 45;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -282,29 +266,30 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(95, 142);
+            this.txtDescripcion.Location = new System.Drawing.Point(164, 98);
             this.txtDescripcion.MaxLength = 250;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(281, 74);
+            this.txtDescripcion.Size = new System.Drawing.Size(422, 86);
             this.txtDescripcion.TabIndex = 44;
             this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(16, 145);
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(78, 101);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
+            this.lblDescripcion.Size = new System.Drawing.Size(72, 15);
             this.lblDescripcion.TabIndex = 43;
             this.lblDescripcion.Text = "Descripcion";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(95, 97);
+            this.txtNombre.Location = new System.Drawing.Point(164, 65);
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(281, 20);
+            this.txtNombre.Size = new System.Drawing.Size(422, 21);
             this.txtNombre.TabIndex = 42;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
@@ -312,9 +297,10 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(16, 97);
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(98, 68);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.Size = new System.Drawing.Size(52, 15);
             this.lblNombre.TabIndex = 41;
             this.lblNombre.Text = "Nombre";
             // 
@@ -325,19 +311,46 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(261, 9);
+            this.lblTitulo.Font = new System.Drawing.Font("Lucida Bright", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.Crimson;
+            this.lblTitulo.Location = new System.Drawing.Point(15, 20);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(168, 26);
+            this.lblTitulo.Size = new System.Drawing.Size(214, 31);
             this.lblTitulo.TabIndex = 52;
             this.lblTitulo.Text = "Presentaciones";
             this.lblTitulo.Click += new System.EventHandler(this.lblTitulo_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 15);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Buscar...";
+            // 
+            // Eliminar1
+            // 
+            this.Eliminar1.HeaderText = "Eliminar";
+            this.Eliminar1.Name = "Eliminar1";
+            this.Eliminar1.ReadOnly = true;
+            this.Eliminar1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // lblRegistros
+            // 
+            this.lblRegistros.AutoSize = true;
+            this.lblRegistros.Location = new System.Drawing.Point(314, 10);
+            this.lblRegistros.Name = "lblRegistros";
+            this.lblRegistros.Size = new System.Drawing.Size(14, 15);
+            this.lblRegistros.TabIndex = 47;
+            this.lblRegistros.Text = "a";
             // 
             // FormPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 441);
+            this.ClientSize = new System.Drawing.Size(743, 402);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tabPresentacion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -362,7 +375,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.DataGridView DataListado;
         private System.Windows.Forms.TextBox txtIdPresentacion;
@@ -379,6 +391,8 @@
         private System.Windows.Forms.ToolTip ttmensaje;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.CheckBox checkEliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Eliminar1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar1;
+        private System.Windows.Forms.Label lblRegistros;
     }
 }

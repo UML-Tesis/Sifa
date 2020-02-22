@@ -30,17 +30,11 @@ namespace CapaPresentacion
             this.Eliminar();
         }
 
-        // Metodo para Ocultar Columnas
-        private void OcultarColumnas()
-        {
-            this.DataListado.Columns[0].Visible = false;
-            this.DataListado.Columns[1].Visible = false;
-        }
-
         private void Mostrar()
         {
             this.DataListado.DataSource = NEmpleado.Mostrar();
             this.OcultarColumnas();
+            this.DiseñoColumnas();
         }
 
         public void Buscar()
@@ -119,6 +113,15 @@ namespace CapaPresentacion
         }
 
         #region Keypress
+
+        // Metodo para Ocultar Columnas
+        private void OcultarColumnas()
+        {
+            this.DataListado.Columns[0].Visible = false;
+            this.DataListado.Columns[1].Visible = false;
+            this.DataListado.Columns[3].Visible = false;
+        }
+
         private void txt1Nombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.sololetras(e);
@@ -137,6 +140,20 @@ namespace CapaPresentacion
         private void txt2Apellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.sololetras(e);
+        }
+
+        private void DiseñoColumnas()
+        {
+            DataListado.Columns[5].HeaderText = "ALIAS";
+            DataListado.Columns[0].Width = 50;
+            DataListado.Columns[2].Width = 120;
+            DataListado.Columns[3].Width = 120;
+            DataListado.Columns[4].Width = 120;
+            DataListado.Columns[6].Width = 200;
+            DataListado.Columns[7].Width = 65;
+            DataListado.Columns[8].Width = 120;
+            DataListado.Columns[9].Width = 40;
+            DataListado.Columns[10].Width = 80;
         }
         #endregion
 
@@ -314,6 +331,23 @@ namespace CapaPresentacion
                 DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
                 chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
             }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtBuscar_Enter(object sender, EventArgs e)
+        {
+            this.label4.Visible = false;
+            this.txtBuscar.Text = "";
+        }
+
+        private void txtBuscar_Leave(object sender, EventArgs e)
+        {
+            this.label4.Visible = true;
+            lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
         }
     }
 }

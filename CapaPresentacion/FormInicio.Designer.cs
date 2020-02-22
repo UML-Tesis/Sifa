@@ -28,7 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1nicio));
+            this.DataListado = new System.Windows.Forms.DataGridView();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockActualDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.spBajoStockBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.sIFADataSet1 = new CapaPresentacion.SIFADataSet1();
+            this.label25 = new System.Windows.Forms.Label();
+            this.spBajoStockTableAdapter1 = new CapaPresentacion.SIFADataSet1TableAdapters.spBajoStockTableAdapter();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.gradientColor2 = new SIFA.GradientColor();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.gradientColor6 = new SIFA.GradientColor();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -61,14 +84,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.gradientColor2 = new SIFA.GradientColor();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.gradientColor1 = new SIFA.GradientColor();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -77,6 +92,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            ((System.ComponentModel.ISupportInitialize)(this.DataListado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spBajoStockBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIFADataSet1)).BeginInit();
+            this.gradientColor2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gradientColor6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.gradientColor5.SuspendLayout();
@@ -85,11 +105,233 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.gradientColor3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.gradientColor2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gradientColor1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DataListado
+            // 
+            this.DataListado.AllowUserToAddRows = false;
+            this.DataListado.AllowUserToDeleteRows = false;
+            this.DataListado.AllowUserToResizeColumns = false;
+            this.DataListado.AllowUserToResizeRows = false;
+            this.DataListado.AutoGenerateColumns = false;
+            this.DataListado.BackgroundColor = System.Drawing.Color.White;
+            this.DataListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataListado.ColumnHeadersHeight = 25;
+            this.DataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombreDataGridViewTextBoxColumn,
+            this.categoriaDataGridViewTextBoxColumn,
+            this.medidaDataGridViewTextBoxColumn,
+            this.stockActualDataGridViewTextBoxColumn});
+            this.DataListado.DataSource = this.spBajoStockBindingSource1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataListado.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DataListado.EnableHeadersVisualStyles = false;
+            this.DataListado.Location = new System.Drawing.Point(808, 81);
+            this.DataListado.MultiSelect = false;
+            this.DataListado.Name = "DataListado";
+            this.DataListado.ReadOnly = true;
+            this.DataListado.RowHeadersVisible = false;
+            this.DataListado.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataListado.Size = new System.Drawing.Size(475, 214);
+            this.DataListado.TabIndex = 15;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "NOMBRE";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // categoriaDataGridViewTextBoxColumn
+            // 
+            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.HeaderText = "CATEGORIA";
+            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
+            this.categoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoriaDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // medidaDataGridViewTextBoxColumn
+            // 
+            this.medidaDataGridViewTextBoxColumn.DataPropertyName = "Medida";
+            this.medidaDataGridViewTextBoxColumn.HeaderText = "MEDIDA";
+            this.medidaDataGridViewTextBoxColumn.Name = "medidaDataGridViewTextBoxColumn";
+            this.medidaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.medidaDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // stockActualDataGridViewTextBoxColumn
+            // 
+            this.stockActualDataGridViewTextBoxColumn.DataPropertyName = "Stock_Actual";
+            this.stockActualDataGridViewTextBoxColumn.HeaderText = "STOCK";
+            this.stockActualDataGridViewTextBoxColumn.Name = "stockActualDataGridViewTextBoxColumn";
+            this.stockActualDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stockActualDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // spBajoStockBindingSource1
+            // 
+            this.spBajoStockBindingSource1.DataMember = "spBajoStock";
+            this.spBajoStockBindingSource1.DataSource = this.sIFADataSet1;
+            // 
+            // sIFADataSet1
+            // 
+            this.sIFADataSet1.DataSetName = "SIFADataSet1";
+            this.sIFADataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(806, 68);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(186, 16);
+            this.label25.TabIndex = 16;
+            this.label25.Text = "Productos con Bajo Stock";
+            // 
+            // spBajoStockTableAdapter1
+            // 
+            this.spBajoStockTableAdapter1.ClearBeforeFill = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Century Gothic", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.Location = new System.Drawing.Point(918, 388);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(157, 63);
+            this.lblHora.TabIndex = 18;
+            this.lblHora.Text = "06:46";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblFecha.Location = new System.Drawing.Point(832, 477);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(33, 32);
+            this.lblFecha.TabIndex = 19;
+            this.lblFecha.Text = "g";
+            // 
+            // gradientColor2
+            // 
+            this.gradientColor2.Angle = 45F;
+            this.gradientColor2.Controls.Add(this.pictureBox2);
+            this.gradientColor2.Controls.Add(this.label5);
+            this.gradientColor2.Controls.Add(this.label6);
+            this.gradientColor2.Controls.Add(this.label7);
+            this.gradientColor2.Controls.Add(this.label8);
+            this.gradientColor2.Controls.Add(this.shapeContainer2);
+            this.gradientColor2.GradientColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gradientColor2.GradientColorTop = System.Drawing.Color.Gray;
+            this.gradientColor2.Location = new System.Drawing.Point(140, 293);
+            this.gradientColor2.Name = "gradientColor2";
+            this.gradientColor2.Size = new System.Drawing.Size(206, 116);
+            this.gradientColor2.TabIndex = 11;
+            this.gradientColor2.Click += new System.EventHandler(this.gradientColor2_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Enabled = false;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 81);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(71, 99);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(14, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(3, 99);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Productos";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(150, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(24, 25);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(141, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Nuevo";
+            // 
+            // shapeContainer2
+            // 
+            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape2});
+            this.shapeContainer2.Size = new System.Drawing.Size(206, 116);
+            this.shapeContainer2.TabIndex = 4;
+            this.shapeContainer2.TabStop = false;
+            // 
+            // lineShape2
+            // 
+            this.lineShape2.BorderColor = System.Drawing.Color.LightGray;
+            this.lineShape2.Name = "lineShape1";
+            this.lineShape2.X1 = 0;
+            this.lineShape2.X2 = 206;
+            this.lineShape2.Y1 = 95;
+            this.lineShape2.Y2 = 95;
             // 
             // gradientColor6
             // 
@@ -102,7 +344,7 @@
             this.gradientColor6.Controls.Add(this.shapeContainer6);
             this.gradientColor6.GradientColorBottom = System.Drawing.Color.OrangeRed;
             this.gradientColor6.GradientColorTop = System.Drawing.Color.Indigo;
-            this.gradientColor6.Location = new System.Drawing.Point(681, 293);
+            this.gradientColor6.Location = new System.Drawing.Point(410, 510);
             this.gradientColor6.Name = "gradientColor6";
             this.gradientColor6.Size = new System.Drawing.Size(206, 116);
             this.gradientColor6.TabIndex = 14;
@@ -296,7 +538,7 @@
             this.gradientColor4.Controls.Add(this.shapeContainer4);
             this.gradientColor4.GradientColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.gradientColor4.GradientColorTop = System.Drawing.Color.Coral;
-            this.gradientColor4.Location = new System.Drawing.Point(141, 293);
+            this.gradientColor4.Location = new System.Drawing.Point(410, 81);
             this.gradientColor4.Name = "gradientColor4";
             this.gradientColor4.Size = new System.Drawing.Size(206, 116);
             this.gradientColor4.TabIndex = 12;
@@ -393,7 +635,7 @@
             this.gradientColor3.Controls.Add(this.shapeContainer3);
             this.gradientColor3.GradientColorBottom = System.Drawing.Color.Olive;
             this.gradientColor3.GradientColorTop = System.Drawing.Color.Gold;
-            this.gradientColor3.Location = new System.Drawing.Point(681, 81);
+            this.gradientColor3.Location = new System.Drawing.Point(140, 510);
             this.gradientColor3.Name = "gradientColor3";
             this.gradientColor3.Size = new System.Drawing.Size(206, 116);
             this.gradientColor3.TabIndex = 10;
@@ -478,103 +720,6 @@
             this.lineShape3.X2 = 206;
             this.lineShape3.Y1 = 95;
             this.lineShape3.Y2 = 95;
-            // 
-            // gradientColor2
-            // 
-            this.gradientColor2.Angle = 45F;
-            this.gradientColor2.Controls.Add(this.pictureBox2);
-            this.gradientColor2.Controls.Add(this.label5);
-            this.gradientColor2.Controls.Add(this.label6);
-            this.gradientColor2.Controls.Add(this.label7);
-            this.gradientColor2.Controls.Add(this.label8);
-            this.gradientColor2.Controls.Add(this.shapeContainer2);
-            this.gradientColor2.GradientColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gradientColor2.GradientColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gradientColor2.Location = new System.Drawing.Point(409, 81);
-            this.gradientColor2.Name = "gradientColor2";
-            this.gradientColor2.Size = new System.Drawing.Size(206, 116);
-            this.gradientColor2.TabIndex = 11;
-            this.gradientColor2.Click += new System.EventHandler(this.gradientColor2_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Enabled = false;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 81);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(71, 99);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(14, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 99);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Productos";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(150, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(24, 25);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "0";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(141, 56);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Nuevo";
-            // 
-            // shapeContainer2
-            // 
-            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer2.Name = "shapeContainer2";
-            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape2});
-            this.shapeContainer2.Size = new System.Drawing.Size(206, 116);
-            this.shapeContainer2.TabIndex = 4;
-            this.shapeContainer2.TabStop = false;
-            // 
-            // lineShape2
-            // 
-            this.lineShape2.BorderColor = System.Drawing.Color.LightGray;
-            this.lineShape2.Name = "lineShape1";
-            this.lineShape2.X1 = 0;
-            this.lineShape2.X2 = 206;
-            this.lineShape2.Y1 = 95;
-            this.lineShape2.Y2 = 95;
             // 
             // gradientColor1
             // 
@@ -677,17 +822,28 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1268, 452);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1297, 638);
+            this.Controls.Add(this.lblFecha);
+            this.Controls.Add(this.lblHora);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.DataListado);
+            this.Controls.Add(this.gradientColor2);
             this.Controls.Add(this.gradientColor6);
             this.Controls.Add(this.gradientColor5);
             this.Controls.Add(this.gradientColor4);
             this.Controls.Add(this.gradientColor3);
-            this.Controls.Add(this.gradientColor2);
             this.Controls.Add(this.gradientColor1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1nicio";
             this.Text = "Form1nicio";
             this.Load += new System.EventHandler(this.Form1nicio_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DataListado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spBajoStockBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIFADataSet1)).EndInit();
+            this.gradientColor2.ResumeLayout(false);
+            this.gradientColor2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gradientColor6.ResumeLayout(false);
             this.gradientColor6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -700,13 +856,11 @@
             this.gradientColor3.ResumeLayout(false);
             this.gradientColor3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.gradientColor2.ResumeLayout(false);
-            this.gradientColor2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gradientColor1.ResumeLayout(false);
             this.gradientColor1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -760,5 +914,17 @@
         private System.Windows.Forms.Label label1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        private System.Windows.Forms.DataGridView DataListado;
+        private System.Windows.Forms.Label label25;
+        private SIFADataSet1 sIFADataSet1;
+        private System.Windows.Forms.BindingSource spBajoStockBindingSource1;
+        private SIFADataSet1TableAdapters.spBajoStockTableAdapter spBajoStockTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn medidaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockActualDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Label lblFecha;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 using CapaPresentacion;
 using CapaPresentacion.Consultas;
 
@@ -52,9 +53,9 @@ namespace SIFA
         private void GestionUsuarios()
         {
             //Controlar los Accesos
-            if (TipoAcceso == "ADMINISTRADOR")
+            if (TipoAcceso == "EMPLEADO")
             {
-                this.ventasToolStripMenuItem.Enabled = false;
+                this.mantenimientoToolStripMenuItem.Visible = false;
             }
         }
 
@@ -232,5 +233,96 @@ namespace SIFA
         {
             AbrirFormEnMDI<FormConsultaStockProducto>();
         }
+#region Diseño del Menu
+        private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.almacenToolStripMenuItem.ForeColor = Color.SteelBlue;
+        }
+
+        private void almacenToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            this.almacenToolStripMenuItem.ForeColor = Color.SteelBlue;
+        }
+
+        private void almacenToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+            this.almacenToolStripMenuItem.ForeColor = Color.White;
+        }
+
+        private void comprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.comprasToolStripMenuItem.ForeColor = Color.SteelBlue;
+        }
+
+        private void comprasToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            this.comprasToolStripMenuItem.ForeColor = Color.SteelBlue;
+        }
+
+        private void comprasToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+            this.comprasToolStripMenuItem.ForeColor = Color.White;
+        }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ventasToolStripMenuItem.ForeColor = Color.SteelBlue;
+        }
+
+        private void ventasToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            this.ventasToolStripMenuItem.ForeColor = Color.SteelBlue;
+        }
+
+        private void ventasToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+            this.ventasToolStripMenuItem.ForeColor = Color.White;
+        }
+
+        private void mantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.mantenimientoToolStripMenuItem.ForeColor = Color.SteelBlue;
+        }
+
+        private void mantenimientoToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            this.mantenimientoToolStripMenuItem.ForeColor = Color.SteelBlue;
+        }
+
+        private void mantenimientoToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+            this.mantenimientoToolStripMenuItem.ForeColor = Color.White;
+        }
+
+        private void helpMenu_Click(object sender, EventArgs e)
+        {
+            this.helpMenu.ForeColor = Color.SteelBlue;
+        }
+
+        private void helpMenu_DropDownOpened(object sender, EventArgs e)
+        {
+            this.helpMenu.ForeColor = Color.SteelBlue;
+        }
+
+        private void helpMenu_DropDownClosed(object sender, EventArgs e)
+        {
+            this.helpMenu.ForeColor = Color.White;
+        }
+
+        private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.consultasToolStripMenuItem.ForeColor = Color.SteelBlue;
+        }
+
+        private void consultasToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            this.consultasToolStripMenuItem.ForeColor = Color.SteelBlue;
+        }
+
+        private void consultasToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+            this.consultasToolStripMenuItem.ForeColor = Color.White;
+        }
+#endregion
     }
 }

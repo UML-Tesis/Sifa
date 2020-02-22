@@ -13,9 +13,7 @@ namespace CapaDatos
         private int _Id_Producto;
         private string _Nombre;
         private string _Codigo;
-        private double _Precio;
         private string _Marca;
-        private DateTime _Vence;
         private int _Id_Categoria;
         private int _Id_Presentacion;
         private int _Medida;
@@ -41,22 +39,10 @@ namespace CapaDatos
             set { _Codigo = value; }
         }
 
-        public double Precio
-        {
-            get { return _Precio; }
-            set { _Precio = value; }
-        }
-
         public string Marca
         {
           get { return _Marca; }
           set { _Marca = value; }
-        }
-    
-        public DateTime Vence
-        {
-          get { return _Vence; }
-          set { _Vence = value; }
         }
 
         public int Id_Categoria
@@ -87,14 +73,12 @@ namespace CapaDatos
     
         }
 
-        public DProducto(int IdProducto, string Nombre, string codigo, string marca, double Precio, DateTime Vence, int IdCategoria, int IdPresentacion, int Medida)
+        public DProducto(int IdProducto, string Nombre, string codigo, string marca, int IdCategoria, int IdPresentacion, int Medida)
         {
             this._Id_Producto = IdProducto;
             this._Nombre = Nombre;
             this._Codigo = codigo;
             this._Marca = marca;
-            this._Precio = Precio;
-            this._Vence = Vence;
             this._Id_Categoria = IdCategoria;
             this._Id_Presentacion = IdPresentacion;
             this._Medida = Medida;
@@ -125,24 +109,12 @@ namespace CapaDatos
                 parNombre.Value = Producto.Nombre;
                 SqlCmd.Parameters.Add(parNombre);
 
-                SqlParameter parPrecio = new SqlParameter();
-                parPrecio.ParameterName = "@Precio";
-                parPrecio.SqlDbType = SqlDbType.Int;
-                parPrecio.Value = Producto.Precio;
-                SqlCmd.Parameters.Add(parPrecio);
-
                 SqlParameter parMarca = new SqlParameter();
                 parMarca.ParameterName = "@Marca";
                 parMarca.SqlDbType = SqlDbType.VarChar;
                 parMarca.Size = 50;
                 parMarca.Value = Producto.Marca;
                 SqlCmd.Parameters.Add(parMarca);
-
-                SqlParameter parVence = new SqlParameter();
-                parVence.ParameterName = "@Fecha_Vencimiento";
-                parVence.SqlDbType = SqlDbType.Date;
-                parVence.Value = Producto.Vence;
-                SqlCmd.Parameters.Add(parVence);
 
                 SqlParameter parIdCategoria = new SqlParameter();
                 parIdCategoria.ParameterName = "@Id_Categoria";
@@ -205,7 +177,6 @@ namespace CapaDatos
         {
             DataTable DtResultado = new DataTable("Producto");
 
-
             try
             {
                 SqlCon.ConnectionString = Conexion.Cn;
@@ -257,24 +228,12 @@ namespace CapaDatos
                 parNombre.Value = Producto.Nombre;
                 SqlCmd.Parameters.Add(parNombre);
 
-                SqlParameter parPrecio = new SqlParameter();
-                parPrecio.ParameterName = "@Precio";
-                parPrecio.SqlDbType = SqlDbType.Int;
-                parPrecio.Value = Producto.Precio;
-                SqlCmd.Parameters.Add(parPrecio);
-
                 SqlParameter parMarca = new SqlParameter();
                 parMarca.ParameterName = "@Marca";
                 parMarca.SqlDbType = SqlDbType.VarChar;
                 parMarca.Size = 50;
                 parMarca.Value = Producto.Marca;
                 SqlCmd.Parameters.Add(parMarca);
-
-                SqlParameter parVence = new SqlParameter();
-                parVence.ParameterName = "@Fecha_Vencimiento";
-                parVence.SqlDbType = SqlDbType.Date;
-                parVence.Value = Producto.Vence;
-                SqlCmd.Parameters.Add(parVence);
 
                 SqlParameter parIdCategoria = new SqlParameter();
                 parIdCategoria.ParameterName = "@Id_Categoria";
@@ -294,7 +253,7 @@ namespace CapaDatos
                 parMedida.Value = Producto.Medida;
                 SqlCmd.Parameters.Add(parMedida);
 
-                Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK " : "No se edito";
+                Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se edito";
             }
             catch (Exception ex)
             {

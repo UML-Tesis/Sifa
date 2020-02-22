@@ -29,16 +29,28 @@ namespace CapaPresentacion
             this.DataListado.Columns[1].Visible = false;
         }
 
+        private void DiseñoColumnas()
+        {
+            DataListado.Columns[0].Width = 65;
+            DataListado.Columns[2].Width = 200;
+            DataListado.Columns[3].Width = 415;
+        }
+
+
+
         private void Mostrar()
         {
             this.DataListado.DataSource = NCategoria.Mostrar();
             this.OcultarColumnas();
+            this.DiseñoColumnas();
+            lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
         }
 
         private void Buscar()
         {
             this.DataListado.DataSource = NCategoria.Buscar(txtBuscar.Text);
             this.OcultarColumnas();
+            lblRegistros.Text = "Registros Encontrados : " + Convert.ToString(DataListado.Rows.Count);
         }
 
         private void Eliminar()
@@ -139,21 +151,19 @@ namespace CapaPresentacion
                             this.MensajeOK("Se edito el registro");
                         }
                     }
-
                     else 
                     {
                         this.MensajeError(rpta);
                     }
                 }
-
                 this.IsNuevo = false;
                 this.IsEditar = false;
                 this.Botones();
                 this.Limpiar();
                 this.Mostrar();
             }
-
-            catch (Exception ex){ 
+            catch (Exception ex)
+            { 
             
             }
         }
@@ -286,6 +296,18 @@ namespace CapaPresentacion
                 DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
                 chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
             }
+        }
+
+        private void txtBuscar_Enter(object sender, EventArgs e)
+        {
+            this.label1.Visible = false;
+            this.txtBuscar.Text = "";
+        }
+
+        private void txtBuscar_Leave(object sender, EventArgs e)
+        {
+            this.label1.Visible = true;
+            lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
         }
     }
 }

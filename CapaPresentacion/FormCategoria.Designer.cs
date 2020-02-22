@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCategoria));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.tabCategoria = new System.Windows.Forms.TabPage();
@@ -43,16 +44,16 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkEliminar = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.DataListado = new System.Windows.Forms.DataGridView();
+            this.Eliminar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Eliminar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.checkEliminar = new System.Windows.Forms.CheckBox();
+            this.lblRegistros = new System.Windows.Forms.Label();
             this.tabCategoria.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).BeginInit();
@@ -62,10 +63,10 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(97, 59);
+            this.txtNombre.Location = new System.Drawing.Point(164, 65);
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(247, 21);
+            this.txtNombre.Size = new System.Drawing.Size(426, 21);
             this.txtNombre.TabIndex = 33;
             this.ttmensaje.SetToolTip(this.txtNombre, "Ingrese el nombre de la Categoria");
             // 
@@ -84,7 +85,7 @@
             this.tabCategoria.Location = new System.Drawing.Point(4, 24);
             this.tabCategoria.Name = "tabCategoria";
             this.tabCategoria.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCategoria.Size = new System.Drawing.Size(476, 305);
+            this.tabCategoria.Size = new System.Drawing.Size(711, 305);
             this.tabCategoria.TabIndex = 1;
             this.tabCategoria.Text = "Nueva Categoria";
             this.tabCategoria.UseVisualStyleBackColor = true;
@@ -101,7 +102,7 @@
             // lblIdCategoria
             // 
             this.lblIdCategoria.AutoSize = true;
-            this.lblIdCategoria.Location = new System.Drawing.Point(11, 24);
+            this.lblIdCategoria.Location = new System.Drawing.Point(66, 24);
             this.lblIdCategoria.Name = "lblIdCategoria";
             this.lblIdCategoria.Size = new System.Drawing.Size(17, 15);
             this.lblIdCategoria.TabIndex = 41;
@@ -116,7 +117,7 @@
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEditar.Location = new System.Drawing.Point(217, 148);
+            this.btnEditar.Location = new System.Drawing.Point(348, 209);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(57, 53);
             this.btnEditar.TabIndex = 40;
@@ -133,7 +134,7 @@
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnNuevo.Location = new System.Drawing.Point(91, 148);
+            this.btnNuevo.Location = new System.Drawing.Point(222, 209);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(57, 53);
             this.btnNuevo.TabIndex = 39;
@@ -148,7 +149,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(274, 148);
+            this.btnCancelar.Location = new System.Drawing.Point(405, 209);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(64, 53);
             this.btnCancelar.TabIndex = 38;
@@ -164,7 +165,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(147, 148);
+            this.btnGuardar.Location = new System.Drawing.Point(278, 209);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(64, 53);
             this.btnGuardar.TabIndex = 37;
@@ -175,18 +176,18 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(97, 92);
+            this.txtDescripcion.Location = new System.Drawing.Point(164, 98);
             this.txtDescripcion.MaxLength = 255;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(247, 40);
+            this.txtDescripcion.Size = new System.Drawing.Size(426, 85);
             this.txtDescripcion.TabIndex = 34;
             this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(11, 95);
+            this.lblDescripcion.Location = new System.Drawing.Point(78, 101);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(72, 15);
             this.lblDescripcion.TabIndex = 36;
@@ -195,7 +196,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(11, 62);
+            this.lblNombre.Location = new System.Drawing.Point(98, 68);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(52, 15);
             this.lblNombre.TabIndex = 35;
@@ -203,53 +204,51 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblRegistros);
             this.tabPage1.Controls.Add(this.checkEliminar);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.btnImprimir);
             this.tabPage1.Controls.Add(this.txtBuscar);
             this.tabPage1.Controls.Add(this.btnEliminar);
             this.tabPage1.Controls.Add(this.DataListado);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(476, 305);
+            this.tabPage1.Size = new System.Drawing.Size(711, 305);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado     ";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // checkEliminar
+            // 
+            this.checkEliminar.AutoSize = true;
+            this.checkEliminar.Location = new System.Drawing.Point(8, 37);
+            this.checkEliminar.Name = "checkEliminar";
+            this.checkEliminar.Size = new System.Drawing.Size(72, 19);
+            this.checkEliminar.TabIndex = 38;
+            this.checkEliminar.Text = "Eliminar";
+            this.checkEliminar.UseVisualStyleBackColor = true;
+            this.checkEliminar.CheckedChanged += new System.EventHandler(this.checkEliminar_CheckedChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(90, 44);
+            this.label1.Location = new System.Drawing.Point(9, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 37;
             this.label1.Text = "Buscar...";
             // 
-            // btnImprimir
-            // 
-            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnImprimir.Location = new System.Drawing.Point(403, 24);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(67, 50);
-            this.btnImprimir.TabIndex = 35;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            // 
             // txtBuscar
             // 
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Location = new System.Drawing.Point(89, 42);
+            this.txtBuscar.Location = new System.Drawing.Point(7, 9);
             this.txtBuscar.Multiline = true;
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(214, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(290, 20);
             this.txtBuscar.TabIndex = 36;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.txtBuscar.Enter += new System.EventHandler(this.txtBuscar_Enter);
+            this.txtBuscar.Leave += new System.EventHandler(this.txtBuscar_Leave);
             // 
             // btnEliminar
             // 
@@ -258,7 +257,7 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(331, 24);
+            this.btnEliminar.Location = new System.Drawing.Point(639, 8);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(66, 50);
             this.btnEliminar.TabIndex = 34;
@@ -271,48 +270,37 @@
             // 
             this.DataListado.AllowUserToAddRows = false;
             this.DataListado.AllowUserToDeleteRows = false;
-            this.DataListado.AllowUserToOrderColumns = true;
+            this.DataListado.AllowUserToResizeColumns = false;
+            this.DataListado.AllowUserToResizeRows = false;
             this.DataListado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataListado.BackgroundColor = System.Drawing.Color.White;
-            this.DataListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.DataListado.ColumnHeadersHeight = 25;
+            this.DataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar1});
-            this.DataListado.GridColor = System.Drawing.Color.Black;
-            this.DataListado.Location = new System.Drawing.Point(6, 114);
+            this.DataListado.EnableHeadersVisualStyles = false;
+            this.DataListado.Location = new System.Drawing.Point(6, 77);
             this.DataListado.Name = "DataListado";
             this.DataListado.ReadOnly = true;
-            this.DataListado.Size = new System.Drawing.Size(464, 186);
+            this.DataListado.RowHeadersVisible = false;
+            this.DataListado.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataListado.Size = new System.Drawing.Size(699, 223);
             this.DataListado.TabIndex = 0;
             this.DataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataListado_CellContentClick);
             this.DataListado.DoubleClick += new System.EventHandler(this.DataListado_DoubleClick);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabCategoria);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(134, 57);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(484, 333);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(301, 9);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(120, 26);
-            this.lblTitulo.TabIndex = 2;
-            this.lblTitulo.Text = "Categorias";
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // Eliminar1
             // 
@@ -320,16 +308,40 @@
             this.Eliminar1.Name = "Eliminar1";
             this.Eliminar1.ReadOnly = true;
             // 
-            // checkEliminar
+            // tabControl1
             // 
-            this.checkEliminar.AutoSize = true;
-            this.checkEliminar.Location = new System.Drawing.Point(7, 89);
-            this.checkEliminar.Name = "checkEliminar";
-            this.checkEliminar.Size = new System.Drawing.Size(72, 19);
-            this.checkEliminar.TabIndex = 38;
-            this.checkEliminar.Text = "Eliminar";
-            this.checkEliminar.UseVisualStyleBackColor = true;
-            this.checkEliminar.CheckedChanged += new System.EventHandler(this.checkEliminar_CheckedChanged);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabCategoria);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(12, 57);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(719, 333);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Lucida Bright", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.Crimson;
+            this.lblTitulo.Location = new System.Drawing.Point(12, 19);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(155, 31);
+            this.lblTitulo.TabIndex = 2;
+            this.lblTitulo.Text = "Categorias";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // lblRegistros
+            // 
+            this.lblRegistros.AutoSize = true;
+            this.lblRegistros.Location = new System.Drawing.Point(314, 11);
+            this.lblRegistros.Name = "lblRegistros";
+            this.lblRegistros.Size = new System.Drawing.Size(14, 15);
+            this.lblRegistros.TabIndex = 39;
+            this.lblRegistros.Text = "a";
             // 
             // FormCategoria
             // 
@@ -372,12 +384,12 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView DataListado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkEliminar;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar1;
+        private System.Windows.Forms.Label lblRegistros;
     }
 }

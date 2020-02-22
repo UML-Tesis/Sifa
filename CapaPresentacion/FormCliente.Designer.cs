@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabcliente = new System.Windows.Forms.TabControl();
             this.tabnuevocliente = new System.Windows.Forms.TabPage();
+            this.lblBuscar = new System.Windows.Forms.Label();
             this.checkEliminar = new System.Windows.Forms.CheckBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
@@ -62,25 +63,27 @@
             this.lblprimerapellido = new System.Windows.Forms.Label();
             this.lblsegundonombre = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblBuscar = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabcliente.SuspendLayout();
             this.tabnuevocliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).BeginInit();
             this.tablista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabcliente
             // 
             this.tabcliente.Controls.Add(this.tabnuevocliente);
             this.tabcliente.Controls.Add(this.tablista);
-            this.tabcliente.Location = new System.Drawing.Point(12, 54);
+            this.tabcliente.Location = new System.Drawing.Point(12, 87);
             this.tabcliente.Name = "tabcliente";
             this.tabcliente.SelectedIndex = 0;
-            this.tabcliente.Size = new System.Drawing.Size(863, 443);
+            this.tabcliente.Size = new System.Drawing.Size(863, 437);
             this.tabcliente.TabIndex = 0;
             // 
             // tabnuevocliente
@@ -94,15 +97,24 @@
             this.tabnuevocliente.Location = new System.Drawing.Point(4, 22);
             this.tabnuevocliente.Name = "tabnuevocliente";
             this.tabnuevocliente.Padding = new System.Windows.Forms.Padding(3);
-            this.tabnuevocliente.Size = new System.Drawing.Size(855, 417);
+            this.tabnuevocliente.Size = new System.Drawing.Size(855, 411);
             this.tabnuevocliente.TabIndex = 0;
             this.tabnuevocliente.Text = "Nuevo cliente";
             this.tabnuevocliente.UseVisualStyleBackColor = true;
             // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Location = new System.Drawing.Point(459, 39);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(49, 13);
+            this.lblBuscar.TabIndex = 54;
+            this.lblBuscar.Text = "Buscar...";
+            // 
             // checkEliminar
             // 
             this.checkEliminar.AutoSize = true;
-            this.checkEliminar.Location = new System.Drawing.Point(7, 95);
+            this.checkEliminar.Location = new System.Drawing.Point(8, 40);
             this.checkEliminar.Name = "checkEliminar";
             this.checkEliminar.Size = new System.Drawing.Size(62, 17);
             this.checkEliminar.TabIndex = 53;
@@ -155,11 +167,13 @@
             // 
             this.DataListado.AllowUserToAddRows = false;
             this.DataListado.AllowUserToDeleteRows = false;
-            this.DataListado.AllowUserToOrderColumns = true;
-            this.DataListado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.DataListado.AllowUserToResizeColumns = false;
+            this.DataListado.AllowUserToResizeRows = false;
+            this.DataListado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataListado.BackgroundColor = System.Drawing.Color.White;
-            this.DataListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DataListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -179,12 +193,13 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataListado.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DataListado.Location = new System.Drawing.Point(6, 118);
+            this.DataListado.Location = new System.Drawing.Point(6, 70);
             this.DataListado.MultiSelect = false;
             this.DataListado.Name = "DataListado";
             this.DataListado.ReadOnly = true;
+            this.DataListado.RowHeadersVisible = false;
             this.DataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataListado.Size = new System.Drawing.Size(843, 281);
+            this.DataListado.Size = new System.Drawing.Size(843, 323);
             this.DataListado.TabIndex = 49;
             this.DataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataListado_CellContentClick);
             // 
@@ -440,37 +455,59 @@
             this.lblNombre.TabIndex = 91;
             this.lblNombre.Text = "Primer Nombre";
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(351, 9);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(94, 26);
-            this.lblTitulo.TabIndex = 56;
-            this.lblTitulo.Text = "Clientes";
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // lblBuscar
+            // panel1
             // 
-            this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Location = new System.Drawing.Point(459, 39);
-            this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(49, 13);
-            this.lblBuscar.TabIndex = 54;
-            this.lblBuscar.Text = "Buscar...";
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.btnCerrar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(904, 33);
+            this.panel1.TabIndex = 46;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.BackColor = System.Drawing.Color.Black;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(868, 1);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(33, 30);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.Text = "X";
+            this.ttmensaje.SetToolTip(this.btnCerrar, "Cerrar Ventana");
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lucida Bright", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Crimson;
+            this.label1.Location = new System.Drawing.Point(12, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 31);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Clientes";
             // 
             // FormCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(904, 528);
-            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tabcliente);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormCliente_Load);
@@ -481,6 +518,7 @@
             this.tablista.ResumeLayout(false);
             this.tablista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,7 +552,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.DataGridView DataListado;
-        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.ToolTip ttmensaje;
         private System.Windows.Forms.ErrorProvider errorProvider1;
@@ -522,5 +559,8 @@
         private System.Windows.Forms.CheckBox checkEliminar;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar1;
         private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label label1;
     }
 }

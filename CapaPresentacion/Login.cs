@@ -17,6 +17,8 @@ namespace SIFA
         public Login()
         {
             InitializeComponent();
+            this.ttmensaje.SetToolTip(this.txtUsuario, "Ingrese su nombre de usuario");
+            this.ttmensaje.SetToolTip(this.txtContraseña, "Ingrese su Contraseña");
         }
 
         //METODO PARA ARRASTRAR EL FORMULARIO

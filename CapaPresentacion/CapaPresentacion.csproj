@@ -195,6 +195,21 @@
     <Compile Include="Reportes\FormReporteProductos.Designer.cs">
       <DependentUpon>FormReporteProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="SIFADataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIFADataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SIFADataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIFADataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SIFADataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIFADataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +308,39 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SIFADataSet1.xsc">
+      <DependentUpon>SIFADataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SIFADataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SIFADataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SIFADataSet1.xss">
+      <DependentUpon>SIFADataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SIFADataSet2.xsc">
+      <DependentUpon>SIFADataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SIFADataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SIFADataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SIFADataSet2.xss">
+      <DependentUpon>SIFADataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SIFADataSet3.xsc">
+      <DependentUpon>SIFADataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="SIFADataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SIFADataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SIFADataSet3.xss">
+      <DependentUpon>SIFADataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup />

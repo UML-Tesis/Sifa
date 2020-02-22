@@ -92,7 +92,7 @@ namespace CapaPresentacion
             this.txtIdCompra.ReadOnly = !valor;
             this.txtFactura.ReadOnly = !valor;
             this.txtIva.ReadOnly = !valor;
-            this.dateTimePicker1.Enabled = valor;
+            this.dateTimePicker2.Enabled = valor;
             this.txtCorrelativo.ReadOnly = !valor;
             this.txtPrecio_Compra.ReadOnly = !valor;
             this.txtPrecio_Venta.ReadOnly = !valor;
@@ -130,6 +130,8 @@ namespace CapaPresentacion
         private void Mostrar()
         {
             this.DataListado.DataSource = NCompra.Mostrar();
+            DataListado.Columns[9].DefaultCellStyle.Format = "0.00";
+            DataListado.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             this.OcultarColumnas();
         }
 
@@ -329,11 +331,6 @@ namespace CapaPresentacion
             this.lblTotal.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Total"].Value);
             this.MostrarDetalle();
             this.tabCompra.SelectedIndex = 1;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.button1.Text = Convert.ToString(Id_Trabajador);
         }
 
         private void FormCompra_FormClosing(object sender, FormClosingEventArgs e)

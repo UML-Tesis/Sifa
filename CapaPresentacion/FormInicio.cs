@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocio;
 
 namespace CapaPresentacion
 {
@@ -16,6 +17,7 @@ namespace CapaPresentacion
         public string Nombre;
         public string Apellido;
         public string TipoAcceso;
+        int contar = 0;
 
         public Form1nicio()
         {
@@ -29,6 +31,11 @@ namespace CapaPresentacion
             {
                 this.gradientColor3.Enabled = false;
             }
+        }
+
+        private void Mostrar()
+        {
+            this.DataListado.DataSource = NDetalleCompra.MostrarBajoStock();
         }
 
         private void AbrirFormEnMDI<MiForm>() where MiForm : Form, new()
@@ -58,6 +65,7 @@ namespace CapaPresentacion
         private void gradientColor2_Click(object sender, EventArgs e)
         {
             Form Formulario;
+            int lx = 140, ly = 10;
             Formulario = ParentForm.MdiChildren.OfType<FormProducto>().FirstOrDefault();
             //Si el formulario no existe
             if (Formulario == null)
@@ -111,7 +119,16 @@ namespace CapaPresentacion
 
         private void Form1nicio_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'sIFADataSet1.spBajoStock' Puede moverla o quitarla según sea necesario.
+            this.spBajoStockTableAdapter1.Fill(this.sIFADataSet1.spBajoStock);
+            this.Mostrar();
+            timer1.Start();
+        }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.lblHora.Text = DateTime.Now.ToString("hh:mm:ss");
+            this.lblFecha.Text = DateTime.Now.ToLongDateString();
         }
     }
 }

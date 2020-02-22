@@ -214,7 +214,7 @@ namespace CapaPresentacion
                         this.txt1Nombre.Text.Trim().ToUpper(), this.txt2Nombre.Text.Trim().ToUpper(), txt1Apellido.Text.Trim().ToUpper(), txt2Apellido.Text.Trim().ToUpper(), txtCedula.Text.Trim().ToUpper(), txtDireccion.Text.Trim().ToUpper(), TxTsexo.Text, Convert.ToInt32(txtTelefono.Text));
                     }
 
-                    if (rpta.Equals("OK"))
+                    if (rpta.Equals("Ok"))
                     {
                         if (this.IsNuevo)
                         {
@@ -315,6 +315,11 @@ namespace CapaPresentacion
                 this.DataListado.Columns[0].Visible = false;
                 this.btnEliminar.Enabled = false;
             }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -26,12 +26,15 @@ namespace CapaPresentacion
         {
             this.DataListado.DataSource = NPresentacion.Mostrar();
             this.OcultarColumnas();
+            this.DiseñoColumnas();
+            lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
         }
 
         public void Buscar()
         {
             this.DataListado.DataSource = NPresentacion.Buscar(this.txtBuscar.Text);
             this.OcultarColumnas();
+            lblRegistros.Text = "Registros Encontrados : " + Convert.ToString(DataListado.Rows.Count);
         }
 
         private void Eliminar()
@@ -51,6 +54,13 @@ namespace CapaPresentacion
         {
             this.DataListado.Columns[0].Visible = false;
             this.DataListado.Columns[1].Visible = false;
+        }
+
+        private void DiseñoColumnas()
+        {
+            DataListado.Columns[0].Width = 65;
+            DataListado.Columns[2].Width = 200;
+            DataListado.Columns[3].Width = 415;
         }
 
         public void MensajeOK(string mensaje)
@@ -287,6 +297,18 @@ namespace CapaPresentacion
                 DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
                 chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
             }
+        }
+
+        private void txtBuscar_Enter(object sender, EventArgs e)
+        {
+            this.label1.Visible = false;
+            this.txtBuscar.Text = "";
+        }
+
+        private void txtBuscar_Leave(object sender, EventArgs e)
+        {
+            this.label1.Visible = true;
+            lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
         }
     }
 }

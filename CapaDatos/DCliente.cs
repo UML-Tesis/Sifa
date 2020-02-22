@@ -205,8 +205,9 @@ namespace CapaDatos
            }
            return Rpta;
         }
+
         public DataTable Mostrar()
-       {
+        {
            DataTable DtResultado = new DataTable("Cliente");
            SqlConnection SqlCon = new SqlConnection();
 
@@ -333,7 +334,7 @@ namespace CapaDatos
                parTelefono.Value = DCliente.Telefono;
                SqlCmd.Parameters.Add(parTelefono);
 
-               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Editado " : "No se edito";
+               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok " : "No se edito";
            }
            catch (Exception ex)
            {
@@ -375,6 +376,24 @@ namespace CapaDatos
                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
            }
            return Rpta;
+        }
+
+       public int Contar(int valor)
+       {
+           try
+           {
+               SqlCon.ConnectionString = Conexion.Cn;
+               SqlCommand SqlCmd = new SqlCommand();
+               SqlCmd.Connection = SqlCon;
+               SqlCmd.CommandText = "spContarClientes";
+               SqlCmd.CommandType = CommandType.StoredProcedure;
+               valor = (int)SqlCmd.ExecuteScalar();
+           }
+           catch (Exception ex)
+           {
+                
+           }
+           return valor;
        }
     }
 }

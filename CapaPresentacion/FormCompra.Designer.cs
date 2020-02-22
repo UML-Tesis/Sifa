@@ -42,6 +42,7 @@
             this.dtFecha1 = new System.Windows.Forms.DateTimePicker();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.DataListado = new System.Windows.Forms.DataGridView();
+            this.Eliminar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tablista = new System.Windows.Forms.TabPage();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtPrecio_Venta = new System.Windows.Forms.TextBox();
             this.txtPrecio_Compra = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnProducto = new System.Windows.Forms.Button();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
@@ -75,30 +75,37 @@
             this.txtIdProveedor = new System.Windows.Forms.TextBox();
             this.txtNombreProveedor = new System.Windows.Forms.TextBox();
             this.lblCategoria = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Eliminar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.tabCompra.SuspendLayout();
             this.tabnuevacopra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).BeginInit();
             this.tablista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoDetalles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCompra
             // 
+            this.tabCompra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tabCompra.Controls.Add(this.tabnuevacopra);
             this.tabCompra.Controls.Add(this.tablista);
-            this.tabCompra.Location = new System.Drawing.Point(12, 28);
+            this.tabCompra.Location = new System.Drawing.Point(12, 95);
             this.tabCompra.Name = "tabCompra";
             this.tabCompra.SelectedIndex = 0;
-            this.tabCompra.Size = new System.Drawing.Size(847, 580);
+            this.tabCompra.Size = new System.Drawing.Size(847, 588);
             this.tabCompra.TabIndex = 0;
             // 
             // tabnuevacopra
             // 
+            this.tabnuevacopra.BackColor = System.Drawing.Color.White;
+            this.tabnuevacopra.Controls.Add(this.label13);
             this.tabnuevacopra.Controls.Add(this.label2);
             this.tabnuevacopra.Controls.Add(this.label1);
             this.tabnuevacopra.Controls.Add(this.btnAnular);
@@ -111,15 +118,14 @@
             this.tabnuevacopra.Location = new System.Drawing.Point(4, 22);
             this.tabnuevacopra.Name = "tabnuevacopra";
             this.tabnuevacopra.Padding = new System.Windows.Forms.Padding(3);
-            this.tabnuevacopra.Size = new System.Drawing.Size(839, 554);
+            this.tabnuevacopra.Size = new System.Drawing.Size(839, 562);
             this.tabnuevacopra.TabIndex = 0;
-            this.tabnuevacopra.Text = "Compras";
-            this.tabnuevacopra.UseVisualStyleBackColor = true;
+            this.tabnuevacopra.Text = "Listado                         ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 30);
+            this.label2.Location = new System.Drawing.Point(467, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 75;
@@ -128,7 +134,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 30);
+            this.label1.Location = new System.Drawing.Point(272, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 74;
@@ -142,7 +148,7 @@
             this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnular.Image = ((System.Drawing.Image)(resources.GetObject("btnAnular.Image")));
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAnular.Location = new System.Drawing.Point(700, 83);
+            this.btnAnular.Location = new System.Drawing.Point(700, 16);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(65, 50);
             this.btnAnular.TabIndex = 73;
@@ -154,7 +160,7 @@
             // checkAnular
             // 
             this.checkAnular.AutoSize = true;
-            this.checkAnular.Location = new System.Drawing.Point(6, 116);
+            this.checkAnular.Location = new System.Drawing.Point(8, 49);
             this.checkAnular.Name = "checkAnular";
             this.checkAnular.Size = new System.Drawing.Size(56, 17);
             this.checkAnular.TabIndex = 72;
@@ -164,7 +170,7 @@
             // 
             // btnBuscarXFecha
             // 
-            this.btnBuscarXFecha.Location = new System.Drawing.Point(285, 57);
+            this.btnBuscarXFecha.Location = new System.Drawing.Point(636, 42);
             this.btnBuscarXFecha.Name = "btnBuscarXFecha";
             this.btnBuscarXFecha.Size = new System.Drawing.Size(29, 20);
             this.btnBuscarXFecha.TabIndex = 71;
@@ -176,7 +182,7 @@
             // 
             this.dtFecha2.CustomFormat = "dd/MM/yyyy";
             this.dtFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFecha2.Location = new System.Drawing.Point(164, 57);
+            this.dtFecha2.Location = new System.Drawing.Point(515, 42);
             this.dtFecha2.Name = "dtFecha2";
             this.dtFecha2.Size = new System.Drawing.Size(101, 20);
             this.dtFecha2.TabIndex = 70;
@@ -186,7 +192,7 @@
             // 
             this.dtFecha1.CustomFormat = "dd/MM/yyyy";
             this.dtFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFecha1.Location = new System.Drawing.Point(24, 57);
+            this.dtFecha1.Location = new System.Drawing.Point(332, 42);
             this.dtFecha1.Name = "dtFecha1";
             this.dtFecha1.Size = new System.Drawing.Size(101, 20);
             this.dtFecha1.TabIndex = 69;
@@ -200,7 +206,7 @@
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnImprimir.Location = new System.Drawing.Point(771, 83);
+            this.btnImprimir.Location = new System.Drawing.Point(771, 16);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(61, 50);
             this.btnImprimir.TabIndex = 41;
@@ -212,14 +218,16 @@
             // 
             this.DataListado.AllowUserToAddRows = false;
             this.DataListado.AllowUserToDeleteRows = false;
-            this.DataListado.AllowUserToOrderColumns = true;
+            this.DataListado.AllowUserToResizeColumns = false;
+            this.DataListado.AllowUserToResizeRows = false;
             this.DataListado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataListado.BackgroundColor = System.Drawing.Color.White;
+            this.DataListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -229,15 +237,24 @@
             this.DataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar1});
             this.DataListado.GridColor = System.Drawing.Color.Black;
-            this.DataListado.Location = new System.Drawing.Point(6, 150);
+            this.DataListado.Location = new System.Drawing.Point(6, 86);
             this.DataListado.Name = "DataListado";
             this.DataListado.ReadOnly = true;
+            this.DataListado.RowHeadersVisible = false;
             this.DataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataListado.ShowEditingIcon = false;
-            this.DataListado.Size = new System.Drawing.Size(826, 394);
+            this.DataListado.Size = new System.Drawing.Size(826, 466);
             this.DataListado.TabIndex = 40;
             this.DataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataListado_CellContentClick);
             this.DataListado.DoubleClick += new System.EventHandler(this.DataListado_DoubleClick);
+            // 
+            // Eliminar1
+            // 
+            this.Eliminar1.HeaderText = "Eliminar";
+            this.Eliminar1.Name = "Eliminar1";
+            this.Eliminar1.ReadOnly = true;
+            this.Eliminar1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // tablista
             // 
@@ -264,7 +281,6 @@
             this.tablista.Controls.Add(this.label4);
             this.tablista.Controls.Add(this.txtPrecio_Venta);
             this.tablista.Controls.Add(this.txtPrecio_Compra);
-            this.tablista.Controls.Add(this.dateTimePicker1);
             this.tablista.Controls.Add(this.btnProducto);
             this.tablista.Controls.Add(this.txtIdProducto);
             this.tablista.Controls.Add(this.txtNombreProducto);
@@ -276,9 +292,9 @@
             this.tablista.Location = new System.Drawing.Point(4, 22);
             this.tablista.Name = "tablista";
             this.tablista.Padding = new System.Windows.Forms.Padding(3);
-            this.tablista.Size = new System.Drawing.Size(839, 554);
+            this.tablista.Size = new System.Drawing.Size(839, 562);
             this.tablista.TabIndex = 1;
-            this.tablista.Text = "Insertar Ventas";
+            this.tablista.Text = "Ingresar Compras            ";
             this.tablista.UseVisualStyleBackColor = true;
             // 
             // btnQuitar
@@ -499,15 +515,6 @@
             this.txtPrecio_Compra.Size = new System.Drawing.Size(138, 20);
             this.txtPrecio_Compra.TabIndex = 81;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 15);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(104, 20);
-            this.dateTimePicker1.TabIndex = 80;
-            this.dateTimePicker1.Visible = false;
-            // 
             // btnProducto
             // 
             this.btnProducto.Location = new System.Drawing.Point(682, 64);
@@ -580,35 +587,68 @@
             this.lblCategoria.TabIndex = 72;
             this.lblCategoria.Text = "Proveedor";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(312, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 24);
-            this.button1.TabIndex = 104;
-            this.button1.Text = "Gua";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // Eliminar1
+            // panel1
             // 
-            this.Eliminar1.HeaderText = "Eliminar";
-            this.Eliminar1.Name = "Eliminar1";
-            this.Eliminar1.ReadOnly = true;
-            this.Eliminar1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Eliminar1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.btnCerrar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(871, 33);
+            this.panel1.TabIndex = 46;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.BackColor = System.Drawing.Color.Black;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(835, 1);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(33, 30);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.Text = "X";
+            this.ttmensaje.SetToolTip(this.btnCerrar, "Cerrar Ventana");
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Lucida Bright", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Crimson;
+            this.label12.Location = new System.Drawing.Point(12, 45);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(134, 31);
+            this.label12.TabIndex = 45;
+            this.label12.Text = "Compras";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(377, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(186, 15);
+            this.label13.TabIndex = 76;
+            this.label13.Text = "Buscar compras por fechas";
             // 
             // FormCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 638);
-            this.Controls.Add(this.button1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(871, 695);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.tabCompra);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCompra";
             this.Text = "Compra";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCompra_FormClosing);
@@ -621,7 +661,9 @@
             this.tablista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoDetalles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -647,7 +689,6 @@
         private System.Windows.Forms.TextBox txtIdProveedor;
         private System.Windows.Forms.TextBox txtNombreProveedor;
         private System.Windows.Forms.Label lblCategoria;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label5;
@@ -673,7 +714,10 @@
         private System.Windows.Forms.TextBox txtIdCompra;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnQuitar;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label label12;
     }
 }
