@@ -74,7 +74,7 @@ namespace CapaPresentacion
             this.txtFactura.Text = string.Empty;
             this.txtIva.Text = string.Empty;
             this.txtCorrelativo.Text = string.Empty;
-            this.lblTotal.Text = "0,0";
+            this.lblTotal.Text = "C$ 0.00";
             this.CrearTabla();
         }
 
@@ -124,20 +124,31 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
             this.DataListado.Columns[0].Visible = false;
-            this.DataListado.Columns[1].Visible = false;
+        }
+
+        private void DiseñoColumnas()
+        {
+            DataListado.Columns[9].DefaultCellStyle.Format = "C$ 0.00";
+            DataListado.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            DataListado.Columns[0].Width = 60;
+            DataListado.Columns[2].Width = 200;
+            DataListado.Columns[3].Width = 200;
+            DataListado.Columns[3].Width = 120;
+            DataListado.Columns[5].Width = 120;
+            DataListado.Columns[6].Width = 80;
         }
 
         private void Mostrar()
         {
             this.DataListado.DataSource = NCompra.Mostrar();
-            DataListado.Columns[9].DefaultCellStyle.Format = "0.00";
-            DataListado.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             this.OcultarColumnas();
+            this.DiseñoColumnas();
         }
 
         private void Anular()
         {
             this.checkAnular.Checked = false;
+            this.btnAnular.Enabled = false;
         }
 
         public void MostrarDetalle()
@@ -162,6 +173,20 @@ namespace CapaPresentacion
             this.dtDetalles.Columns.Add("SubTotal", System.Type.GetType("System.Decimal"));
             //Relacionar nuestro DataGridView con nuestro DataTable
             this.dataListadoDetalles.DataSource = this.dtDetalles;
+            this.dataListadoDetalles.Columns["Producto"].Width = 160;
+            this.dataListadoDetalles.Columns["Precio_Compra"].Width = 120;
+            this.dataListadoDetalles.Columns["Precio_Venta"].Width = 120;
+            this.dataListadoDetalles.Columns["SubTotal"].Width = 120;
+            this.dataListadoDetalles.Columns["Precio_Compra"].HeaderText = "Precio de Compra";
+            this.dataListadoDetalles.Columns["Precio_Venta"].HeaderText = "Precio de Venta";
+            this.dataListadoDetalles.Columns["Stock_Inicial"].HeaderText = "Cantidad";
+            this.dataListadoDetalles.Columns["Precio_Compra"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dataListadoDetalles.Columns["Precio_Venta"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dataListadoDetalles.Columns["Stock_Inicial"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dataListadoDetalles.Columns["Precio_Compra"].DefaultCellStyle.Format = "C$ 0.00";
+            this.dataListadoDetalles.Columns["Precio_Venta"].DefaultCellStyle.Format = "C$ 0.00";
+            this.dataListadoDetalles.Columns["SubTotal"].DefaultCellStyle.Format = "C$ 0.00";
+            this.dataListadoDetalles.Columns["Stock_Inicial"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void btnProveedor_Click(object sender, EventArgs e)
@@ -281,7 +306,7 @@ namespace CapaPresentacion
                     {
                         decimal subTotal = Convert.ToDecimal(this.txtCantidad.Text) * Convert.ToDecimal(this.txtPrecio_Compra.Text);
                         TotalPagado = TotalPagado + subTotal;
-                        this.lblTotal.Text = TotalPagado.ToString("#0.00#");
+                        this.lblTotal.Text = TotalPagado.ToString("#C$ 0.00#");
                         //Agregar el detalle al datalistadoDetalle
                         DataRow row = this.dtDetalles.NewRow();
                         row["Id_Producto"] = Convert.ToInt32(this.txtIdProducto.Text);
@@ -310,7 +335,7 @@ namespace CapaPresentacion
                 DataRow row = this.dtDetalles.Rows[indiceFila];
                 //Disminuir el total pagado
                 this.TotalPagado = this.TotalPagado - Convert.ToDecimal(row["SubTotal"].ToString());
-                this.lblTotal.Text = TotalPagado.ToString("#0.00#");
+                this.lblTotal.Text = TotalPagado.ToString("#C$ 0.00#");
                 //Removemos la fila
                 this.dtDetalles.Rows.Remove(row);
             }
@@ -328,7 +353,7 @@ namespace CapaPresentacion
             this.txtFactura.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Cod_Factura"].Value);
             this.txtIva.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Iva"].Value);
             this.txtCorrelativo.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Correlativo"].Value);
-            this.lblTotal.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Total"].Value);
+            this.lblTotal.Text = "C$ " + Convert.ToString(this.DataListado.CurrentRow.Cells["Total"].Value) + ".00";
             this.MostrarDetalle();
             this.tabCompra.SelectedIndex = 1;
         }
@@ -399,11 +424,11 @@ namespace CapaPresentacion
 
         private void DataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
-            {
-                DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
-                chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
-            }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

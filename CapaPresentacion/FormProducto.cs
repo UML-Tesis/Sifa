@@ -42,8 +42,9 @@ namespace CapaPresentacion
         private void Mostrar()
         {
             this.DataListado.DataSource = NProducto.Mostrar();
-            this.DiseñoColumnas();
             this.OcultarColumnas();
+            this.DiseñoColumnas();
+            this.Eliminar();
             lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
         }
 
@@ -51,6 +52,7 @@ namespace CapaPresentacion
         {
             this.DataListado.DataSource = NProducto.Buscar(this.txtBuscar.Text);
             this.OcultarColumnas();
+            this.DiseñoColumnas();
             lblRegistros.Text = "Registros Encontrados : " + Convert.ToString(DataListado.Rows.Count);
         }
 
@@ -116,7 +118,7 @@ namespace CapaPresentacion
         // Metodo para Ocultar Columnas
         private void OcultarColumnas()
         {
-            this.DataListado.Columns[0].Visible = false; 
+            this.DataListado.Columns[0].Visible = false;
             this.DataListado.Columns[1].Visible = false;
             this.DataListado.Columns[5].Visible = false;
             this.DataListado.Columns[8].Visible = false;
@@ -128,6 +130,7 @@ namespace CapaPresentacion
             this.Habilitar(false);
             this.Botones();
             this.Eliminar();
+            this.DataListado.ClearSelection();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -190,7 +193,7 @@ namespace CapaPresentacion
             else
             {
                 MessageBox.Show("Selccione una Categoria de la lista");
-            }       
+            }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -228,6 +231,8 @@ namespace CapaPresentacion
             this.cbPresentacion.SelectedValue = Convert.ToString(this.DataListado.CurrentRow.Cells["Id_Presentacion"].Value);
             this.txtMedida.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Medida"].Value);
             this.tabproducto.SelectedIndex = 1;
+            this.Mostrar();
+            this.Eliminar();
         }
 
           #region Eventos de Diseño
@@ -278,75 +283,102 @@ namespace CapaPresentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (DataListado.SelectedRows.Count == 0)
+            try
             {
-                MensajeError("Seleccione una columna");
-            }
-            else
-            {
-                try
+                DialogResult opcion;
+                opcion = MessageBox.Show("¿Desea eliminar el producto seleccionado?", "Inventario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (opcion == DialogResult.OK)
                 {
-                    DialogResult opcion;
-                    opcion = MessageBox.Show("¿Desea eliminar el producto seleccionado?", "Inventario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    string Codigo = "";
+                    string rpta = "";
 
-                    if (opcion == DialogResult.OK)
+                    foreach (DataGridViewRow row in DataListado.Rows)
                     {
-                        string Codigo = "";
-                        string rpta = "";
-
-                        foreach (DataGridViewRow row in DataListado.Rows)
+                        if (Convert.ToBoolean(row.Cells[0].Value))
                         {
-                            if (Convert.ToBoolean(row.Cells[0].Value))
-                            {
-                                Codigo = Convert.ToString(row.Cells[1].Value);
-                                rpta = NProducto.Eliminar(Convert.ToInt32(Codigo));
-                            }
+                            Codigo = Convert.ToString(row.Cells[1].Value);
+                            rpta = NProducto.Eliminar(Convert.ToInt32(Codigo));
                         }
-                        if (rpta.Equals("Ok"))
-                        {
-                            this.MensajeOK("Eliminado");
-                        }
-                        else
-                        {
-                            this.MensajeError(rpta);
-                        }
+                    }
+                    if (rpta.Equals("Ok"))
+                    {
+                        this.MensajeOK("Eliminado");
                         this.Mostrar();
                         this.Eliminar();
                     }
+                    else
+                    {
+                        this.MensajeError("No hay registros seleccionados");
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message + ex.StackTrace);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
 
         private void checkEliminar_CheckedChanged(object sender, EventArgs e)
         {
+            DataListado.EndEdit();
             if (checkEliminar.Checked)
             {
-                this.DataListado.Columns[0].Visible = true;
                 this.btnEliminar.Enabled = true;
+                this.DataListado.Columns[0].Visible = true;
             }
             else
             {
-                this.DataListado.Columns[0].Visible = false;
                 this.btnEliminar.Enabled = false;
+                this.DataListado.Columns[0].Visible = false;
+                this.DataListado.Rows[0].Cells["Eliminar1"].Selected = false;
+                foreach (DataGridViewRow row in DataListado.Rows)
+                {
+                    DataGridViewCheckBoxCell checkBox = (row.Cells["Eliminar1"] as DataGridViewCheckBoxCell);
+                    checkBox.Value = checkEliminar.Checked;
+                    row.Selected = false;
+                    row.DefaultCellStyle.BackColor = Color.White;
+                }
             }
         }
 
         private void DataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
-            {
-                DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
-                chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
-            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void DataListado_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow[] old;
+            old = new DataGridViewRow[DataListado.SelectedRows.Count];
+            DataListado.SelectedRows.CopyTo(old, 0);
+            DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
+            
+            foreach (DataGridViewRow row in old)
+            {
+                {
+                    if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
+                    {
+                        chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
+                        if (Convert.ToBoolean(chckEliminar.Value))
+                        {
+                            row.Selected = true;
+                            row.DefaultCellStyle.BackColor = Color.FromName("Highlight");
+                            row.DefaultCellStyle.SelectionBackColor = Color.FromName("Highlight");
+                        }
+                        else
+                        {
+                            row.Selected = false;
+                            row.DefaultCellStyle.BackColor = Color.White;
+                        }
+                    }
+                }
+            }
         }
     }
 }

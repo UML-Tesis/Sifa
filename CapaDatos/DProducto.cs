@@ -312,7 +312,6 @@ namespace CapaDatos
                 SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
                 SqlDat.Fill(DtResultado);
             }
-
             catch (Exception ex)
             {
                 DtResultado = null;

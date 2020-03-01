@@ -18,16 +18,9 @@ namespace CapaPresentacion.Consultas
             InitializeComponent();
         }
 
-        // Metodo para Ocultar Columnas
-        private void OcultarColumnas()
-        {
-            this.DataListado.Columns[0].Visible = false;
-        }
-
         private void Mostrar()
         {
             this.DataListado.DataSource = NProducto.Stock_Producto();
-            this.OcultarColumnas();
             lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
         }
 

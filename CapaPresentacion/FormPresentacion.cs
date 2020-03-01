@@ -27,6 +27,7 @@ namespace CapaPresentacion
             this.DataListado.DataSource = NPresentacion.Mostrar();
             this.OcultarColumnas();
             this.DiseñoColumnas();
+            this.DataListado.ClearSelection();
             lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
         }
 
@@ -40,6 +41,7 @@ namespace CapaPresentacion
         private void Eliminar()
         {
             this.checkEliminar.Checked = false;
+            this.btnEliminar.Enabled = false;
         }
 
         private void FormPresentacion_Load(object sender, EventArgs e)
@@ -70,7 +72,7 @@ namespace CapaPresentacion
 
         public void MensajeError(string mensaje) 
         {
-            MessageBox.Show(mensaje, "Sistema de inventario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Sistema de inventario", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void Limpiar() 
@@ -139,7 +141,7 @@ namespace CapaPresentacion
                         this.txtNombre.Text.Trim().ToUpper(), this.txtDescripcion.Text.Trim().ToUpper());
                     }
 
-                    if (rpta.Equals("OK"))
+                    if (rpta.Equals("Ok"))
                     {
                         if (this.IsNuevo)
                         {
@@ -190,6 +192,8 @@ namespace CapaPresentacion
             this.txtNombre.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Nombre"].Value);
             this.txtDescripcion.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Descripcion"].Value);
             this.tabPresentacion.SelectedIndex = 1;
+            this.Mostrar();
+            this.Eliminar();
         }
 
         private void btnEditar_Click_1(object sender, EventArgs e)
@@ -259,14 +263,14 @@ namespace CapaPresentacion
                         }
                         if (rpta.Equals("Ok"))
                         {
-                            this.MensajeOK("Eliminado");
+                            this.MensajeOK("Eliminado Correctamente");
+                            this.Mostrar();
+                            this.Eliminar();
                         }
                         else
                         {
-                            this.MensajeError(rpta);
+                            this.MensajeError("Error al eliminar el registro");
                         }
-                        this.Mostrar();
-                        this.Eliminar();
                     }
                 }
                 catch (Exception ex)
@@ -278,25 +282,29 @@ namespace CapaPresentacion
 
         private void checkEliminar_CheckedChanged(object sender, EventArgs e)
         {
+            DataListado.EndEdit();
             if (checkEliminar.Checked)
             {
-                this.DataListado.Columns[0].Visible = true;
                 this.btnEliminar.Enabled = true;
+                this.DataListado.Columns[0].Visible = true;
             }
             else
             {
-                this.DataListado.Columns[0].Visible = false;
                 this.btnEliminar.Enabled = false;
+                this.DataListado.Columns[0].Visible = false;
+                this.DataListado.Rows[0].Cells["Eliminar1"].Selected = false;
+                foreach (DataGridViewRow row in DataListado.Rows)
+                {
+                    DataGridViewCheckBoxCell checkBox = (row.Cells["Eliminar1"] as DataGridViewCheckBoxCell);
+                    checkBox.Value = checkEliminar.Checked;
+                    row.Selected = false;
+                    row.DefaultCellStyle.BackColor = Color.White;
+                }
             }
         }
 
         private void DataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
-            {
-                DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
-                chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
-            }
         }
 
         private void txtBuscar_Enter(object sender, EventArgs e)
@@ -309,6 +317,35 @@ namespace CapaPresentacion
         {
             this.label1.Visible = true;
             lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
+        }
+
+        private void DataListado_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow[] old;
+            old = new DataGridViewRow[DataListado.SelectedRows.Count];
+            DataListado.SelectedRows.CopyTo(old, 0);
+            DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
+
+            foreach (DataGridViewRow row in old)
+            {
+                {
+                    if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
+                    {
+                        chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
+                        if (Convert.ToBoolean(chckEliminar.Value))
+                        {
+                            row.Selected = true;
+                            row.DefaultCellStyle.BackColor = Color.FromName("Highlight");
+                            row.DefaultCellStyle.SelectionBackColor = Color.FromName("Highlight");
+                        }
+                        else
+                        {
+                            row.Selected = false;
+                            row.DefaultCellStyle.BackColor = Color.White;
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -22,6 +22,7 @@ namespace CapaPresentacion
         public Form1nicio()
         {
             InitializeComponent();
+            LimpiarSeleccion();
         }
         
         private void GestionUsuarios()
@@ -129,6 +130,17 @@ namespace CapaPresentacion
         {
             this.lblHora.Text = DateTime.Now.ToString("hh:mm:ss");
             this.lblFecha.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void Form1nicio_Shown(object sender, EventArgs e)
+        {
+            this.DataListado.Enabled = false;
+            this.LimpiarSeleccion();
+        }
+
+        private void LimpiarSeleccion()
+        {
+            this.DataListado.EndEdit();
         }
     }
 }

@@ -11,18 +11,17 @@ namespace CapaDatos
     public class DProveedor
     {
         private int _Id_Proveedor;
-        private string _Primer_Nombre;
-        private string Segundo_Nombre;
-        private string Primer_Apellido;
-        private string Segundo_Apellido;
-        private int Telefono;
-        private string Tipo_Documento;
-        private string Sector_Comercial;
-        private string Empresa;
-        private string Direccion;
-        private string Correo;
-        private string RUC;
-        private string Textobuscar;
+        private string _Empresa;
+        private string _ContactoNombre;
+        private string _ContactoApellido;
+        private int _Telefono;
+        private int _Telefono2;
+        private string _Tipo_Documento;
+        private string _Sector_Comercial;
+        private string _Direccion;
+        private string _Correo;
+        private string _Documento;
+        private string _Textobuscar;
         SqlCommand SqlCmd = new SqlCommand();
         SqlConnection SqlCon = new SqlConnection();
 
@@ -32,83 +31,78 @@ namespace CapaDatos
             set { _Id_Proveedor = value; }
         }
 
-        public string Primer_Nombre
+        public string Empresa
         {
-            get { return _Primer_Nombre; }
-            set { _Primer_Nombre = value; }
+            get { return _Empresa; }
+            set { _Empresa = value; }
         }
-        public string Segundo_Nombre1
+        public string ContactoNombre
         {
-            get { return Segundo_Nombre; }
-            set { Segundo_Nombre = value; }
+            get { return _ContactoNombre; }
+            set { _ContactoNombre = value; }
         }
-        public string Primer_Apellido1
+        public string ContactoApellido
         {
-            get { return Primer_Apellido; }
-            set { Primer_Apellido = value; }
+            get { return _ContactoApellido; }
+            set { _ContactoApellido = value; }
         }
-        public string Segundo_Apellido1
+
+        public int Telefono
         {
-            get { return Segundo_Apellido; }
-            set { Segundo_Apellido = value; }
+            get { return _Telefono; }
+            set { _Telefono = value; }
         }
-        public int Telefono1
+        public int Telefono2
         {
-            get { return Telefono; }
-            set { Telefono = value; }
+            get { return _Telefono2; }
+            set { _Telefono2 = value; }
         }
-        public string Tipo_Documento1
+        public string Tipo_Documento
         {
-            get { return Tipo_Documento; }
-            set { Tipo_Documento = value; }
+            get { return _Tipo_Documento; }
+            set { _Tipo_Documento = value; }
         }
-        public string Sector_Comercial1
+        public string Sector_Comercial
         {
-            get { return Sector_Comercial; }
-            set { Sector_Comercial = value; }
+            get { return _Sector_Comercial; }
+            set { _Sector_Comercial = value; }
         }
-        public string Empresa1
+        public string Direccion
         {
-            get { return Empresa; }
-            set { Empresa = value; }
+            get { return _Direccion; }
+            set { _Direccion = value; }
         }
-        public string Direccion1
+        public string Correo
         {
-            get { return Direccion; }
-            set { Direccion = value; }
+            get { return _Correo; }
+            set { _Correo = value; }
         }
-        public string Correo1
+        public string Documento
         {
-            get { return Correo; }
-            set { Correo = value; }
+            get { return _Documento; }
+            set { _Documento = value; }
         }
-        public string RUC1
+        public string Textobuscar
         {
-            get { return RUC; }
-            set { RUC = value; }
-        }
-        public string Textobuscar1
-        {
-            get { return Textobuscar; }
-            set { Textobuscar = value; }
+            get { return _Textobuscar; }
+            set { _Textobuscar = value; }
         }
 
         public DProveedor (){
          }
-        public DProveedor(int idproveedor, string primer_nombre, string segundo_nombre, string primer_apellido, string segundo_apellido,   int telefono, 
-            string tipo_documento, string sector_comercial,string empresa, string direccion, string correo, string ruc) {
+        public DProveedor(int idproveedor, string empresa, string contacto_nombre, string contacto_apellido, int telefono,   int telefono2, 
+            string tipo_documento, string sector_comercial, string direccion, string correo, string doc) {
             this._Id_Proveedor = idproveedor;
-            this._Primer_Nombre = primer_nombre;
-            this.Segundo_Nombre = segundo_nombre;
-            this.Primer_Apellido = primer_apellido;
-            this.Segundo_Apellido = segundo_apellido;
-            this.Telefono = telefono;
-            this.Tipo_Documento = tipo_documento;
-            this.Sector_Comercial = sector_comercial;
-            this.Empresa = empresa;
-            this.Direccion = direccion;
-            this.Correo = correo;
-            this.RUC = ruc;
+            this._Empresa = empresa;
+            this._ContactoNombre = contacto_nombre;
+            this._ContactoApellido = contacto_apellido;
+            this._Telefono = telefono;
+            this._Telefono2 = telefono2;
+            this._Tipo_Documento = tipo_documento;
+            this._Sector_Comercial = sector_comercial;
+            this._Direccion = direccion;
+            this._Correo = correo;
+            this._Documento = doc;
            
        }
 
@@ -130,39 +124,39 @@ namespace CapaDatos
                 parId_Proveedor.Direction = ParameterDirection.Output;
                 SqlCmd.Parameters.Add(parId_Proveedor);
 
-                SqlParameter parPrimer_Nombre = new SqlParameter();
-                parPrimer_Nombre.ParameterName = "@Primer_Nombre";
-                parPrimer_Nombre.SqlDbType = SqlDbType.VarChar;
-                parPrimer_Nombre.Size = 50;
-                parPrimer_Nombre.Value = Proveedor._Primer_Nombre;
-                SqlCmd.Parameters.Add(parPrimer_Nombre);
+                SqlParameter parEmpresa = new SqlParameter();
+                parEmpresa.ParameterName = "@Empresa";
+                parEmpresa.SqlDbType = SqlDbType.VarChar;
+                parEmpresa.Size = 50;
+                parEmpresa.Value = Proveedor.Empresa;
+                SqlCmd.Parameters.Add(parEmpresa);
 
-                SqlParameter parSegundo_Nombre = new SqlParameter();
-                parSegundo_Nombre.ParameterName = "@Segundo_Nombre";
-                parSegundo_Nombre.SqlDbType = SqlDbType.VarChar;
-                parSegundo_Nombre.Size = 50;
-                parSegundo_Nombre.Value = Proveedor.Segundo_Nombre;
-                SqlCmd.Parameters.Add(parSegundo_Nombre);
+                SqlParameter parContactoNombre = new SqlParameter();
+                parContactoNombre.ParameterName = "@ContactoNombre";
+                parContactoNombre.SqlDbType = SqlDbType.VarChar;
+                parContactoNombre.Size = 50;
+                parContactoNombre.Value = Proveedor.ContactoNombre;
+                SqlCmd.Parameters.Add(parContactoNombre);
 
-                SqlParameter parPrimer_Apellido = new SqlParameter();
-                parPrimer_Apellido.ParameterName = "@Primer_Apellido";
-                parPrimer_Apellido.SqlDbType = SqlDbType.VarChar;
-                parPrimer_Apellido.Size = 50;
-                parPrimer_Apellido.Value = Proveedor.Primer_Apellido;
-                SqlCmd.Parameters.Add(parPrimer_Apellido);
-
-                SqlParameter parSegundo_Apellido = new SqlParameter();
-                parSegundo_Apellido.ParameterName = "@Segundo_Apellido";
-                parSegundo_Apellido.SqlDbType = SqlDbType.VarChar;
-                parSegundo_Apellido.Size = 50;
-                parSegundo_Apellido.Value = Proveedor.Segundo_Apellido;
-                SqlCmd.Parameters.Add(parSegundo_Apellido);
+                SqlParameter parContactoApellido = new SqlParameter();
+                parContactoApellido.ParameterName = "@ContactoApellido";
+                parContactoApellido.SqlDbType = SqlDbType.VarChar;
+                parContactoApellido.Size = 50;
+                parContactoApellido.Value = Proveedor.ContactoApellido;
+                SqlCmd.Parameters.Add(parContactoApellido);
 
                 SqlParameter parTelefono = new SqlParameter();
                 parTelefono.ParameterName = "@Telefono";
-                parTelefono.SqlDbType = SqlDbType.Int;
+                parTelefono.SqlDbType = SqlDbType.VarChar;
+                parTelefono.Size = 50;
                 parTelefono.Value = Proveedor.Telefono;
                 SqlCmd.Parameters.Add(parTelefono);
+
+                SqlParameter parTelefono2 = new SqlParameter();
+                parTelefono2.ParameterName = "@Telefono2";
+                parTelefono2.SqlDbType = SqlDbType.Int;
+                parTelefono2.Value = Proveedor.Telefono2;
+                SqlCmd.Parameters.Add(parTelefono2);
 
                 SqlParameter parTipo_Documento = new SqlParameter();
                 parTipo_Documento.ParameterName = "@Tipo_Documento";
@@ -178,13 +172,6 @@ namespace CapaDatos
                 parSector_Comercial.Value = Proveedor.Sector_Comercial;
                 SqlCmd.Parameters.Add(parSector_Comercial);
 
-                SqlParameter parEmpresa = new SqlParameter();
-                parEmpresa.ParameterName = "@Empresa";
-                parEmpresa.SqlDbType = SqlDbType.VarChar;
-                parEmpresa.Size = 50;
-                parEmpresa.Value = Proveedor.Empresa;
-                SqlCmd.Parameters.Add(parEmpresa);
-
                 SqlParameter parDireccion = new SqlParameter();
                 parDireccion.ParameterName = "@Direccion";
                 parDireccion.SqlDbType = SqlDbType.VarChar;
@@ -199,16 +186,14 @@ namespace CapaDatos
                 parCorreo.Value = Proveedor.Correo;
                 SqlCmd.Parameters.Add(parCorreo);
 
-                SqlParameter parRUC = new SqlParameter();
-                parRUC.ParameterName = "@RUC";
-                parRUC.SqlDbType = SqlDbType.VarChar;
-                parRUC.Size = 14;
-                parRUC.Value = Proveedor.RUC;
-                SqlCmd.Parameters.Add(parRUC);
+                SqlParameter parDoc = new SqlParameter();
+                parDoc.ParameterName = "@Documento";
+                parDoc.SqlDbType = SqlDbType.VarChar;
+                parDoc.Size = 14;
+                parDoc.Value = Proveedor.Documento;
+                SqlCmd.Parameters.Add(parDoc);
 
-              
-
-                Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se guardo";
+                Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se guardo";
             }
             catch (Exception ex)
             {
@@ -291,42 +276,42 @@ namespace CapaDatos
                 SqlParameter parId_Proveedor = new SqlParameter();
                 parId_Proveedor.ParameterName = "@Id_Proveedor";
                 parId_Proveedor.SqlDbType = SqlDbType.Int;
-                parId_Proveedor.Direction = ParameterDirection.Output;
+                parId_Proveedor.Value = Proveedor.Id_Proveedor;
                 SqlCmd.Parameters.Add(parId_Proveedor);
 
-                SqlParameter parPrimer_Nombre = new SqlParameter();
-                parPrimer_Nombre.ParameterName = "@Primer_Nombre";
-                parPrimer_Nombre.SqlDbType = SqlDbType.VarChar;
-                parPrimer_Nombre.Size = 50;
-                parPrimer_Nombre.Value = Proveedor._Primer_Nombre;
-                SqlCmd.Parameters.Add(parPrimer_Nombre);
+                SqlParameter parEmpresa = new SqlParameter();
+                parEmpresa.ParameterName = "@Empresa";
+                parEmpresa.SqlDbType = SqlDbType.VarChar;
+                parEmpresa.Size = 50;
+                parEmpresa.Value = Proveedor.Empresa;
+                SqlCmd.Parameters.Add(parEmpresa);
 
-                SqlParameter parSegundo_Nombre = new SqlParameter();
-                parSegundo_Nombre.ParameterName = "@Segundo_Nombre";
-                parSegundo_Nombre.SqlDbType = SqlDbType.VarChar;
-                parSegundo_Nombre.Size = 50;
-                parSegundo_Nombre.Value = Proveedor.Segundo_Nombre;
-                SqlCmd.Parameters.Add(parSegundo_Nombre);
+                SqlParameter parContactoNombre = new SqlParameter();
+                parContactoNombre.ParameterName = "@ContactoNombre";
+                parContactoNombre.SqlDbType = SqlDbType.VarChar;
+                parContactoNombre.Size = 50;
+                parContactoNombre.Value = Proveedor.ContactoNombre;
+                SqlCmd.Parameters.Add(parContactoNombre);
 
-                SqlParameter parPrimer_Apellido = new SqlParameter();
-                parPrimer_Apellido.ParameterName = "@Primer_Apellido";
-                parPrimer_Apellido.SqlDbType = SqlDbType.VarChar;
-                parPrimer_Apellido.Size = 50;
-                parPrimer_Apellido.Value = Proveedor.Primer_Apellido;
-                SqlCmd.Parameters.Add(parPrimer_Apellido);
-
-                SqlParameter parSegundo_Apellido = new SqlParameter();
-                parSegundo_Apellido.ParameterName = "@Segundo_Apellido";
-                parSegundo_Apellido.SqlDbType = SqlDbType.VarChar;
-                parSegundo_Apellido.Size = 50;
-                parSegundo_Apellido.Value = Proveedor.Segundo_Apellido;
-                SqlCmd.Parameters.Add(parSegundo_Apellido);
+                SqlParameter parContactoApellido = new SqlParameter();
+                parContactoApellido.ParameterName = "@ContactoApellido";
+                parContactoApellido.SqlDbType = SqlDbType.VarChar;
+                parContactoApellido.Size = 50;
+                parContactoApellido.Value = Proveedor.ContactoApellido;
+                SqlCmd.Parameters.Add(parContactoApellido);
 
                 SqlParameter parTelefono = new SqlParameter();
                 parTelefono.ParameterName = "@Telefono";
-                parTelefono.SqlDbType = SqlDbType.Int;
+                parTelefono.SqlDbType = SqlDbType.VarChar;
+                parTelefono.Size = 50;
                 parTelefono.Value = Proveedor.Telefono;
                 SqlCmd.Parameters.Add(parTelefono);
+
+                SqlParameter parTelefono2 = new SqlParameter();
+                parTelefono2.ParameterName = "@Telefono2";
+                parTelefono2.SqlDbType = SqlDbType.Int;
+                parTelefono2.Value = Proveedor.Telefono2;
+                SqlCmd.Parameters.Add(parTelefono2);
 
                 SqlParameter parTipo_Documento = new SqlParameter();
                 parTipo_Documento.ParameterName = "@Tipo_Documento";
@@ -342,13 +327,6 @@ namespace CapaDatos
                 parSector_Comercial.Value = Proveedor.Sector_Comercial;
                 SqlCmd.Parameters.Add(parSector_Comercial);
 
-                SqlParameter parEmpresa = new SqlParameter();
-                parEmpresa.ParameterName = "@Empresa";
-                parEmpresa.SqlDbType = SqlDbType.VarChar;
-                parEmpresa.Size = 50;
-                parEmpresa.Value = Proveedor.Empresa;
-                SqlCmd.Parameters.Add(parEmpresa);
-
                 SqlParameter parDireccion = new SqlParameter();
                 parDireccion.ParameterName = "@Direccion";
                 parDireccion.SqlDbType = SqlDbType.VarChar;
@@ -363,14 +341,14 @@ namespace CapaDatos
                 parCorreo.Value = Proveedor.Correo;
                 SqlCmd.Parameters.Add(parCorreo);
 
-                SqlParameter parRUC = new SqlParameter();
-                parRUC.ParameterName = "@RUC";
-                parRUC.SqlDbType = SqlDbType.VarChar;
-                parRUC.Size = 14;
-                parRUC.Value = Proveedor.RUC;
-                SqlCmd.Parameters.Add(parRUC);
+                SqlParameter parDoc = new SqlParameter();
+                parDoc.ParameterName = "@Documento";
+                parDoc.SqlDbType = SqlDbType.VarChar;
+                parDoc.Size = 14;
+                parDoc.Value = Proveedor.Documento;
+                SqlCmd.Parameters.Add(parDoc);
 
-                Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok " : "No se edito";
+                Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se edito";
             }
             catch (Exception ex)
             {

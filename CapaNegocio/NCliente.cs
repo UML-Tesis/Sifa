@@ -11,13 +11,12 @@ namespace CapaNegocio
 {
     public class NCliente
     {
-        public static string Insertar(string primerNombre, string segundoNombre, string primerApellido, string segundoApellido, string cedula, string direccion, string sexo, int telefono)
+        public static string Insertar(string Nombre, string Apellido, string Alias, string cedula, string direccion, string sexo, int telefono)
         {
             DCliente Obj = new DCliente();
-            Obj.PrimerNombre = primerNombre;
-            Obj.SegundoNombre = segundoNombre;
-            Obj.PrimerApellido = primerApellido;
-            Obj.SegundoApellido = segundoApellido;
+            Obj.Nombre = Nombre;
+            Obj.Apellido = Apellido;
+            Obj.Alias = Alias;
             Obj.Cedula = cedula;
             Obj.Direccion = direccion;
             Obj.Sexo = sexo;
@@ -43,13 +42,13 @@ namespace CapaNegocio
             return Obj.TextoBuscar(Obj);
         }
 
-        public static string Editar(int idEmpleado, string primerNombre, string segundoNombre, string primerApellido, string segundoApellido, string cedula, string direccion, string sexo, int telefono)
+        public static string Editar(int idCliente, string Nombre, string Apellido, string Alias, string cedula, string direccion, string sexo, int telefono)
         {
             DCliente Obj = new DCliente();
-            Obj.PrimerNombre = primerNombre;
-            Obj.SegundoNombre = segundoNombre;
-            Obj.PrimerApellido = primerApellido;
-            Obj.SegundoApellido = segundoApellido;
+            Obj.Id_Cliente = idCliente;
+            Obj.Nombre = Nombre;
+            Obj.Apellido = Apellido;
+            Obj.Alias = Alias;
             Obj.Cedula = cedula;
             Obj.Direccion = direccion;
             Obj.Sexo = sexo;

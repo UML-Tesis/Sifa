@@ -11,10 +11,9 @@ namespace CapaDatos
     public class DEmpleado
     {
         private int _Id_Empleado;
-        private string _PrimerNombre;
-        private string _SegundoNombre;
-        private string _PrimerApellido;
-        private string _SegundoApellido;
+        private string _Nombre;
+        private string _Apellido;
+        private string _Alias;
         private string _Cedula;
         private int _Telefono;
         private string _Sexo;
@@ -34,28 +33,22 @@ namespace CapaDatos
             set { _Id_Empleado = value; }
         }
 
-        public string PrimerNombre
+        public string Nombre
         {
-            get { return _PrimerNombre; }
-            set { _PrimerNombre = value; }
+            get { return _Nombre; }
+            set { _Nombre = value; }
         }
 
-        public string SegundoNombre
+        public string Apellido
         {
-            get { return _SegundoNombre; }
-            set { _SegundoNombre = value; }
+            get { return _Apellido; }
+            set { _Apellido = value; }
         }
 
-        public string PrimerApellido
+        public string Alias
         {
-            get { return _PrimerApellido; }
-            set { _PrimerApellido = value; }
-        }
-
-        public string SegundoApellido
-        {
-            get { return _SegundoApellido; }
-            set { _SegundoApellido = value; }
+            get { return _Alias; }
+            set { _Alias = value; }
         }
 
         public string Cedula
@@ -123,13 +116,12 @@ namespace CapaDatos
 
         }
 
-        public DEmpleado(int Id_Empleado, string PrimerNombre, string SegundoNombre, string PrimerApellido, string SegundoApellido, string Cedula, int Telefono, string Sexo, int Salario, string Correo, string Usuario, string Contrasena, string Direccion, string acceso) 
+        public DEmpleado(int Id_Empleado, string Nombre, string Apellido, string Alias, string Cedula, int Telefono, string Sexo, int Salario, string Correo, string Usuario, string Contrasena, string Direccion, string acceso) 
         {
            this._Id_Empleado = Id_Empleado;
-           this._PrimerNombre = PrimerNombre;
-           this._SegundoNombre = SegundoNombre;
-           this._PrimerApellido = PrimerApellido;
-           this._SegundoApellido = SegundoApellido;
+           this._Nombre = Nombre;
+           this._Apellido = Apellido;
+           this._Alias = Alias;
            this._Cedula = Cedula;
            this._Telefono = Telefono;
            this._Sexo = Sexo;
@@ -159,32 +151,25 @@ namespace CapaDatos
                parIdEmpleado.Direction = ParameterDirection.Output;
                SqlCmd.Parameters.Add(parIdEmpleado);
 
-               SqlParameter parPrimerNombre = new SqlParameter();
-               parPrimerNombre.ParameterName = "@PrimerNombre";
-               parPrimerNombre.SqlDbType = SqlDbType.VarChar;
-               parPrimerNombre.Size = 50;
-               parPrimerNombre.Value = Empleado.PrimerNombre;
-               SqlCmd.Parameters.Add(parPrimerNombre);
+               SqlParameter parNombre = new SqlParameter();
+               parNombre.ParameterName = "@Nombre";
+               parNombre.SqlDbType = SqlDbType.VarChar;
+               parNombre.Size = 50;
+               parNombre.Value = Empleado.Nombre;
+               SqlCmd.Parameters.Add(parNombre);
 
-               SqlParameter parSegundoNombre = new SqlParameter();
-               parSegundoNombre.ParameterName = "@SegundoNombre";
-               parSegundoNombre.SqlDbType = SqlDbType.VarChar;
-               parSegundoNombre.Size = 50;
-               parSegundoNombre.Value = Empleado.SegundoNombre;
-               SqlCmd.Parameters.Add(parSegundoNombre);
-
-               SqlParameter parPrimerApellido = new SqlParameter();
-               parPrimerApellido.ParameterName = "@PrimerApellido";
-               parPrimerApellido.SqlDbType = SqlDbType.VarChar;
-               parPrimerApellido.Size = 50;
-               parPrimerApellido.Value = Empleado.PrimerApellido;
-               SqlCmd.Parameters.Add(parPrimerApellido);
+               SqlParameter parApellido = new SqlParameter();
+               parApellido.ParameterName = "@Apellido";
+               parApellido.SqlDbType = SqlDbType.VarChar;
+               parApellido.Size = 50;
+               parApellido.Value = Empleado.Apellido;
+               SqlCmd.Parameters.Add(parApellido);
 
                SqlParameter parSegundoApellido = new SqlParameter();
-               parSegundoApellido.ParameterName = "@SegundoApellido";
+               parSegundoApellido.ParameterName = "@Alias";
                parSegundoApellido.SqlDbType = SqlDbType.VarChar;
                parSegundoApellido.Size = 50;
-               parSegundoApellido.Value = Empleado.SegundoApellido;
+               parSegundoApellido.Value = Empleado.Alias;
                SqlCmd.Parameters.Add(parSegundoApellido);
 
                SqlParameter parCedula = new SqlParameter();
@@ -371,33 +356,26 @@ namespace CapaDatos
                ParIdEmpleado.Value = Empleado.Id_Empleado;
                SqlCmd.Parameters.Add(ParIdEmpleado);
 
-               SqlParameter parPrimerNombre = new SqlParameter();
-               parPrimerNombre.ParameterName = "@PrimerNombre";
-               parPrimerNombre.SqlDbType = SqlDbType.VarChar;
-               parPrimerNombre.Size = 50;
-               parPrimerNombre.Value = Empleado.PrimerNombre;
-               SqlCmd.Parameters.Add(parPrimerNombre);
+               SqlParameter parNombre = new SqlParameter();
+               parNombre.ParameterName = "@Nombre";
+               parNombre.SqlDbType = SqlDbType.VarChar;
+               parNombre.Size = 50;
+               parNombre.Value = Empleado.Nombre;
+               SqlCmd.Parameters.Add(parNombre);
 
-               SqlParameter parSegundoNombre = new SqlParameter();
-               parSegundoNombre.ParameterName = "@SegundoNombre";
-               parSegundoNombre.SqlDbType = SqlDbType.VarChar;
-               parSegundoNombre.Size = 255;
-               parSegundoNombre.Value = Empleado.SegundoNombre;
-               SqlCmd.Parameters.Add(parSegundoNombre);
+               SqlParameter parApellido = new SqlParameter();
+               parApellido.ParameterName = "@Apellido";
+               parApellido.SqlDbType = SqlDbType.VarChar;
+               parApellido.Size = 50;
+               parApellido.Value = Empleado.Apellido;
+               SqlCmd.Parameters.Add(parApellido);
 
-               SqlParameter parPrimerApellido = new SqlParameter();
-               parPrimerApellido.ParameterName = "@PrimerApellido";
-               parPrimerApellido.SqlDbType = SqlDbType.VarChar;
-               parPrimerApellido.Size = 50;
-               parPrimerApellido.Value = Empleado.PrimerApellido;
-               SqlCmd.Parameters.Add(parPrimerApellido);
-
-               SqlParameter parSegundoApellido = new SqlParameter();
-               parSegundoApellido.ParameterName = "@SegundoApellido";
-               parSegundoApellido.SqlDbType = SqlDbType.VarChar;
-               parSegundoApellido.Size = 50;
-               parSegundoApellido.Value = Empleado.SegundoApellido;
-               SqlCmd.Parameters.Add(parSegundoApellido);
+               SqlParameter parAlias= new SqlParameter();
+               parAlias.ParameterName = "@Alias";
+               parAlias.SqlDbType = SqlDbType.VarChar;
+               parAlias.Size = 50;
+               parAlias.Value = Empleado.Alias;
+               SqlCmd.Parameters.Add(parAlias);
 
                SqlParameter parCedula = new SqlParameter();
                parCedula.ParameterName = "@Cedula";
@@ -460,7 +438,7 @@ namespace CapaDatos
                parAcceso.Value = Empleado.TipoAcceso;
                SqlCmd.Parameters.Add(parAcceso);
 
-               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok " : "No se edito";
+               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se edito";
            }
            catch (Exception ex)
            {

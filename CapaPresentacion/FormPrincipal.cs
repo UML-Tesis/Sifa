@@ -48,7 +48,7 @@ namespace SIFA
             {
                 Formulario.Activate();
             }
-        }
+        } 
 
         private void GestionUsuarios()
         {

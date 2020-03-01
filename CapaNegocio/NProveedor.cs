@@ -11,21 +11,20 @@ namespace CapaNegocio
 {
    public  class NProveedor
     {
-       public static string Insertar(string primer_nombre, string segundo_nombre, string primer_apellido, string segundo_apellido, int telefono, string tipo_documento,
-         string sector_comercial, string empresa, string direccion, string correo, string ruc)
+       public static string Insertar(string empresa, string contacto_nombre, string contacto_apellido, int telefono, int telefono2, string tipo_documento,
+         string sector_comercial, string direccion, string correo, string doc)
        {
            DProveedor Obj = new DProveedor();
-           Obj.Primer_Nombre = primer_nombre;
-           Obj.Segundo_Nombre1 = segundo_nombre;
-           Obj.Primer_Apellido1 = segundo_apellido;
-           Obj.Segundo_Apellido1 = segundo_apellido;
-           Obj.Telefono1 = telefono;
-           Obj.Tipo_Documento1 = tipo_documento;
-           Obj.Sector_Comercial1 = sector_comercial;
-           Obj.Empresa1 = empresa;
-           Obj.Direccion1 = direccion;
-           Obj.Correo1 = correo;
-           Obj.RUC1 = ruc;
+           Obj.Empresa = empresa;
+           Obj.ContactoNombre = contacto_nombre;
+           Obj.ContactoApellido = contacto_apellido;
+           Obj.Telefono = telefono;
+           Obj.Telefono2 = telefono2;
+           Obj.Tipo_Documento = tipo_documento;
+           Obj.Sector_Comercial = sector_comercial;
+           Obj.Direccion = direccion;
+           Obj.Correo = correo;
+           Obj.Documento = doc;
 
            return Obj.Insertar(Obj);
 
@@ -39,25 +38,25 @@ namespace CapaNegocio
        public static DataTable Buscar(string TextoBuscar)
        {
            DProveedor Obj = new DProveedor();
-           Obj.Textobuscar1 = TextoBuscar;
+           Obj.Textobuscar = TextoBuscar;
            return Obj.TextoBuscar(Obj);
        }
 
-       public static string Editar( int id_proveedor, string primer_nombre, string segundo_nombre, string primer_apellido, string segundo_apellido, int telefono, string tipo_documento,
-         string sector_comercial, string empresa, string direccion, string correo, string ruc)
+       public static string Editar( int id_proveedor, string empresa, string contacto_nombre, string contacto_apellido, int telefono, int telefono2, string tipo_documento,
+         string sector_comercial, string direccion, string correo, string ruc)
        {
            DProveedor Obj = new DProveedor();
-           Obj.Primer_Nombre = primer_nombre;
-           Obj.Segundo_Nombre1 = segundo_nombre;
-           Obj.Primer_Apellido1 = segundo_apellido;
-           Obj.Segundo_Apellido1 = segundo_apellido;
-           Obj.Telefono1 = telefono;
-           Obj.Tipo_Documento1 = tipo_documento;
-           Obj.Sector_Comercial1 = sector_comercial;
-           Obj.Empresa1 = empresa;
-           Obj.Direccion1 = direccion;
-           Obj.Correo1 = correo;
-           Obj.RUC1 = ruc; 
+           Obj.Id_Proveedor = id_proveedor;
+           Obj.Empresa = empresa;
+           Obj.ContactoNombre = contacto_nombre;
+           Obj.ContactoApellido = contacto_apellido;
+           Obj.Telefono = telefono;
+           Obj.Telefono2 = telefono2;
+           Obj.Tipo_Documento = tipo_documento;
+           Obj.Sector_Comercial = sector_comercial;
+           Obj.Direccion = direccion;
+           Obj.Correo = correo;
+           Obj.Documento = ruc; 
            return Obj.Editar(Obj);
        }
 

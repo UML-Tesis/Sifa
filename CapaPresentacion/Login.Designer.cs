@@ -61,7 +61,6 @@
             // 
             this.btnMinimiz.FlatAppearance.BorderSize = 0;
             this.btnMinimiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimiz.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimiz.Image")));
             this.btnMinimiz.Location = new System.Drawing.Point(269, 3);
             this.btnMinimiz.Name = "btnMinimiz";
             this.btnMinimiz.Size = new System.Drawing.Size(20, 20);

@@ -44,7 +44,7 @@ namespace CapaPresentacion
             string par1, par2;
 
             par1 = Convert.ToString(this.DataListado.CurrentRow.Cells["Id_Proveedor"].Value);
-            par2 = Convert.ToString(this.DataListado.CurrentRow.Cells["Primer_Nombre"].Value);
+            par2 = Convert.ToString(this.DataListado.CurrentRow.Cells["Empresa"].Value);
             form.setProveedor(par1, par2);
             this.Close();
         }

@@ -30,26 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.spMostrarProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsPrincipal = new CapaPresentacion.dsPrincipal();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dsPrincipal = new CapaPresentacion.dsPrincipal();
+            this.spMostrarProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spMostrarProductosTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.spMostrarProductosTableAdapter();
-            this.spReporteFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.spReporteFacturaTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.spReporteFacturaTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.spMostrarProductosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spReporteFacturaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spMostrarProductosBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // spMostrarProductosBindingSource
-            // 
-            this.spMostrarProductosBindingSource.DataMember = "spMostrarProductos";
-            this.spMostrarProductosBindingSource.DataSource = this.dsPrincipal;
-            // 
-            // dsPrincipal
-            // 
-            this.dsPrincipal.DataSetName = "dsPrincipal";
-            this.dsPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -57,24 +44,25 @@
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.spMostrarProductosBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CapaPresentacion.Reportes.rptProductos.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CapaPresentacion.Reportes.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(920, 392);
             this.reportViewer1.TabIndex = 0;
             // 
+            // dsPrincipal
+            // 
+            this.dsPrincipal.DataSetName = "dsPrincipal";
+            this.dsPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spMostrarProductosBindingSource
+            // 
+            this.spMostrarProductosBindingSource.DataMember = "spMostrarProductos";
+            this.spMostrarProductosBindingSource.DataSource = this.dsPrincipal;
+            // 
             // spMostrarProductosTableAdapter
             // 
             this.spMostrarProductosTableAdapter.ClearBeforeFill = true;
-            // 
-            // spReporteFacturaBindingSource
-            // 
-            this.spReporteFacturaBindingSource.DataMember = "spReporteFactura";
-            this.spReporteFacturaBindingSource.DataSource = this.dsPrincipal;
-            // 
-            // spReporteFacturaTableAdapter
-            // 
-            this.spReporteFacturaTableAdapter.ClearBeforeFill = true;
             // 
             // FormReporteProductos
             // 
@@ -85,9 +73,8 @@
             this.Name = "FormReporteProductos";
             this.Text = "FormReporteProductos";
             this.Load += new System.EventHandler(this.FormReporteProductos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.spMostrarProductosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spReporteFacturaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spMostrarProductosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -98,7 +85,5 @@
         private System.Windows.Forms.BindingSource spMostrarProductosBindingSource;
         private dsPrincipal dsPrincipal;
         private dsPrincipalTableAdapters.spMostrarProductosTableAdapter spMostrarProductosTableAdapter;
-        private System.Windows.Forms.BindingSource spReporteFacturaBindingSource;
-        private dsPrincipalTableAdapters.spReporteFacturaTableAdapter spReporteFacturaTableAdapter;
     }
 }

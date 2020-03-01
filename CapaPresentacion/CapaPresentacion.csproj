@@ -286,8 +286,8 @@
     <EmbeddedResource Include="Reportes\FormReporteProductos.resx">
       <DependentUpon>FormReporteProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptProducto.rdlc" />
     <EmbeddedResource Include="Reportes\rptComprobanteFactura.rdlc" />
-    <EmbeddedResource Include="Reportes\rptProductos.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -343,7 +343,42 @@
       <DependentUpon>SIFADataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8_add_property_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_delete_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_delete_property_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_edit_property_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_print_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_save_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open_box_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_card_240px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping_bag_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping_cart_240pxh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\truck_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_100px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

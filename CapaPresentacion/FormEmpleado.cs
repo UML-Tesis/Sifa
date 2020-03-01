@@ -19,33 +19,38 @@ namespace CapaPresentacion
         public FormEmpleado()
         {
             InitializeComponent();
-            this.ttmensaje.SetToolTip(this.txt1Nombre, "Ingrese falta este dato");
+            this.ttmensaje.SetToolTip(this.txtNombre, "Ingrese falta este dato");
         }
 
         private void FormEmpleado_Load(object sender, EventArgs e)
         {
             this.Mostrar();
+            this.Eliminar();
             this.Habilitar(false);
             this.Botones();
-            this.Eliminar();
         }
 
         private void Mostrar()
         {
             this.DataListado.DataSource = NEmpleado.Mostrar();
+            this.lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
             this.OcultarColumnas();
             this.DiseñoColumnas();
+            this.DataListado.ClearSelection();
         }
 
         public void Buscar()
         {
             this.DataListado.DataSource = NEmpleado.Buscar(this.txtBuscar.Text);
-            OcultarColumnas();
+            lblRegistros.Text = "Registros Encontrados : " + Convert.ToString(DataListado.Rows.Count);
+            this.OcultarColumnas();
+            this.DiseñoColumnas();
         }
 
         private void Eliminar()
         {
             this.checkEliminar.Checked = false;
+            this.btnEliminar.Enabled = false;
         }
 
         public void MensajeOK(string mensaje)
@@ -55,16 +60,15 @@ namespace CapaPresentacion
 
         public void MensajeError(string mensaje)
         {
-            MessageBox.Show(mensaje, "Sistema de inventario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Sistema de inventario", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void Limpiar()
         {
             this.txtIdEmpleado.Text = string.Empty;
-            this.txt1Nombre.Text = string.Empty;
-            this.txt2Nombre.Text = string.Empty;
-            this.txt1Apellido.Text = string.Empty;
-            this.txt2Apellido.Text = string.Empty;
+            this.txtNombre.Text = string.Empty;
+            this.txtApellido.Text = string.Empty;
+            this.txtAlias.Text = string.Empty;
             this.txtCedula.Text = string.Empty;
             this.txtDireccion.Text = string.Empty;
             this.txtTelefono.Text = string.Empty;
@@ -77,10 +81,9 @@ namespace CapaPresentacion
         public void Habilitar(bool valor)
         {
             this.txtIdEmpleado.ReadOnly = !valor;
-            this.txt1Nombre.ReadOnly = !valor;
-            this.txt2Nombre.ReadOnly = !valor;
-            this.txt1Apellido.ReadOnly = !valor;
-            this.txt2Apellido.ReadOnly = !valor;
+            this.txtNombre.ReadOnly = !valor;
+            this.txtApellido.ReadOnly = !valor;
+            this.txtAlias.ReadOnly = !valor;
             this.txtCedula.ReadOnly = !valor;
             this.txtDireccion.ReadOnly = !valor;
             this.txtTelefono.ReadOnly = !valor;
@@ -119,7 +122,6 @@ namespace CapaPresentacion
         {
             this.DataListado.Columns[0].Visible = false;
             this.DataListado.Columns[1].Visible = false;
-            this.DataListado.Columns[3].Visible = false;
         }
 
         private void txt1Nombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -144,26 +146,28 @@ namespace CapaPresentacion
 
         private void DiseñoColumnas()
         {
-            DataListado.Columns[5].HeaderText = "ALIAS";
-            DataListado.Columns[0].Width = 50;
+            this.DataListado.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.DataListado.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DataListado.Columns[9].DefaultCellStyle.Format = "C$ 0.00";
+            DataListado.Columns[0].Width = 65;
             DataListado.Columns[2].Width = 120;
             DataListado.Columns[3].Width = 120;
-            DataListado.Columns[4].Width = 120;
-            DataListado.Columns[6].Width = 200;
-            DataListado.Columns[7].Width = 65;
-            DataListado.Columns[8].Width = 120;
-            DataListado.Columns[9].Width = 40;
-            DataListado.Columns[10].Width = 80;
+            DataListado.Columns[4].Width = 100;
+            DataListado.Columns[5].Width = 200;
+            DataListado.Columns[6].Width = 65;
+            DataListado.Columns[7].Width = 120;
+            DataListado.Columns[8].Width = 45;
+            DataListado.Columns[9].Width = 65;
+            DataListado.Columns[10].Width = 120;
         }
         #endregion
 
         private void DataListado_DoubleClick(object sender, EventArgs e)
         {
             this.txtIdEmpleado.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Id_Empleado"].Value);
-            this.txt1Nombre.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Primer_Nombre"].Value);
-            this.txt2Nombre.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Segundo_Nombre"].Value);
-            this.txt1Apellido.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Primer_Apellido"].Value);
-            this.txt2Apellido.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Segundo_Apellido"].Value);
+            this.txtNombre.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Nombres"].Value);
+            this.txtApellido.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Apellidos"].Value);
+            this.txtAlias.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Alias"].Value);
             this.txtCedula.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Cedula"].Value);
             this.txtDireccion.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Direccion"].Value);
             this.cbSexo.SelectedItem = Convert.ToString(this.DataListado.CurrentRow.Cells["Sexo"].Value);
@@ -174,6 +178,8 @@ namespace CapaPresentacion
             this.txtContrasena.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Contraseña"].Value);
             this.cbAcceso.SelectedItem = Convert.ToString(this.DataListado.CurrentRow.Cells["Tipo_Acceso"].Value);
             this.tabempleado.SelectedIndex = 1;
+            this.Eliminar();
+            this.Mostrar();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -181,22 +187,21 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (this.txt1Nombre.Text == string.Empty || this.txt2Nombre.Text == string.Empty)
+                if (this.txtNombre.Text == string.Empty || this.txtApellido.Text == string.Empty)
                 {
                     MensajeError("Falta ingresar algunos datos");
-                    errorProvider1.SetError(txt1Nombre, "Ingrese el Nombre");
-                    errorProvider1.SetError(txt2Nombre, "Ingrese el segundo nombre");
+                    errorProvider1.SetError(txtNombre, "Ingrese el Nombre");
+                    errorProvider1.SetError(txtApellido, "Ingrese el Apellido");
                 }
                 else
-
                 {
                     if (this.IsNuevo)
                     {
-                        rpta = NEmpleado.Insertar(this.txt1Nombre.Text.Trim().ToUpper(), this.txt2Nombre.Text.Trim().ToUpper(), this.txt1Apellido.Text.Trim().ToUpper(), this.txt2Apellido.Text.Trim().ToUpper(), this.txtCedula.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim().ToUpper(), this.cbSexo.Text.Trim().ToUpper(), Convert.ToInt32(this.txtTelefono.Text), Convert.ToInt32(this.txtSalario.Text), this.txtCorreo.Text.Trim().ToUpper(), this.txtUsuario.Text.Trim().ToUpper(), this.txtContrasena.Text.Trim().ToUpper(), this.cbAcceso.Text.Trim().ToUpper());
+                        rpta = NEmpleado.Insertar(this.txtNombre.Text.Trim().ToUpper(), this.txtApellido.Text.Trim().ToUpper(), this.txtAlias.Text.Trim().ToUpper(), this.txtCedula.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim().ToUpper(), this.cbSexo.Text.Trim().ToUpper(), Convert.ToInt32(this.txtTelefono.Text), Convert.ToInt32(this.txtSalario.Text), this.txtCorreo.Text.Trim().ToUpper(), this.txtUsuario.Text.Trim().ToUpper(), this.txtContrasena.Text.Trim().ToUpper(), this.cbAcceso.Text.Trim().ToUpper());
                     }
                     else
                     {
-                        rpta = NEmpleado.Editar(Convert.ToInt32(this.txtIdEmpleado.Text), this.txt1Nombre.Text.Trim().ToUpper(), this.txt2Nombre.Text.Trim().ToUpper(), this.txt1Apellido.Text.Trim().ToUpper(), this.txt2Apellido.Text.Trim().ToUpper(), this.txtCedula.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim().ToUpper(), this.cbSexo.Text.Trim().ToUpper(), Convert.ToInt32(this.txtTelefono.Text), Convert.ToInt32(this.txtSalario.Text), this.txtCorreo.Text.Trim().ToUpper(), this.txtUsuario.Text.Trim().ToUpper(), this.txtContrasena.Text.Trim().ToUpper(), this.cbAcceso.Text.Trim().ToUpper());
+                        rpta = NEmpleado.Editar(Convert.ToInt32(this.txtIdEmpleado.Text), this.txtNombre.Text.Trim().ToUpper(), this.txtApellido.Text.Trim().ToUpper(), this.txtAlias.Text.Trim().ToUpper(), this.txtCedula.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim().ToUpper(), this.cbSexo.Text.Trim().ToUpper(), Convert.ToInt32(this.txtTelefono.Text), Convert.ToInt32(this.txtSalario.Text), this.txtCorreo.Text.Trim().ToUpper(), this.txtUsuario.Text.Trim().ToUpper(), this.txtContrasena.Text.Trim().ToUpper(), this.cbAcceso.Text.Trim().ToUpper());
                     }
                     if (rpta.Equals("Ok"))
                     {
@@ -262,75 +267,81 @@ namespace CapaPresentacion
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            this.Buscar();
+            if (checkEliminar.Checked)
+            {
+                this.Buscar();
+                this.DataListado.Columns[0].Visible = true;
+            }
+            else
+            {
+                this.Buscar();
+                this.DataListado.Columns[0].Visible = false;
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (DataListado.SelectedRows.Count == 0)
+            try
             {
-                MensajeError("Seleccione una columna");
-            }
-            else
-            {
-                try
+                DialogResult opcion;
+                opcion = MessageBox.Show("¿Desea eliminar el registro seleccionado?", "Inventario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (opcion == DialogResult.OK)
                 {
-                    DialogResult opcion;
-                    opcion = MessageBox.Show("¿Desea eliminar el producto seleccionado?", "Inventario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    string Codigo = "";
+                    string rpta = "";
 
-                    if (opcion == DialogResult.OK)
+                    foreach (DataGridViewRow row in DataListado.Rows)
                     {
-                        string Codigo = "";
-                        string rpta = "";
-
-                        foreach (DataGridViewRow row in DataListado.Rows)
+                        if (Convert.ToBoolean(row.Cells[0].Value))
                         {
-                            if (Convert.ToBoolean(row.Cells[0].Value))
-                            {
-                                Codigo = Convert.ToString(row.Cells[1].Value);
-                                rpta = NEmpleado.Eliminar(Convert.ToInt32(Codigo));
-                            }
+                            Codigo = Convert.ToString(row.Cells[1].Value);
+                            rpta = NEmpleado.Eliminar(Convert.ToInt32(Codigo));
                         }
-                        if (rpta.Equals("Ok"))
-                        {
-                            this.MensajeOK("Eliminado");
-                        }
-                        else
-                        {
-                            this.MensajeError(rpta);
-                        }
+                    }
+                    if (rpta.Equals("Ok"))
+                    {
+                        this.MensajeOK("Eliminado Correctamente");
                         this.Mostrar();
                         this.Eliminar();
                     }
+                    else
+                    {
+                        this.MensajeError("Error al eliminar el registro");
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message + ex.StackTrace);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
 
         private void checkEliminar_CheckedChanged(object sender, EventArgs e)
         {
+            DataListado.EndEdit();
             if (checkEliminar.Checked)
             {
-                this.DataListado.Columns[0].Visible = true;
                 this.btnEliminar.Enabled = true;
+                this.DataListado.Columns[0].Visible = true;
             }
             else
             {
-                this.DataListado.Columns[0].Visible = false;
                 this.btnEliminar.Enabled = false;
+                this.DataListado.Columns[0].Visible = false;
+                this.DataListado.Rows[0].Cells["Eliminar1"].Selected = false;
+                foreach (DataGridViewRow row in DataListado.Rows)
+                {
+                    DataGridViewCheckBoxCell checkBox = (row.Cells["Eliminar1"] as DataGridViewCheckBoxCell);
+                    checkBox.Value = checkEliminar.Checked;
+                    row.Selected = false;
+                    row.DefaultCellStyle.BackColor = Color.White;
+                }
             }
         }
 
         private void DataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
-            {
-                DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
-                chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
-            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -348,6 +359,35 @@ namespace CapaPresentacion
         {
             this.label4.Visible = true;
             lblRegistros.Text = "Total de Registros : " + Convert.ToString(DataListado.Rows.Count);
+        }
+
+        private void DataListado_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow[] old;
+            old = new DataGridViewRow[DataListado.SelectedRows.Count];
+            DataListado.SelectedRows.CopyTo(old, 0);
+            DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
+            
+            foreach (DataGridViewRow row in old)
+            {
+                {
+                    if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
+                    {
+                        chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
+                        if (Convert.ToBoolean(chckEliminar.Value))
+                        {
+                            row.Selected = true;
+                            row.DefaultCellStyle.BackColor = Color.FromName("Highlight");
+                            row.DefaultCellStyle.SelectionBackColor = Color.FromName("Highlight");
+                        }
+                        else
+                        {
+                            row.Selected = false;
+                            row.DefaultCellStyle.BackColor = Color.White;
+                        }
+                    }
+                }
+            }
         }
     }
 }

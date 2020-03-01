@@ -10,13 +10,12 @@ namespace CapaNegocio
 {
     public class NEmpleado
     {
-        public static string Insertar(string PrimerNombre, string SegundoNombre, string PrimerApellido, string SegundoApellido, string Cedula, string Direccion, string Sexo, int Telefono, int Salario, string Correo, string Usuario, string Contrasena, string Acceso)
+        public static string Insertar(string Nombre, string Apellido, string Alias, string Cedula, string Direccion, string Sexo, int Telefono, int Salario, string Correo, string Usuario, string Contrasena, string Acceso)
         {
             DEmpleado Obj = new DEmpleado();
-            Obj.PrimerNombre = PrimerNombre;
-            Obj.SegundoNombre = SegundoNombre;
-            Obj.PrimerApellido = PrimerApellido;
-            Obj.SegundoApellido = SegundoApellido;
+            Obj.Nombre = Nombre;
+            Obj.Apellido = Apellido;
+            Obj.Alias = Alias;
             Obj.Cedula = Cedula;
             Obj.Direccion = Direccion;
             Obj.Sexo = Sexo;
@@ -49,14 +48,13 @@ namespace CapaNegocio
             return Obj.Login(Obj);
         }
 
-        public static string Editar(int IdEmpleado, string PrimerNombre, string SegundoNombre, string PrimerApellido, string SegundoApellido, string Cedula, string Direccion, string Sexo, int Telefono, int Salario, string Correo, string Usuario, string Contrasena, string Acceso)
+        public static string Editar(int IdEmpleado, string Nombre, string Apellido, string Alias, string Cedula, string Direccion, string Sexo, int Telefono, int Salario, string Correo, string Usuario, string Contrasena, string Acceso)
         {
             DEmpleado Obj = new DEmpleado();
             Obj.Id_Empleado = IdEmpleado;
-            Obj.PrimerNombre = PrimerNombre;
-            Obj.SegundoNombre = SegundoNombre;
-            Obj.PrimerApellido = PrimerApellido;
-            Obj.SegundoApellido = SegundoApellido;
+            Obj.Nombre = Nombre;
+            Obj.Apellido = Apellido;
+            Obj.Alias = Alias;
             Obj.Cedula = Cedula;
             Obj.Direccion = Direccion;
             Obj.Sexo = Sexo;

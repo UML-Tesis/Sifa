@@ -116,7 +116,7 @@
             this.DataListado.AllowUserToResizeColumns = false;
             this.DataListado.AllowUserToResizeRows = false;
             this.DataListado.AutoGenerateColumns = false;
-            this.DataListado.BackgroundColor = System.Drawing.Color.White;
+            this.DataListado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DataListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -144,15 +144,17 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataListado.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataListado.EnableHeadersVisualStyles = false;
-            this.DataListado.Location = new System.Drawing.Point(808, 81);
+            this.DataListado.Location = new System.Drawing.Point(632, 68);
             this.DataListado.MultiSelect = false;
             this.DataListado.Name = "DataListado";
             this.DataListado.ReadOnly = true;
             this.DataListado.RowHeadersVisible = false;
+            this.DataListado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataListado.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataListado.Size = new System.Drawing.Size(475, 214);
+            this.DataListado.Size = new System.Drawing.Size(475, 209);
             this.DataListado.TabIndex = 15;
+            this.DataListado.TabStop = false;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -199,10 +201,10 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(806, 68);
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(630, 52);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(186, 16);
+            this.label25.Size = new System.Drawing.Size(194, 17);
             this.label25.TabIndex = 16;
             this.label25.Text = "Productos con Bajo Stock";
             // 
@@ -219,7 +221,7 @@
             // 
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Century Gothic", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.Location = new System.Drawing.Point(918, 388);
+            this.lblHora.Location = new System.Drawing.Point(225, 68);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(157, 63);
             this.lblHora.TabIndex = 18;
@@ -230,7 +232,7 @@
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblFecha.Location = new System.Drawing.Point(832, 477);
+            this.lblFecha.Location = new System.Drawing.Point(139, 157);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(33, 32);
             this.lblFecha.TabIndex = 19;
@@ -247,7 +249,7 @@
             this.gradientColor2.Controls.Add(this.shapeContainer2);
             this.gradientColor2.GradientColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.gradientColor2.GradientColorTop = System.Drawing.Color.Gray;
-            this.gradientColor2.Location = new System.Drawing.Point(140, 293);
+            this.gradientColor2.Location = new System.Drawing.Point(141, 321);
             this.gradientColor2.Name = "gradientColor2";
             this.gradientColor2.Size = new System.Drawing.Size(206, 116);
             this.gradientColor2.TabIndex = 11;
@@ -344,7 +346,7 @@
             this.gradientColor6.Controls.Add(this.shapeContainer6);
             this.gradientColor6.GradientColorBottom = System.Drawing.Color.OrangeRed;
             this.gradientColor6.GradientColorTop = System.Drawing.Color.Indigo;
-            this.gradientColor6.Location = new System.Drawing.Point(410, 510);
+            this.gradientColor6.Location = new System.Drawing.Point(509, 510);
             this.gradientColor6.Name = "gradientColor6";
             this.gradientColor6.Size = new System.Drawing.Size(206, 116);
             this.gradientColor6.TabIndex = 14;
@@ -441,7 +443,7 @@
             this.gradientColor5.Controls.Add(this.shapeContainer5);
             this.gradientColor5.GradientColorBottom = System.Drawing.Color.Teal;
             this.gradientColor5.GradientColorTop = System.Drawing.Color.MediumAquamarine;
-            this.gradientColor5.Location = new System.Drawing.Point(410, 293);
+            this.gradientColor5.Location = new System.Drawing.Point(900, 510);
             this.gradientColor5.Name = "gradientColor5";
             this.gradientColor5.Size = new System.Drawing.Size(206, 116);
             this.gradientColor5.TabIndex = 13;
@@ -538,7 +540,7 @@
             this.gradientColor4.Controls.Add(this.shapeContainer4);
             this.gradientColor4.GradientColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.gradientColor4.GradientColorTop = System.Drawing.Color.Coral;
-            this.gradientColor4.Location = new System.Drawing.Point(410, 81);
+            this.gradientColor4.Location = new System.Drawing.Point(509, 321);
             this.gradientColor4.Name = "gradientColor4";
             this.gradientColor4.Size = new System.Drawing.Size(206, 116);
             this.gradientColor4.TabIndex = 12;
@@ -732,7 +734,7 @@
             this.gradientColor1.Controls.Add(this.shapeContainer1);
             this.gradientColor1.GradientColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.gradientColor1.GradientColorTop = System.Drawing.Color.BlueViolet;
-            this.gradientColor1.Location = new System.Drawing.Point(140, 81);
+            this.gradientColor1.Location = new System.Drawing.Point(900, 321);
             this.gradientColor1.Name = "gradientColor1";
             this.gradientColor1.Size = new System.Drawing.Size(206, 116);
             this.gradientColor1.TabIndex = 9;
@@ -822,7 +824,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1297, 638);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblHora);
@@ -838,6 +840,7 @@
             this.Name = "Form1nicio";
             this.Text = "Form1nicio";
             this.Load += new System.EventHandler(this.Form1nicio_Load);
+            this.Shown += new System.EventHandler(this.Form1nicio_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spBajoStockBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sIFADataSet1)).EndInit();
