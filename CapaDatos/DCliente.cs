@@ -123,14 +123,14 @@ namespace CapaDatos
                SqlCmd.Parameters.Add(parIdCliente);
 
                SqlParameter parNombre = new SqlParameter();
-               parNombre.ParameterName = "@Nombres";
+               parNombre.ParameterName = "@Nombre";
                parNombre.SqlDbType = SqlDbType.VarChar;
                parNombre.Size = 50;
                parNombre.Value = Cliente.Nombre;
                SqlCmd.Parameters.Add(parNombre);
 
                SqlParameter parApellido = new SqlParameter();
-               parApellido.ParameterName = "@Apellidos";
+               parApellido.ParameterName = "@Apellido";
                parApellido.SqlDbType = SqlDbType.VarChar;
                parApellido.Size = 50;
                parApellido.Value = Cliente.Apellido;
@@ -176,7 +176,7 @@ namespace CapaDatos
                parMonto.Value = Cliente.Monto;
                SqlCmd.Parameters.Add(parMonto);
 
-               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se guardo";
+               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se guardo";
            }
            catch (Exception ex)
            {
@@ -312,7 +312,7 @@ namespace CapaDatos
                parTelefono.Value = DCliente.Telefono;
                SqlCmd.Parameters.Add(parTelefono);
 
-               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok " : "No se edito";
+               Rpta = SqlCmd.ExecuteNonQuery() == 1 ? "Ok" : "No se edito";
            }
            catch (Exception ex)
            {

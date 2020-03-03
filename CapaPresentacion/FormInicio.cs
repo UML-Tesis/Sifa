@@ -120,6 +120,7 @@ namespace CapaPresentacion
 
         private void Form1nicio_Load(object sender, EventArgs e)
         {
+            int valor;
             // TODO: esta línea de código carga datos en la tabla 'sIFADataSet1.spBajoStock' Puede moverla o quitarla según sea necesario.
             this.spBajoStockTableAdapter1.Fill(this.sIFADataSet1.spBajoStock);
             this.Mostrar();

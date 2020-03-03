@@ -110,11 +110,6 @@ namespace CapaPresentacion
             Validaciones.sololetras(e);
         }
 
-        private void txt2Nombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Validaciones.sololetras(e);
-        }
-
         private void txt1Apellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.sololetras(e);
@@ -125,16 +120,10 @@ namespace CapaPresentacion
             Validaciones.sololetras(e);
         }
 
-        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Validaciones.sololetras(e);
-        }
-
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validaciones.SoloNumeros(e);
+            Validaciones.SoloNumerosyLetras(e);
         }
-
        
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {

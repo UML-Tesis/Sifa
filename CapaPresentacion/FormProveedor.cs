@@ -87,7 +87,7 @@ namespace CapaPresentacion
              this.txt1Apellido.Text = string.Empty;
              this.txt2Apellido.Text = string.Empty;
              this.txtTelefono.Text = string.Empty;
-             this.txttipodocumento.Text = string.Empty;
+             this.cbDocumento.Text = string.Empty;
              this.txtsectorcomercial.Text = string.Empty;
              this.txtDireccion.Text = string.Empty;
              this.txtcorreo.Text = string.Empty;
@@ -103,7 +103,7 @@ namespace CapaPresentacion
              this.txt1Apellido.ReadOnly = !valor;
              this.txt2Apellido.ReadOnly = !valor;
              this.txtTelefono.ReadOnly = !valor;
-             this.txttipodocumento.ReadOnly = !valor;
+             this.cbDocumento.Enabled = valor;
              this.txtsectorcomercial.ReadOnly = !valor;
              this.txtDireccion.ReadOnly = !valor;
              this.txtcorreo.ReadOnly = !valor;
@@ -159,13 +159,13 @@ namespace CapaPresentacion
                      if (this.IsNuevo)
                      {
 
-                         rpta = NProveedor.Insertar(this.txt1Nombre.Text.Trim().ToUpper(), this.txt2Nombre.Text.Trim().ToUpper(), this.txt1Apellido.Text.Trim().ToUpper(), Convert.ToInt32(this.txt2Apellido.Text), Convert.ToInt32(this.txtTelefono.Text), this.txttipodocumento.Text.Trim().ToUpper()
+                         rpta = NProveedor.Insertar(this.txt1Nombre.Text.Trim().ToUpper(), this.txt2Nombre.Text.Trim().ToUpper(), this.txt1Apellido.Text.Trim().ToUpper(), Convert.ToInt32(this.txt2Apellido.Text), Convert.ToInt32(this.txtTelefono.Text), this.cbDocumento.Text.Trim().ToUpper()
                              , this.txtsectorcomercial.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim().ToUpper(), this.txtcorreo.Text.Trim().ToUpper(), this.txtruc.Text.Trim().ToUpper());
                      }
                      else
                      {
                          rpta = NProveedor.Editar(Convert.ToInt32(this.txtIdProveedor.Text),
-                         this.txt1Nombre.Text.Trim().ToUpper(), this.txt2Nombre.Text.Trim().ToUpper(), this.txt1Apellido.Text.Trim().ToUpper(), Convert.ToInt32(this.txt2Apellido.Text), Convert.ToInt32(this.txtTelefono.Text), this.txttipodocumento.Text.Trim().ToUpper()
+                         this.txt1Nombre.Text.Trim().ToUpper(), this.txt2Nombre.Text.Trim().ToUpper(), this.txt1Apellido.Text.Trim().ToUpper(), Convert.ToInt32(this.txt2Apellido.Text), Convert.ToInt32(this.txtTelefono.Text), this.cbDocumento.Text.Trim().ToUpper()
                              , this.txtsectorcomercial.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim().ToUpper(), this.txtcorreo.Text.Trim().ToUpper(), this.txtruc.Text.Trim().ToUpper());
                      }
 
@@ -349,7 +349,7 @@ namespace CapaPresentacion
              this.txt1Apellido.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["ContactoApellido"].Value);
              this.txt2Apellido.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Telefono"].Value);
              this.txtTelefono.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Telefono2"].Value);
-             this.txttipodocumento.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Tipo_Documento"].Value);
+             this.cbDocumento.SelectedItem = Convert.ToString(this.DataListado.CurrentRow.Cells["Tipo_Documento"].Value);
              this.txtsectorcomercial.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Sector_Comercial"].Value);
              this.txtDireccion.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Direccion"].Value);
              this.txtcorreo.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Correo"].Value);

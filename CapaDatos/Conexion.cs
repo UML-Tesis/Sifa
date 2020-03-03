@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    class Conexion
+    public class Conexion
     {
         public static string Cn = Properties.Settings.Default.cn;
     }

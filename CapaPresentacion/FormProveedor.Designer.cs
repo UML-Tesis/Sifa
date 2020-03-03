@@ -41,9 +41,9 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.DataListado = new System.Windows.Forms.DataGridView();
+            this.Eliminar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tablista = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
-            this.txttipodocumento = new System.Windows.Forms.TextBox();
             this.lbltipo_documento = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.lbltelefono = new System.Windows.Forms.Label();
@@ -68,20 +68,21 @@
             this.lblprimerapellido = new System.Windows.Forms.Label();
             this.lblsegundonombre = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.gradColor1 = new CapaPresentacion.GradColor();
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.btnCerrar = new System.Windows.Forms.Button();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.Eliminar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.gradColor1 = new CapaPresentacion.GradColor();
+            this.cbDocumento = new System.Windows.Forms.ComboBox();
             this.tabcliente.SuspendLayout();
             this.tabnuevocliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).BeginInit();
             this.tablista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.gradColor1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabcliente
@@ -95,7 +96,7 @@
             this.tabcliente.Location = new System.Drawing.Point(12, 93);
             this.tabcliente.Name = "tabcliente";
             this.tabcliente.SelectedIndex = 0;
-            this.tabcliente.Size = new System.Drawing.Size(1005, 484);
+            this.tabcliente.Size = new System.Drawing.Size(1121, 484);
             this.tabcliente.TabIndex = 60;
             // 
             // tabnuevocliente
@@ -210,7 +211,7 @@
             this.DataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -222,7 +223,7 @@
             this.Eliminar1});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -243,30 +244,29 @@
             this.DataListado.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataListado_CellMouseClick);
             this.DataListado.DoubleClick += new System.EventHandler(this.DataListado_DoubleClick);
             // 
+            // Eliminar1
+            // 
+            this.Eliminar1.HeaderText = "Eliminar";
+            this.Eliminar1.Name = "Eliminar1";
+            this.Eliminar1.ReadOnly = true;
+            this.Eliminar1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar1.Width = 60;
+            // 
             // tablista
             // 
             this.tablista.Controls.Add(this.label1);
-            this.tablista.Controls.Add(this.txttipodocumento);
-            this.tablista.Controls.Add(this.lbltipo_documento);
             this.tablista.Controls.Add(this.txtTelefono);
             this.tablista.Controls.Add(this.lbltelefono);
-            this.tablista.Controls.Add(this.txtcorreo);
-            this.tablista.Controls.Add(this.lblcorreo);
-            this.tablista.Controls.Add(this.txtruc);
-            this.tablista.Controls.Add(this.lblruc);
-            this.tablista.Controls.Add(this.txtsectorcomercial);
             this.tablista.Controls.Add(this.txtIdProveedor);
             this.tablista.Controls.Add(this.btnEditar);
             this.tablista.Controls.Add(this.btnNuevo);
             this.tablista.Controls.Add(this.btnCancelar);
             this.tablista.Controls.Add(this.btnGuardar);
-            this.tablista.Controls.Add(this.txtDireccion);
             this.tablista.Controls.Add(this.txt2Apellido);
             this.tablista.Controls.Add(this.txt1Apellido);
             this.tablista.Controls.Add(this.txt2Nombre);
             this.tablista.Controls.Add(this.txt1Nombre);
-            this.tablista.Controls.Add(this.lbldireccion);
-            this.tablista.Controls.Add(this.lblsexo);
             this.tablista.Controls.Add(this.lblsegapellido);
             this.tablista.Controls.Add(this.lblprimerapellido);
             this.tablista.Controls.Add(this.lblsegundonombre);
@@ -275,7 +275,7 @@
             this.tablista.Location = new System.Drawing.Point(4, 25);
             this.tablista.Name = "tablista";
             this.tablista.Padding = new System.Windows.Forms.Padding(3);
-            this.tablista.Size = new System.Drawing.Size(976, 455);
+            this.tablista.Size = new System.Drawing.Size(1113, 455);
             this.tablista.TabIndex = 1;
             this.tablista.Text = "Agregar Proveedor";
             this.tablista.UseVisualStyleBackColor = true;
@@ -290,18 +290,10 @@
             this.label1.Text = "Id_Proveedor";
             this.label1.Visible = false;
             // 
-            // txttipodocumento
-            // 
-            this.txttipodocumento.Location = new System.Drawing.Point(746, 139);
-            this.txttipodocumento.MaxLength = 6;
-            this.txttipodocumento.Name = "txttipodocumento";
-            this.txttipodocumento.Size = new System.Drawing.Size(167, 23);
-            this.txttipodocumento.TabIndex = 130;
-            // 
             // lbltipo_documento
             // 
             this.lbltipo_documento.AutoSize = true;
-            this.lbltipo_documento.Location = new System.Drawing.Point(609, 142);
+            this.lbltipo_documento.Location = new System.Drawing.Point(46, 172);
             this.lbltipo_documento.Name = "lbltipo_documento";
             this.lbltipo_documento.Size = new System.Drawing.Size(116, 17);
             this.lbltipo_documento.TabIndex = 129;
@@ -326,16 +318,16 @@
             // 
             // txtcorreo
             // 
-            this.txtcorreo.Location = new System.Drawing.Point(746, 184);
-            this.txtcorreo.MaxLength = 6;
+            this.txtcorreo.Location = new System.Drawing.Point(183, 216);
+            this.txtcorreo.MaxLength = 25;
             this.txtcorreo.Name = "txtcorreo";
-            this.txtcorreo.Size = new System.Drawing.Size(167, 23);
+            this.txtcorreo.Size = new System.Drawing.Size(520, 23);
             this.txtcorreo.TabIndex = 124;
             // 
             // lblcorreo
             // 
             this.lblcorreo.AutoSize = true;
-            this.lblcorreo.Location = new System.Drawing.Point(670, 187);
+            this.lblcorreo.Location = new System.Drawing.Point(107, 219);
             this.lblcorreo.Name = "lblcorreo";
             this.lblcorreo.Size = new System.Drawing.Size(55, 17);
             this.lblcorreo.TabIndex = 123;
@@ -343,8 +335,8 @@
             // 
             // txtruc
             // 
-            this.txtruc.Location = new System.Drawing.Point(746, 222);
-            this.txtruc.MaxLength = 6;
+            this.txtruc.Location = new System.Drawing.Point(536, 169);
+            this.txtruc.MaxLength = 14;
             this.txtruc.Name = "txtruc";
             this.txtruc.Size = new System.Drawing.Size(167, 23);
             this.txtruc.TabIndex = 122;
@@ -352,7 +344,7 @@
             // lblruc
             // 
             this.lblruc.AutoSize = true;
-            this.lblruc.Location = new System.Drawing.Point(621, 225);
+            this.lblruc.Location = new System.Drawing.Point(411, 175);
             this.lblruc.Name = "lblruc";
             this.lblruc.Size = new System.Drawing.Size(104, 17);
             this.lblruc.TabIndex = 121;
@@ -360,8 +352,8 @@
             // 
             // txtsectorcomercial
             // 
-            this.txtsectorcomercial.Location = new System.Drawing.Point(393, 222);
-            this.txtsectorcomercial.MaxLength = 8;
+            this.txtsectorcomercial.Location = new System.Drawing.Point(536, 122);
+            this.txtsectorcomercial.MaxLength = 25;
             this.txtsectorcomercial.Name = "txtsectorcomercial";
             this.txtsectorcomercial.Size = new System.Drawing.Size(167, 23);
             this.txtsectorcomercial.TabIndex = 120;
@@ -441,7 +433,7 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(393, 269);
+            this.txtDireccion.Location = new System.Drawing.Point(183, 262);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(520, 73);
@@ -450,6 +442,7 @@
             // txt2Apellido
             // 
             this.txt2Apellido.Location = new System.Drawing.Point(746, 94);
+            this.txt2Apellido.MaxLength = 8;
             this.txt2Apellido.Name = "txt2Apellido";
             this.txt2Apellido.Size = new System.Drawing.Size(167, 23);
             this.txt2Apellido.TabIndex = 102;
@@ -478,7 +471,7 @@
             // lbldireccion
             // 
             this.lbldireccion.AutoSize = true;
-            this.lbldireccion.Location = new System.Drawing.Point(305, 269);
+            this.lbldireccion.Location = new System.Drawing.Point(95, 262);
             this.lbldireccion.Name = "lbldireccion";
             this.lbldireccion.Size = new System.Drawing.Size(71, 17);
             this.lbldireccion.TabIndex = 96;
@@ -487,7 +480,7 @@
             // lblsexo
             // 
             this.lblsexo.AutoSize = true;
-            this.lblsexo.Location = new System.Drawing.Point(257, 225);
+            this.lblsexo.Location = new System.Drawing.Point(396, 125);
             this.lblsexo.Name = "lblsexo";
             this.lblsexo.Size = new System.Drawing.Size(119, 17);
             this.lblsexo.TabIndex = 95;
@@ -529,17 +522,6 @@
             this.lblNombre.TabIndex = 91;
             this.lblNombre.Text = "Nombre de la Empresa:";
             // 
-            // gradColor1
-            // 
-            this.gradColor1.Angle = 0F;
-            this.gradColor1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gradColor1.GradColorBottom = System.Drawing.Color.Empty;
-            this.gradColor1.GradColorTop = System.Drawing.Color.Empty;
-            this.gradColor1.Location = new System.Drawing.Point(209, 16);
-            this.gradColor1.Name = "gradColor1";
-            this.gradColor1.Size = new System.Drawing.Size(764, 353);
-            this.gradColor1.TabIndex = 132;
-            // 
             // btnCerrar
             // 
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -549,7 +531,7 @@
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(993, 1);
+            this.btnCerrar.Location = new System.Drawing.Point(1109, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(33, 30);
             this.btnCerrar.TabIndex = 0;
@@ -570,7 +552,7 @@
             this.panel1.Font = new System.Drawing.Font("Lucida Bright", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1029, 33);
+            this.panel1.Size = new System.Drawing.Size(1145, 33);
             this.panel1.TabIndex = 62;
             // 
             // label2
@@ -584,20 +566,44 @@
             this.label2.TabIndex = 61;
             this.label2.Text = "Proveedores";
             // 
-            // Eliminar1
+            // gradColor1
             // 
-            this.Eliminar1.HeaderText = "Eliminar";
-            this.Eliminar1.Name = "Eliminar1";
-            this.Eliminar1.ReadOnly = true;
-            this.Eliminar1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Eliminar1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Eliminar1.Width = 60;
+            this.gradColor1.Angle = 0F;
+            this.gradColor1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gradColor1.Controls.Add(this.cbDocumento);
+            this.gradColor1.Controls.Add(this.txtsectorcomercial);
+            this.gradColor1.Controls.Add(this.lbltipo_documento);
+            this.gradColor1.Controls.Add(this.txtruc);
+            this.gradColor1.Controls.Add(this.lblruc);
+            this.gradColor1.Controls.Add(this.txtcorreo);
+            this.gradColor1.Controls.Add(this.lblsexo);
+            this.gradColor1.Controls.Add(this.lblcorreo);
+            this.gradColor1.Controls.Add(this.txtDireccion);
+            this.gradColor1.Controls.Add(this.lbldireccion);
+            this.gradColor1.GradColorBottom = System.Drawing.Color.Empty;
+            this.gradColor1.GradColorTop = System.Drawing.Color.Empty;
+            this.gradColor1.Location = new System.Drawing.Point(209, 16);
+            this.gradColor1.Name = "gradColor1";
+            this.gradColor1.Size = new System.Drawing.Size(764, 353);
+            this.gradColor1.TabIndex = 132;
+            // 
+            // cbDocumento
+            // 
+            this.cbDocumento.FormattingEnabled = true;
+            this.cbDocumento.Items.AddRange(new object[] {
+            "RUC\t",
+            "CEDULA",
+            "PASAPORTE"});
+            this.cbDocumento.Location = new System.Drawing.Point(183, 169);
+            this.cbDocumento.Name = "cbDocumento";
+            this.cbDocumento.Size = new System.Drawing.Size(167, 24);
+            this.cbDocumento.TabIndex = 131;
             // 
             // FormProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 589);
+            this.ClientSize = new System.Drawing.Size(1145, 589);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tabcliente);
@@ -614,6 +620,8 @@
             this.tablista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.gradColor1.ResumeLayout(false);
+            this.gradColor1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -653,7 +661,6 @@
         private System.Windows.Forms.ToolTip toolTip2;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label lbltelefono;
-        private System.Windows.Forms.TextBox txttipodocumento;
         private System.Windows.Forms.Label lbltipo_documento;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label1;
@@ -665,6 +672,7 @@
         private System.Windows.Forms.Label lblBuscar;
         private GradColor gradColor1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar1;
+        private System.Windows.Forms.ComboBox cbDocumento;
 
     }
 }

@@ -55,9 +55,33 @@ namespace CapaPresentacion
             else
             {
                 V.Handled = true;
-                MessageBox.Show("Solo Numeros");
+                MessageBox.Show("Solo se admiten numeros");
             }
         }
-        
+
+        // para que los texbox no acepten controles
+        public static void SoloNumerosyLetras(KeyPressEventArgs V)
+        {
+            if (char.IsDigit(V.KeyChar))
+            {
+                V.Handled = false;
+            }
+
+            else if (char.IsSeparator(V.KeyChar))
+            {
+                V.Handled = false;
+            }
+
+            else if (char.IsLetter(V.KeyChar))
+            {
+                V.Handled = false;
+            }
+
+            else
+            {
+                V.Handled = true;
+                MessageBox.Show("Solo se admiten numeros y letras");
+            }
+        }
     }
 }
