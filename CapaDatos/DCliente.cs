@@ -356,8 +356,9 @@ namespace CapaDatos
            return Rpta;
         }
 
-       public int Contar(int valor)
+       public string Contar()
        {
+           int valor = 0;
            try
            {
                SqlCon.ConnectionString = Conexion.Cn;
@@ -365,13 +366,16 @@ namespace CapaDatos
                SqlCmd.Connection = SqlCon;
                SqlCmd.CommandText = "spContarClientes";
                SqlCmd.CommandType = CommandType.StoredProcedure;
-               valor = (int)SqlCmd.ExecuteScalar();
+               SqlCmd.Parameters.Add("@Count", SqlDbType.Int).Direction = ParameterDirection.Output;
+               SqlCon.Open();
+               SqlCmd.ExecuteNonQuery();
+               valor = Convert.ToInt32(SqlCmd.Parameters["@Count"].Value);
            }
            catch (Exception ex)
            {
                 
            }
-           return valor;
+           return valor.ToString();
        }
     }
 }

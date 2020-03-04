@@ -138,7 +138,7 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (this.txtNombre.Text == string.Empty || this.txtMarca.Text == string.Empty || this.txtMedida.Text == string.Empty)
+                if (this.txtNombre.Text == string.Empty || this.txtNombre.Text == "             " || this.txtMarca.Text == string.Empty || this.txtMedida.Text == string.Empty)
                 {
                     MensajeError("Falta el Nombre");
                     errorProvider1.SetError(txtNombre, "Ingrese el Nombre");
@@ -163,6 +163,7 @@ namespace CapaPresentacion
                         {
                             this.MensajeOK("Actualizado Correctamente");
                         }
+                        errorProvider1.Clear();
                     }
                     else
                     {

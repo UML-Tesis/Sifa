@@ -24,23 +24,9 @@ namespace CapaNegocio
             return Obj.Insertar(Obj);
         }
 
-        public static int Contar(int getvalue)
+        public static string Contar()
         {
-            try
-            {
-                SqlConnection SqlCon = new SqlConnection();
-                SqlCon.ConnectionString = Conexion.Cn;
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spContarClientes";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-                getvalue = (int)SqlCmd.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-
-            }
-            return getvalue;
+            return new DCliente().Contar();
         }
 
         public static DataTable Mostrar()

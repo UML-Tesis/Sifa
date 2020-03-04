@@ -125,6 +125,7 @@ namespace CapaPresentacion
             this.spBajoStockTableAdapter1.Fill(this.sIFADataSet1.spBajoStock);
             this.Mostrar();
             timer1.Start();
+            this.label9.Text = NCliente.Contar();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
