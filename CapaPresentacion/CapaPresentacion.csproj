@@ -52,6 +52,12 @@
     <Compile Include="Consultas\FormConsultaStockProducto.Designer.cs">
       <DependentUpon>FormConsultaStockProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AltoButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\AltoTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="dsPrincipal.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,9 +139,11 @@
     <Compile Include="GradColor.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GradientColor.cs">
+    <Compile Include="Controls\GradientColor.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Helper\RoundedRectangleF.cs" />
+    <Compile Include="Helper\Transparenter.cs" />
     <Compile Include="ListarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +203,11 @@
     <Compile Include="Reportes\FormReporteProductos.Designer.cs">
       <DependentUpon>FormReporteProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="SIFADataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIFADataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SIFADataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -210,7 +223,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SIFADataSet3.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Validaciones.cs" />
+    <Compile Include="Helper\Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
@@ -309,6 +322,17 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="SIFADataSet.xsc">
+      <DependentUpon>SIFADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SIFADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SIFADataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SIFADataSet.xss">
+      <DependentUpon>SIFADataSet.xsd</DependentUpon>
+    </None>
     <None Include="SIFADataSet1.xsc">
       <DependentUpon>SIFADataSet1.xsd</DependentUpon>
     </None>
@@ -378,6 +402,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_60px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

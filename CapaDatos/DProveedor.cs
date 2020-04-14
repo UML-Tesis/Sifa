@@ -391,5 +391,27 @@ namespace CapaDatos
             }
             return Rpta;
         }
+
+        public string Contar()
+        {
+            int valor = 0;
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spContarProveedores";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add("@Count", SqlDbType.Int).Direction = ParameterDirection.Output;
+                SqlCon.Open();
+                SqlCmd.ExecuteNonQuery();
+                valor = Convert.ToInt32(SqlCmd.Parameters["@Count"].Value);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return valor.ToString();
+        }
     }
 }

@@ -76,7 +76,10 @@ namespace CapaPresentacion
             {
                 V.Handled = false;
             }
-
+            else if ((int)V.KeyChar == (int)Keys.Enter)
+            {
+                V.Handled = false;
+            }
             else
             {
                 V.Handled = true;

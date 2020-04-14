@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompra));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabCompra = new System.Windows.Forms.TabControl();
             this.tabnuevacopra = new System.Windows.Forms.TabPage();
             this.label13 = new System.Windows.Forms.Label();
@@ -70,16 +69,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtPrecio_Venta = new System.Windows.Forms.TextBox();
             this.txtPrecio_Compra = new System.Windows.Forms.TextBox();
-            this.btnProducto = new System.Windows.Forms.Button();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnProveedor = new System.Windows.Forms.Button();
             this.txtIdProveedor = new System.Windows.Forms.TextBox();
             this.txtNombreProveedor = new System.Windows.Forms.TextBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.gradColor1 = new CapaPresentacion.GradColor();
+            this.btnProducto = new System.Windows.Forms.Button();
             this.gradColor2 = new CapaPresentacion.GradColor();
+            this.btnProveedor = new System.Windows.Forms.Button();
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.btnCerrar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -90,6 +89,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).BeginInit();
             this.tablista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoDetalles)).BeginInit();
+            this.gradColor1.SuspendLayout();
+            this.gradColor2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -102,7 +103,7 @@
             this.tabCompra.Controls.Add(this.tabnuevacopra);
             this.tabCompra.Controls.Add(this.tablista);
             this.tabCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCompra.Location = new System.Drawing.Point(12, 95);
+            this.tabCompra.Location = new System.Drawing.Point(12, 50);
             this.tabCompra.Name = "tabCompra";
             this.tabCompra.SelectedIndex = 0;
             this.tabCompra.Size = new System.Drawing.Size(1039, 588);
@@ -142,18 +143,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(467, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 15);
+            this.label2.Size = new System.Drawing.Size(39, 15);
             this.label2.TabIndex = 75;
             this.label2.Text = "Hasta";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(272, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 15);
+            this.label1.Size = new System.Drawing.Size(46, 15);
             this.label1.TabIndex = 74;
             this.label1.Text = "Desde:";
             // 
@@ -189,12 +192,18 @@
             // 
             // btnBuscarXFecha
             // 
-            this.btnBuscarXFecha.Location = new System.Drawing.Point(636, 42);
+            this.btnBuscarXFecha.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBuscarXFecha.BackgroundImage = global::CapaPresentacion.Properties.Resources.search_60px;
+            this.btnBuscarXFecha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscarXFecha.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarXFecha.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBuscarXFecha.FlatAppearance.BorderSize = 0;
+            this.btnBuscarXFecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarXFecha.Location = new System.Drawing.Point(638, 42);
             this.btnBuscarXFecha.Name = "btnBuscarXFecha";
-            this.btnBuscarXFecha.Size = new System.Drawing.Size(29, 20);
+            this.btnBuscarXFecha.Size = new System.Drawing.Size(43, 23);
             this.btnBuscarXFecha.TabIndex = 71;
-            this.btnBuscarXFecha.Text = "B";
-            this.btnBuscarXFecha.UseVisualStyleBackColor = true;
+            this.btnBuscarXFecha.UseVisualStyleBackColor = false;
             this.btnBuscarXFecha.Click += new System.EventHandler(this.btnBuscarXFecha_Click);
             // 
             // dtFecha2
@@ -249,7 +258,7 @@
             this.DataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -258,14 +267,6 @@
             this.DataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar1});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataListado.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataListado.EnableHeadersVisualStyles = false;
             this.DataListado.GridColor = System.Drawing.Color.Black;
             this.DataListado.Location = new System.Drawing.Point(6, 86);
@@ -312,11 +313,9 @@
             this.tablista.Controls.Add(this.label4);
             this.tablista.Controls.Add(this.txtPrecio_Venta);
             this.tablista.Controls.Add(this.txtPrecio_Compra);
-            this.tablista.Controls.Add(this.btnProducto);
             this.tablista.Controls.Add(this.txtIdProducto);
             this.tablista.Controls.Add(this.txtNombreProducto);
             this.tablista.Controls.Add(this.label3);
-            this.tablista.Controls.Add(this.btnProveedor);
             this.tablista.Controls.Add(this.txtIdProveedor);
             this.tablista.Controls.Add(this.txtNombreProveedor);
             this.tablista.Controls.Add(this.lblCategoria);
@@ -328,7 +327,7 @@
             this.tablista.Padding = new System.Windows.Forms.Padding(3);
             this.tablista.Size = new System.Drawing.Size(1031, 559);
             this.tablista.TabIndex = 1;
-            this.tablista.Text = "Ingresar Compras            ";
+            this.tablista.Text = "Añadir Compras            ";
             this.tablista.UseVisualStyleBackColor = true;
             // 
             // btnQuitar
@@ -507,14 +506,14 @@
             this.dataListadoDetalles.BackgroundColor = System.Drawing.Color.White;
             this.dataListadoDetalles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataListadoDetalles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListadoDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListadoDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataListadoDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataListadoDetalles.EnableHeadersVisualStyles = false;
             this.dataListadoDetalles.GridColor = System.Drawing.Color.Black;
@@ -582,17 +581,6 @@
             this.txtPrecio_Compra.Size = new System.Drawing.Size(162, 23);
             this.txtPrecio_Compra.TabIndex = 81;
             // 
-            // btnProducto
-            // 
-            this.btnProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProducto.Location = new System.Drawing.Point(368, 332);
-            this.btnProducto.Name = "btnProducto";
-            this.btnProducto.Size = new System.Drawing.Size(30, 24);
-            this.btnProducto.TabIndex = 79;
-            this.btnProducto.Text = "B";
-            this.btnProducto.UseVisualStyleBackColor = true;
-            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
-            // 
             // txtIdProducto
             // 
             this.txtIdProducto.Location = new System.Drawing.Point(417, 332);
@@ -619,17 +607,6 @@
             this.label3.Size = new System.Drawing.Size(68, 15);
             this.label3.TabIndex = 76;
             this.label3.Text = "Producto:";
-            // 
-            // btnProveedor
-            // 
-            this.btnProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedor.Location = new System.Drawing.Point(368, 62);
-            this.btnProveedor.Name = "btnProveedor";
-            this.btnProveedor.Size = new System.Drawing.Size(30, 24);
-            this.btnProveedor.TabIndex = 75;
-            this.btnProveedor.Text = "B";
-            this.btnProveedor.UseVisualStyleBackColor = true;
-            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
             // 
             // txtIdProveedor
             // 
@@ -662,6 +639,7 @@
             // 
             this.gradColor1.Angle = 0F;
             this.gradColor1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gradColor1.Controls.Add(this.btnProducto);
             this.gradColor1.GradColorBottom = System.Drawing.Color.Empty;
             this.gradColor1.GradColorTop = System.Drawing.Color.Empty;
             this.gradColor1.Location = new System.Drawing.Point(52, 311);
@@ -669,16 +647,47 @@
             this.gradColor1.Size = new System.Drawing.Size(362, 190);
             this.gradColor1.TabIndex = 104;
             // 
+            // btnProducto
+            // 
+            this.btnProducto.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnProducto.BackgroundImage = global::CapaPresentacion.Properties.Resources.search_60px;
+            this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnProducto.FlatAppearance.BorderColor = System.Drawing.Color.PaleTurquoise;
+            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducto.Location = new System.Drawing.Point(315, 21);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(42, 23);
+            this.btnProducto.TabIndex = 79;
+            this.btnProducto.UseVisualStyleBackColor = false;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            // 
             // gradColor2
             // 
             this.gradColor2.Angle = 0F;
             this.gradColor2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gradColor2.Controls.Add(this.btnProveedor);
             this.gradColor2.GradColorBottom = System.Drawing.Color.Empty;
             this.gradColor2.GradColorTop = System.Drawing.Color.Empty;
             this.gradColor2.Location = new System.Drawing.Point(52, 44);
             this.gradColor2.Name = "gradColor2";
             this.gradColor2.Size = new System.Drawing.Size(362, 222);
             this.gradColor2.TabIndex = 105;
+            // 
+            // btnProveedor
+            // 
+            this.btnProveedor.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnProveedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProveedor.BackgroundImage")));
+            this.btnProveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnProveedor.FlatAppearance.BorderColor = System.Drawing.Color.PaleTurquoise;
+            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedor.Location = new System.Drawing.Point(315, 20);
+            this.btnProveedor.Name = "btnProveedor";
+            this.btnProveedor.Size = new System.Drawing.Size(42, 23);
+            this.btnProveedor.TabIndex = 75;
+            this.btnProveedor.UseVisualStyleBackColor = false;
+            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
             // 
             // btnCerrar
             // 
@@ -715,9 +724,10 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label12.Font = new System.Drawing.Font("Lucida Bright", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Crimson;
-            this.label12.Location = new System.Drawing.Point(12, 45);
+            this.label12.Location = new System.Drawing.Point(10, 1);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(134, 31);
             this.label12.TabIndex = 45;
@@ -729,9 +739,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1063, 695);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.tabCompra);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCompra";
             this.Text = "Compra";
@@ -744,6 +754,8 @@
             this.tablista.ResumeLayout(false);
             this.tablista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoDetalles)).EndInit();
+            this.gradColor1.ResumeLayout(false);
+            this.gradColor2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

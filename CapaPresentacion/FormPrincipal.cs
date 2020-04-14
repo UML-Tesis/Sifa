@@ -52,6 +52,7 @@ namespace SIFA
 
         private void GestionUsuarios()
         {
+            this.altoTextBox1.Text = Nombre + " " + Apellido;
             //Controlar los Accesos
             if (TipoAcceso == "EMPLEADO")
             {
@@ -227,6 +228,7 @@ namespace SIFA
         {
             GestionUsuarios();
             AbrirInicio();
+            MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         private void stockDeProductosToolStripMenuItem_Click(object sender, EventArgs e)

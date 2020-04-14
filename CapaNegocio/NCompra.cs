@@ -39,6 +39,16 @@ namespace CapaNegocio
             return new DCompra().Mostrar();
         }
 
+        public static string Contar()
+        {
+            return new DCompra().Contar();
+        }
+
+        public static string ContarNuevos()
+        {
+            return new DCompra().ContarNuevos();
+        }
+
         public static DataTable BuscarFechas(string TextoBuscar, string TextoBuscar2)
         {
             DCompra Obj = new DCompra();

@@ -116,5 +116,23 @@ namespace SIFA
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                e.Handled = true;
+                this.txtContraseña.Focus();
+            }
+        }
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                e.Handled = true;
+                this.btnEntrar.Focus();
+            }
+        }
     }
 }

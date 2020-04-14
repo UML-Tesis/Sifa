@@ -32,11 +32,16 @@ namespace CapaPresentacion
             this.txtNombreCategoria.Text = nombre;
         }
 
+        public void setPresentacion(string IdPresentacion, string nombre)
+        {
+            this.txtIdPresentacion.Text = IdPresentacion;
+            this.txtNombrePresentacion.Text = nombre;
+        }
+
         public FormProducto()
         {
             InitializeComponent();
-            this.ttmensaje.SetToolTip(this.txtNombre, "Ingrese falta este dato");
-            this.LlenarComboPresentacion();
+            this.ttmensaje.SetToolTip(this.AltoButton, "Ingrese falta este dato");
         }
 
         private void Mostrar()
@@ -61,13 +66,6 @@ namespace CapaPresentacion
             this.checkEliminar.Checked = false;
         }
 
-        private void LlenarComboPresentacion()
-        {
-            cbPresentacion.DataSource = NPresentacion.Mostrar();
-            cbPresentacion.ValueMember = "Id_Presentacion";
-            cbPresentacion.DisplayMember = "Nombre";
-        }
-
         public void MensajeOK(string mensaje)
         {
             MessageBox.Show(mensaje, "Sistema de inventario", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -75,7 +73,7 @@ namespace CapaPresentacion
 
         public void MensajeError(string mensaje)
         {
-            MessageBox.Show(mensaje, "Sistema de inventario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Sistema de inventario", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void Limpiar()
@@ -84,15 +82,15 @@ namespace CapaPresentacion
             this.txtCodigo.Text = string.Empty;
             this.txtNombre.Text = string.Empty;
             this.txtMarca.Text = string.Empty;
-            this.cbPresentacion.Text = string.Empty;
+            this.txtNombreCategoria.Text = string.Empty;
             this.txtMedida.Text = string.Empty;
+            this.txtNombrePresentacion.Text = string.Empty;
         }
 
         public void Habilitar(bool valor)
         {
             this.txtNombre.ReadOnly = !valor;
             this.txtMarca.ReadOnly = !valor;
-            this.cbPresentacion.Enabled = valor;
             this.txtMedida.ReadOnly = !valor;
         }
 
@@ -105,6 +103,8 @@ namespace CapaPresentacion
                 this.btnGuardar.Enabled = true;
                 this.btnEditar.Enabled = false;
                 this.btnCancelar.Enabled = true;
+                this.button1.Enabled = true;
+                this.button2.Enabled = true;
             }
             else
             {
@@ -113,6 +113,8 @@ namespace CapaPresentacion
                 this.btnGuardar.Enabled = false;
                 this.btnEditar.Enabled = true;
                 this.btnCancelar.Enabled = false;
+                this.button1.Enabled = false;
+                this.button2.Enabled = false;
             }
         }
         // Metodo para Ocultar Columnas
@@ -138,20 +140,20 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (this.txtNombre.Text == string.Empty || this.txtNombre.Text == "             " || this.txtMarca.Text == string.Empty || this.txtMedida.Text == string.Empty)
+                if (this.txtNombre.Text == string.Empty || this.txtMarca.Text == "             " || this.txtNombreCategoria.Text == string.Empty || this.txtNombrePresentacion.Text == string.Empty)
                 {
                     MensajeError("Falta el Nombre");
-                    errorProvider1.SetError(txtNombre, "Ingrese el Nombre");
+                    errorProvider1.SetError(AltoButton, "Ingrese el Nombre");
                 }
                 else
                 {
                     if (this.IsNuevo)
                     {
-                        rpta = NProducto.Insertar(this.txtNombre.Text.Trim().ToUpper(), this.txtMarca.Text.Trim().ToUpper(), Convert.ToInt32(this.txtIdCategoria.Text), Convert.ToInt32(this.cbPresentacion.SelectedValue), Convert.ToInt32(this.txtMedida.Text));
+                        rpta = NProducto.Insertar(this.txtNombre.Text.Trim().ToUpper(), this.txtMarca.Text.Trim().ToUpper(), Convert.ToInt32(this.txtIdCategoria.Text), Convert.ToInt32(this.txtIdPresentacion.Text), Convert.ToInt32(this.txtMedida.Text));
                     }
                     else
                     {
-                        rpta = NProducto.Editar(Convert.ToInt32(this.txtIdProducto.Text), this.txtNombre.Text.Trim().ToUpper(), this.txtMarca.Text.Trim().ToUpper(), Convert.ToInt32(this.txtIdCategoria.Text), Convert.ToInt32(this.cbPresentacion.SelectedValue), Convert.ToInt32(this.txtMedida.Text));
+                        rpta = NProducto.Editar(Convert.ToInt32(this.txtIdProducto.Text), this.txtNombre.Text.Trim().ToUpper(), this.txtMarca.Text.Trim().ToUpper(), Convert.ToInt32(this.txtIdCategoria.Text), Convert.ToInt32(this.txtIdPresentacion.Text), Convert.ToInt32(this.txtMedida.Text));
                     }
                     if (rpta.Equals("Ok"))
                     {
@@ -229,7 +231,8 @@ namespace CapaPresentacion
             this.txtMarca.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Marca"].Value);
             this.txtIdCategoria.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Id_Categoria"].Value);
             this.txtNombreCategoria.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Categoria"].Value);
-            this.cbPresentacion.SelectedValue = Convert.ToString(this.DataListado.CurrentRow.Cells["Id_Presentacion"].Value);
+            this.txtIdPresentacion.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Id_Presentacion"].Value);
+            this.txtNombrePresentacion.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["UNIDAD_DE_MEDIDA"].Value);
             this.txtMedida.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Medida"].Value);
             this.tabproducto.SelectedIndex = 1;
             this.Mostrar();
@@ -348,7 +351,7 @@ namespace CapaPresentacion
             
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -358,13 +361,13 @@ namespace CapaPresentacion
             DataGridViewRow[] old;
             old = new DataGridViewRow[DataListado.SelectedRows.Count];
             DataListado.SelectedRows.CopyTo(old, 0);
-            DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
             
             foreach (DataGridViewRow row in old)
             {
                 {
                     if (e.ColumnIndex == DataListado.Columns["Eliminar1"].Index)
                     {
+                        DataGridViewCheckBoxCell chckEliminar = (DataGridViewCheckBoxCell)DataListado.Rows[e.RowIndex].Cells["Eliminar1"];
                         chckEliminar.Value = !Convert.ToBoolean(chckEliminar.Value);
                         if (Convert.ToBoolean(chckEliminar.Value))
                         {
@@ -380,6 +383,44 @@ namespace CapaPresentacion
                     }
                 }
             }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                this.txtMarca.Focus();
+            }
+        }
+
+        private void txtMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                this.button1.Focus();
+            }
+        }
+
+        private void txtNombreCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                this.txtMedida.Focus();
+            }
+        }
+
+        private void txtMedida_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                this.button2.Focus();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ListarPresentacion form = new ListarPresentacion();
+            form.ShowDialog();
         }
     }
 }

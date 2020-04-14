@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using CapaNegocio;
 
 namespace CapaPresentacion
@@ -51,6 +52,27 @@ namespace CapaPresentacion
         {
             this.checkEliminar.Checked = false;
             this.btnEliminar.Enabled = false;
+        }
+
+        private Boolean VerificarEmail(String email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void MensajeOK(string mensaje)
@@ -187,21 +209,25 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (this.txtNombre.Text == string.Empty || this.txtApellido.Text == string.Empty)
+                if (this.txtNombre.Text == "              " || this.txtNombre.Text == "")
                 {
-                    MensajeError("Falta ingresar algunos datos");
-                    errorProvider1.SetError(txtNombre, "Ingrese el Nombre");
-                    errorProvider1.SetError(txtApellido, "Ingrese el Apellido");
+                    MensajeError("Hay Datos Por Completar");
+                    errorProvider1.SetError(this.txtNombre, "Rellene esta parte del Formulario");
+                }
+                else if (this.txtApellido.Text == "              ")
+                {
+                    MensajeError("Hay Datos Por Completar");
+                    errorProvider1.SetError(this.txtNombre, "Rellene esta parte del Formulario");
                 }
                 else
                 {
                     if (this.IsNuevo)
                     {
-                        rpta = NEmpleado.Insertar(this.txtNombre.Text.Trim().ToUpper(), this.txtApellido.Text.Trim().ToUpper(), this.txtAlias.Text.Trim().ToUpper(), this.txtCedula.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim().ToUpper(), this.cbSexo.Text.Trim().ToUpper(), Convert.ToInt32(this.txtTelefono.Text), Convert.ToInt32(this.txtSalario.Text), this.txtCorreo.Text.Trim().ToUpper(), this.txtUsuario.Text.Trim().ToUpper(), this.txtContrasena.Text.Trim().ToUpper(), this.cbAcceso.Text.Trim().ToUpper());
+                        rpta = NEmpleado.Insertar(this.txtNombre.Text.Trim(), this.txtApellido.Text.Trim(), this.txtAlias.Text.Trim(), this.txtCedula.Text.Trim(), this.txtDireccion.Text.Trim(), this.cbSexo.Text.Trim(), Convert.ToInt32(this.txtTelefono.Text), Convert.ToInt32(this.txtSalario.Text), this.txtCorreo.Text.Trim(), this.txtUsuario.Text.Trim(), this.txtContrasena.Text.Trim(), this.cbAcceso.Text.Trim());
                     }
                     else
                     {
-                        rpta = NEmpleado.Editar(Convert.ToInt32(this.txtIdEmpleado.Text), this.txtNombre.Text.Trim().ToUpper(), this.txtApellido.Text.Trim().ToUpper(), this.txtAlias.Text.Trim().ToUpper(), this.txtCedula.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim().ToUpper(), this.cbSexo.Text.Trim().ToUpper(), Convert.ToInt32(this.txtTelefono.Text), Convert.ToInt32(this.txtSalario.Text), this.txtCorreo.Text.Trim().ToUpper(), this.txtUsuario.Text.Trim().ToUpper(), this.txtContrasena.Text.Trim().ToUpper(), this.cbAcceso.Text.Trim().ToUpper());
+                        rpta = NEmpleado.Editar(Convert.ToInt32(this.txtIdEmpleado.Text), this.txtNombre.Text.Trim(), this.txtApellido.Text.Trim(), this.txtAlias.Text.Trim(), this.txtCedula.Text.Trim(), this.txtDireccion.Text.Trim().ToUpper(), this.cbSexo.Text.Trim().ToUpper(), Convert.ToInt32(this.txtTelefono.Text), Convert.ToInt32(this.txtSalario.Text), this.txtCorreo.Text.Trim(), this.txtUsuario.Text.Trim(), this.txtContrasena.Text.Trim(), this.cbAcceso.Text.Trim());
                     }
                     if (rpta.Equals("Ok"))
                     {

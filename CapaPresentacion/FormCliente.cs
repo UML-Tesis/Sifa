@@ -58,7 +58,7 @@ namespace CapaPresentacion
 
         public void MensajeError(string mensaje)
         {
-            MessageBox.Show(mensaje, "Sistema de inventario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Sistema de inventario", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void Limpiar()
@@ -66,11 +66,10 @@ namespace CapaPresentacion
             this.txtIdCliente.Text = string.Empty;
             this.txt1Nombre.Text = string.Empty;
             this.txt1Apellido.Text = string.Empty;
-            this.txt2Apellido.Text = string.Empty;
-            this.txtCedula.Text = string.Empty;
+            this.txtAlias.Text = string.Empty;
+            this.mtxtCedula.Text = string.Empty;
             this.txtDireccion.Text = string.Empty;
             this.txtTelefono.Text = string.Empty;
-         
         }
 
         public void Habilitar(bool valor)
@@ -78,8 +77,8 @@ namespace CapaPresentacion
             this.txtIdCliente.ReadOnly = !valor;
             this.txt1Nombre.ReadOnly = !valor;
             this.txt1Apellido.ReadOnly = !valor;
-            this.txt2Apellido.ReadOnly = !valor;
-            this.txtCedula.ReadOnly = !valor;
+            this.txtAlias.ReadOnly = !valor;
+            this.mtxtCedula.ReadOnly = !valor;
             this.txtDireccion.ReadOnly = !valor;
             this.txtTelefono.ReadOnly = !valor;
             this.cbSexo.Enabled = valor;
@@ -108,26 +107,61 @@ namespace CapaPresentacion
         private void txt1Nombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.sololetras(e);
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                e.Handled = true;
+                this.txt1Apellido.Focus();
+            }
         }
 
         private void txt1Apellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.sololetras(e);
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                e.Handled = true;
+                this.txtAlias.Focus();
+            }
         }
 
-        private void txt2Apellido_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtAlias_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.sololetras(e);
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                e.Handled = true;
+                this.mtxtCedula.Focus();
+            }
         }
 
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.SoloNumerosyLetras(e);
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                e.Handled = true;
+                this.cbSexo.Focus();
+            }
         }
        
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validaciones.SoloNumeros(e);
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                e.Handled = true;
+                this.txtDireccion.Focus();
+            }
+        }
+
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                e.Handled = true;
+                this.btnGuardar.Focus();
+                this.btnGuardar.Select();
+            }
         }
 
         private void DiseñoColumnas()
@@ -193,27 +227,31 @@ namespace CapaPresentacion
                     if (this.IsNuevo)
                     {
 
-                        rpta = NCliente.Insertar(this.txt1Nombre.Text.Trim().ToUpper(), this.txt1Apellido.Text.Trim().ToUpper(), this.txt2Apellido.Text.Trim().ToUpper(), this.txtCedula.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim().ToUpper(), this.cbSexo.Text.Trim().ToUpper(), Convert.ToInt32(this.txtTelefono.Text));
+                        rpta = NCliente.Insertar(this.txt1Nombre.Text.Trim(), this.txt1Apellido.Text.Trim(), this.txtAlias.Text.Trim(), this.mtxtCedula.Text.Trim().ToUpper(), this.txtDireccion.Text.Trim(), this.cbSexo.Text.Trim(), Convert.ToInt32(this.txtTelefono.Text));
                     }
                     else
                     {
                         rpta = NCliente.Editar(Convert.ToInt32(txtIdCliente.Text),
-                        this.txt1Nombre.Text.Trim().ToUpper(), txt1Apellido.Text.Trim().ToUpper(), txt2Apellido.Text.Trim().ToUpper(), txtCedula.Text.Trim().ToUpper(), txtDireccion.Text.Trim().ToUpper(), cbSexo.Text.Trim().ToUpper(), Convert.ToInt32(txtTelefono.Text));
+                        this.txt1Nombre.Text.Trim(), txt1Apellido.Text.Trim(), this.txtAlias.Text.Trim(), this.mtxtCedula.Text.Trim(), this.txtDireccion.Text.Trim(), cbSexo.Text.Trim(), Convert.ToInt32(txtTelefono.Text));
                     }
 
                     if (rpta.Equals("Ok"))
                     {
                         if (this.IsNuevo)
                         {
-                            this.MensajeOK("Se inserto el registro correctamente");
+                            this.MensajeOK("Guardado Correctamente");
                         }
                         else
                         {
-                            this.MensajeOK("Se edito el registro");
+                            this.MensajeOK("Editado Correctamente");
                         }
                         this.Limpiar();
-                        this.Habilitar(true);
+                        this.Habilitar(false);
                         this.Mostrar();
+                        this.btnNuevo.Enabled = true;
+                        this.btnGuardar.Enabled = false;
+                        this.btnEditar.Enabled = true;
+                        this.btnCancelar.Enabled = false;
                     }
                     else
                     {
@@ -359,9 +397,9 @@ namespace CapaPresentacion
             this.txtIdCliente.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["Id_Cliente"].Value);
             this.txt1Nombre.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["NOMBRES"].Value);
             this.txt1Apellido.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["APELLIDOS"].Value);
-            this.txt2Apellido.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["ALIAS"].Value);
+            this.txtAlias.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["ALIAS"].Value);
             this.txtTelefono.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["TELEFONO"].Value);
-            this.txtCedula.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["CEDULA"].Value);
+            this.mtxtCedula.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["CEDULA"].Value);
             this.txtDireccion.Text = Convert.ToString(this.DataListado.CurrentRow.Cells["DIRECCION"].Value);
             this.cbSexo.SelectedItem = Convert.ToString(this.DataListado.CurrentRow.Cells["SEXO"].Value);
             this.tabcliente.SelectedIndex = 1;

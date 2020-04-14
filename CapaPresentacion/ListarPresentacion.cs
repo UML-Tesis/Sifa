@@ -38,5 +38,21 @@ namespace CapaPresentacion
             this.DataListado.Columns[0].Visible = false;
         }
 
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            this.Buscar();
+        }
+
+        private void DataListado_DoubleClick(object sender, EventArgs e)
+        {
+            FormProducto form = FormProducto.GetInstancia();
+            string par1, par2;
+
+            par1 = Convert.ToString(this.DataListado.CurrentRow.Cells["Id_Presentacion"].Value);
+            par2 = Convert.ToString(this.DataListado.CurrentRow.Cells["Nombre"].Value);
+            form.setPresentacion(par1, par2);
+            this.Close();
+        }
+
     }
 }

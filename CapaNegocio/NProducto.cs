@@ -26,6 +26,11 @@ namespace CapaNegocio
             return new DProducto().Mostrar();
         }
 
+        public static string Contar()
+        {
+            return new DProducto().Contar();
+        }
+
         public static DataTable Buscar(string TextoBuscar)
         {
             DProducto Obj = new DProducto();

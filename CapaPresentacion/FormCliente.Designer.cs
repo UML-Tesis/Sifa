@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabcliente = new System.Windows.Forms.TabControl();
             this.tabnuevocliente = new System.Windows.Forms.TabPage();
+            this.lblRegistros = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.checkEliminar = new System.Windows.Forms.CheckBox();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -51,8 +52,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtCedula = new System.Windows.Forms.TextBox();
-            this.txt2Apellido = new System.Windows.Forms.TextBox();
+            this.txtAlias = new System.Windows.Forms.TextBox();
             this.txt1Apellido = new System.Windows.Forms.TextBox();
             this.txt1Nombre = new System.Windows.Forms.TextBox();
             this.lbltelefono = new System.Windows.Forms.Label();
@@ -61,17 +61,18 @@
             this.lblsegapellido = new System.Windows.Forms.Label();
             this.lblprimerapellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.gradColor1 = new CapaPresentacion.GradColor();
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.btnCerrar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblRegistros = new System.Windows.Forms.Label();
-            this.gradColor1 = new CapaPresentacion.GradColor();
+            this.mtxtCedula = new System.Windows.Forms.MaskedTextBox();
             this.tabcliente.SuspendLayout();
             this.tabnuevocliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).BeginInit();
             this.tablista.SuspendLayout();
+            this.gradColor1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +85,7 @@
             this.tabcliente.Controls.Add(this.tabnuevocliente);
             this.tabcliente.Controls.Add(this.tablista);
             this.tabcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabcliente.Location = new System.Drawing.Point(12, 93);
+            this.tabcliente.Location = new System.Drawing.Point(16, 50);
             this.tabcliente.Name = "tabcliente";
             this.tabcliente.SelectedIndex = 0;
             this.tabcliente.Size = new System.Drawing.Size(863, 460);
@@ -106,6 +107,16 @@
             this.tabnuevocliente.TabIndex = 0;
             this.tabnuevocliente.Text = "Lista de Clientes       ";
             this.tabnuevocliente.UseVisualStyleBackColor = true;
+            // 
+            // lblRegistros
+            // 
+            this.lblRegistros.AutoSize = true;
+            this.lblRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistros.Location = new System.Drawing.Point(627, 33);
+            this.lblRegistros.Name = "lblRegistros";
+            this.lblRegistros.Size = new System.Drawing.Size(11, 17);
+            this.lblRegistros.TabIndex = 55;
+            this.lblRegistros.Text = "l";
             // 
             // lblBuscar
             // 
@@ -201,7 +212,7 @@
             this.Eliminar1});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -215,7 +226,7 @@
             this.DataListado.RowHeadersVisible = false;
             this.DataListado.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataListado.Size = new System.Drawing.Size(843, 320);
+            this.DataListado.Size = new System.Drawing.Size(843, 333);
             this.DataListado.TabIndex = 49;
             this.DataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataListado_CellContentClick);
             this.DataListado.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataListado_CellMouseClick);
@@ -238,8 +249,7 @@
             this.tablista.Controls.Add(this.btnGuardar);
             this.tablista.Controls.Add(this.txtTelefono);
             this.tablista.Controls.Add(this.txtDireccion);
-            this.tablista.Controls.Add(this.txtCedula);
-            this.tablista.Controls.Add(this.txt2Apellido);
+            this.tablista.Controls.Add(this.txtAlias);
             this.tablista.Controls.Add(this.txt1Apellido);
             this.tablista.Controls.Add(this.txt1Nombre);
             this.tablista.Controls.Add(this.lbltelefono);
@@ -266,7 +276,7 @@
             this.cbSexo.Location = new System.Drawing.Point(529, 188);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(45, 24);
-            this.cbSexo.TabIndex = 134;
+            this.cbSexo.TabIndex = 6;
             // 
             // lblCedula
             // 
@@ -357,7 +367,7 @@
             this.txtTelefono.MaxLength = 8;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(167, 23);
-            this.txtTelefono.TabIndex = 105;
+            this.txtTelefono.TabIndex = 7;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtDireccion
@@ -368,25 +378,16 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(212, 45);
             this.txtDireccion.TabIndex = 104;
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
-            // txtCedula
+            // txtAlias
             // 
-            this.txtCedula.Location = new System.Drawing.Point(529, 150);
-            this.txtCedula.MaxLength = 16;
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(167, 23);
-            this.txtCedula.TabIndex = 103;
-            this.txtCedula.Text = "XXX - XXXXXX - XXXXX";
-            this.txtCedula.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
-            // 
-            // txt2Apellido
-            // 
-            this.txt2Apellido.Location = new System.Drawing.Point(529, 112);
-            this.txt2Apellido.MaxLength = 50;
-            this.txt2Apellido.Name = "txt2Apellido";
-            this.txt2Apellido.Size = new System.Drawing.Size(167, 23);
-            this.txt2Apellido.TabIndex = 102;
+            this.txtAlias.Location = new System.Drawing.Point(529, 112);
+            this.txtAlias.MaxLength = 50;
+            this.txtAlias.Name = "txtAlias";
+            this.txtAlias.Size = new System.Drawing.Size(167, 23);
+            this.txtAlias.TabIndex = 3;
+            this.txtAlias.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlias_KeyPress);
             // 
             // txt1Apellido
             // 
@@ -394,7 +395,8 @@
             this.txt1Apellido.MaxLength = 50;
             this.txt1Apellido.Name = "txt1Apellido";
             this.txt1Apellido.Size = new System.Drawing.Size(167, 23);
-            this.txt1Apellido.TabIndex = 101;
+            this.txt1Apellido.TabIndex = 2;
+            this.txt1Apellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt1Apellido_KeyPress);
             // 
             // txt1Nombre
             // 
@@ -402,7 +404,8 @@
             this.txt1Nombre.MaxLength = 50;
             this.txt1Nombre.Name = "txt1Nombre";
             this.txt1Nombre.Size = new System.Drawing.Size(167, 23);
-            this.txt1Nombre.TabIndex = 99;
+            this.txt1Nombre.TabIndex = 1;
+            this.txt1Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt1Nombre_KeyPress);
             // 
             // lbltelefono
             // 
@@ -458,6 +461,18 @@
             this.lblNombre.TabIndex = 91;
             this.lblNombre.Text = "Nombres";
             // 
+            // gradColor1
+            // 
+            this.gradColor1.Angle = 0F;
+            this.gradColor1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gradColor1.Controls.Add(this.mtxtCedula);
+            this.gradColor1.GradColorBottom = System.Drawing.Color.Empty;
+            this.gradColor1.GradColorTop = System.Drawing.Color.Empty;
+            this.gradColor1.Location = new System.Drawing.Point(353, 24);
+            this.gradColor1.Name = "gradColor1";
+            this.gradColor1.Size = new System.Drawing.Size(410, 311);
+            this.gradColor1.TabIndex = 135;
+            // 
             // btnCerrar
             // 
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -484,6 +499,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.btnCerrar);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -495,32 +511,20 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Lucida Bright", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Crimson;
-            this.label1.Location = new System.Drawing.Point(12, 45);
+            this.label1.Location = new System.Drawing.Point(10, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 31);
             this.label1.TabIndex = 45;
             this.label1.Text = "Clientes";
             // 
-            // lblRegistros
+            // mtxtCedula
             // 
-            this.lblRegistros.AutoSize = true;
-            this.lblRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistros.Location = new System.Drawing.Point(627, 33);
-            this.lblRegistros.Name = "lblRegistros";
-            this.lblRegistros.Size = new System.Drawing.Size(11, 17);
-            this.lblRegistros.TabIndex = 55;
-            this.lblRegistros.Text = "l";
-            // 
-            // gradColor1
-            // 
-            this.gradColor1.Angle = 0F;
-            this.gradColor1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gradColor1.GradColorBottom = System.Drawing.Color.Empty;
-            this.gradColor1.GradColorTop = System.Drawing.Color.Empty;
-            this.gradColor1.Location = new System.Drawing.Point(353, 24);
-            this.gradColor1.Name = "gradColor1";
-            this.gradColor1.Size = new System.Drawing.Size(410, 311);
-            this.gradColor1.TabIndex = 135;
+            this.mtxtCedula.Location = new System.Drawing.Point(175, 125);
+            this.mtxtCedula.Mask = "000-000000-0000L";
+            this.mtxtCedula.Name = "mtxtCedula";
+            this.mtxtCedula.Size = new System.Drawing.Size(167, 23);
+            this.mtxtCedula.TabIndex = 0;
+            this.mtxtCedula.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FormCliente
             // 
@@ -529,7 +533,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(904, 556);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tabcliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCliente";
@@ -541,10 +544,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataListado)).EndInit();
             this.tablista.ResumeLayout(false);
             this.tablista.PerformLayout();
+            this.gradColor1.ResumeLayout(false);
+            this.gradColor1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -560,8 +565,7 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.TextBox txt2Apellido;
+        private System.Windows.Forms.TextBox txtAlias;
         private System.Windows.Forms.TextBox txt1Apellido;
         private System.Windows.Forms.TextBox txt1Nombre;
         private System.Windows.Forms.Label lbltelefono;
@@ -586,5 +590,6 @@
         private System.Windows.Forms.ComboBox cbSexo;
         private GradColor gradColor1;
         private System.Windows.Forms.Label lblRegistros;
+        private System.Windows.Forms.MaskedTextBox mtxtCedula;
     }
 }

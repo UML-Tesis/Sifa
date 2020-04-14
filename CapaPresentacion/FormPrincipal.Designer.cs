@@ -49,6 +49,7 @@
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.altoTextBox1 = new CapaPresentacion.Controls.AltoTextBox();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -165,7 +166,7 @@
             // 
             this.ventasToolStripMenuItem1.ForeColor = System.Drawing.Color.SteelBlue;
             this.ventasToolStripMenuItem1.Name = "ventasToolStripMenuItem1";
-            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
+            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(130, 24);
             this.ventasToolStripMenuItem1.Text = "Ventas";
             this.ventasToolStripMenuItem1.Click += new System.EventHandler(this.ventasToolStripMenuItem1_Click);
             // 
@@ -173,7 +174,7 @@
             // 
             this.clientesToolStripMenuItem.ForeColor = System.Drawing.Color.SteelBlue;
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -256,11 +257,26 @@
             this.stockDeProductosToolStripMenuItem.Text = "Stock de Productos";
             this.stockDeProductosToolStripMenuItem.Click += new System.EventHandler(this.stockDeProductosToolStripMenuItem_Click);
             // 
+            // altoTextBox1
+            // 
+            this.altoTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.altoTextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.altoTextBox1.Br = System.Drawing.Color.SteelBlue;
+            this.altoTextBox1.Font = new System.Drawing.Font("Comic Sans MS", 11F);
+            this.altoTextBox1.ForeColor = System.Drawing.Color.Silver;
+            this.altoTextBox1.Location = new System.Drawing.Point(766, 9);
+            this.altoTextBox1.Name = "altoTextBox1";
+            this.altoTextBox1.Radius = 15;
+            this.altoTextBox1.Size = new System.Drawing.Size(167, 25);
+            this.altoTextBox1.TabIndex = 4;
+            this.altoTextBox1.Text = "l";
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(945, 452);
+            this.Controls.Add(this.altoTextBox1);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
@@ -300,6 +316,7 @@
         private System.Windows.Forms.ToolStripMenuItem arqueoDeCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockDeProductosToolStripMenuItem;
+        private CapaPresentacion.Controls.AltoTextBox altoTextBox1;
     }
 }
 

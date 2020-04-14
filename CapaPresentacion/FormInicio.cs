@@ -34,6 +34,14 @@ namespace CapaPresentacion
             }
         }
 
+        private void Contar()
+        {
+            this.label11.Text = NCliente.Contar();
+            this.label19.Text = NProveedor.Contar();
+            this.label15.Text = NCompra.Contar();
+            this.label7.Text = NProducto.Contar();
+        }
+
         private void Mostrar()
         {
             this.DataListado.DataSource = NDetalleCompra.MostrarBajoStock();
@@ -120,12 +128,12 @@ namespace CapaPresentacion
 
         private void Form1nicio_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'sIFADataSet.spBajoStock' Puede moverla o quitarla según sea necesario.
+            this.spBajoStockTableAdapter.Fill(this.sIFADataSet.spBajoStock);
             int valor;
-            // TODO: esta línea de código carga datos en la tabla 'sIFADataSet1.spBajoStock' Puede moverla o quitarla según sea necesario.
-            this.spBajoStockTableAdapter1.Fill(this.sIFADataSet1.spBajoStock);
             this.Mostrar();
             timer1.Start();
-            this.label9.Text = NCliente.Contar();
+            this.Contar();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -134,15 +142,14 @@ namespace CapaPresentacion
             this.lblFecha.Text = DateTime.Now.ToLongDateString();
         }
 
-        private void Form1nicio_Shown(object sender, EventArgs e)
-        {
-            this.DataListado.Enabled = false;
-            this.LimpiarSeleccion();
-        }
-
         private void LimpiarSeleccion()
         {
             this.DataListado.EndEdit();
+        }
+
+        private void Form1nicio_Activated(object sender, EventArgs e)
+        {
+            this.Contar();
         }
     }
 }

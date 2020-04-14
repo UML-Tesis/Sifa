@@ -78,6 +78,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(214, 20);
             this.txtBuscar.TabIndex = 36;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // DataListado
             // 
@@ -96,6 +97,7 @@
             this.DataListado.ReadOnly = true;
             this.DataListado.Size = new System.Drawing.Size(464, 173);
             this.DataListado.TabIndex = 0;
+            this.DataListado.DoubleClick += new System.EventHandler(this.DataListado_DoubleClick);
             // 
             // ListarPresentacion
             // 
